@@ -18,7 +18,7 @@
 \subsubsection{Current operation}
 \subsubsection{Position operation}
 
-\subsection{Optical Spectrometer}
+\subsection{分光光学系}
 \subsubsection{grating}
 \begin{itemize}
   \item Fourie Transformation
@@ -28,19 +28,16 @@
 \begin{figure}[tb]
   \centering
   \includegraphics[width=0.8\linewidth]{image/3-lens.png}\\
-  \caption{サンプルの図}
-  \label{sample_image}
+  \caption{レンズ}
+  \label{lens}
 \end{figure}
 \subsubsection{CMOS camera}
 
-
-
-
-
-
-
-
-
+\subsection{分光光学系の較正}
+波長較正として水銀灯を用いる。
+$400 \text{nm}$領域には2本の輝線があり、このスペクトルを光学系で観測することで2つの輝線スペクトルを観測できる。
+輝線スペクトルをガウス関数でフィッティングし、中心位置のピクセルを対応する波長にする。
+2本のスペクトル以外のピクセルは2本の輝線の波長 -ピクセル関係の線形性を仮定して決定する。
 
 
 \clearpage

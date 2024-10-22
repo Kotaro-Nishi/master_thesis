@@ -13,12 +13,52 @@
 \begin{document}
 
 
-\section{Analysis with model function}
-\subsection{radiation}
-\subsection{grating}
+\section{モデル関数によるフィッティング}
+\subsection{放射光}
+アンジュレータ放射光の振幅は放射角の関数として以下のように計算できることが知られている。
+また放射光の位相は球面波を仮定する。
+
 \subsection{Fresnel diffraction}
+放射光がスリットを通過すると回折を受け、特徴的な縞模様が現れる。回折現象は以下のレイリーゾンマーフェルト積分によって厳密に計算することができる
+\begin{eqnarray}
+  \text{U}(\text{P}) = \frac{1}{4\pi}\int_{S}\cos(ns)\text{U}(S)\frac{\exp(iks)}{s}\left( ik - \frac{1}{s}\right) -U(S)\frac{\exp(iks)}{s}\left(ik- \frac{1}{r}\right)\cos(nr) dS
+\label{レイリーゾンマーフェルト}
+\end{eqnarray}
+近似① $k \gg 1/r$, $k \gg 1/s$
+近似② $\cos(nr) \sim 1$,$\cos(ns) \sim 1$
+近似③ 領域Sにおいて$r(S)= z = \text{const.}$,$s(S) = s_0 = \text{const.}$
+により式(\ref{レイリーゾンマーフェルト})は
+\begin{eqnarray}
+  \text{U}(P) = -\frac{i}{2\lambda rs} \int_{S} U(S)\exp ik(r+s) dS
+  \label{レイリーゾンマーフェルト近似}
+\end{eqnarray}
+\begin{eqnarray}
+  \text{U}(P) = -\frac{i}{2\lambda rs} \int_{S} U(S)\exp ikr dS
+\end{eqnarray}
+このような回折現象は伝搬距離によっては近似計算できることが知られている。以下では積分領域$S$上の座標を$x,y$、観測点Pの座標を$x_0,y_0$と表記する。
+\begin{eqnarray}
+  r &=& \sqrt{z^2 + (x-x_0)^2 + (y-y_0)^2}\\
+  &=& z + \frac{1}{2}\frac{(x-x_0)^2 + (y-y_0)^2}{z} - \frac{1}{8}\frac{\left[(x-x_0)^2 + (y-y_0)^2\right]^2}{z^3} +\dots
+\end{eqnarray}
+$\left[(x-x_0)^2 + (y-y_0)^2\right]^2 \ll z^3$が成立するなら
+\begin{eqnarray}
+  \text{U}(x_0,y_0) \sim -\frac{i}{2\lambda zs_0}\int \text(U)(x,y) \exp(ik\left\{z +\frac{1}{2}\frac{(x-x_0)^2 + (y-y_0)^2}{z}\right\})
+\end{eqnarray}
+\subsubsection{数値計算上の計算手法}
+数値計算を実行する上では数値積分の手法では、伝搬後のN次元の配列が伝搬前のN次元配列全ての積分を用いて計算されるため計算量は$\text{N}^2$となる。
+このような計算コストの高い計算を避けるために、高速フーリエ変換を用いた計算が一般に用いられている。
+式(\ref{レイリーゾンマーフェルト近似})を再度$x,y,x_0,y_0$で書き直すと
+\begin{eqnarray}
+  \text{U}(x_0,y_0) \sim \frac{1}{2i\lambda zs}\int_S \text{U}(x,y) \exp( ik \sqrt{z^2 + (x-x_0)^2 + (y-y_0)^2}) dxdy
+\end{eqnarray}
+これはカーネル関数$f(x,y) = \sqrt{z^2 +x^2 + y^2}$であるような畳み込みの形で書ける
+\begin{eqnarray}
+  U(x_0,y_0) \sim (\text{U} * f)(x,y)
+\end{eqnarray}
+畳み込みは
+\subsection{grating}
 \subsection{lens formulation}
-\subsection{parameters}s
+\subsection{parameters}
 
 
 
