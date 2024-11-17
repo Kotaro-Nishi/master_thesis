@@ -55,10 +55,23 @@ $\left[(x-x_0)^2 + (y-y_0)^2\right]^2 \ll z^3$が成立するなら
 \begin{eqnarray}
   U(x_0,y_0) \sim (\text{U} * f)(x,y)
 \end{eqnarray}
-畳み込みは
-\subsection{grating}
-\subsection{lens formulation}
-\subsection{parameters}
+畳み込みはフーリエ変換を用いることで
+\begin{eqnarray}
+  (U*f)(x,y) = \mathcal{F}^{-1}(\mathcal{F}(U) \times \mathcal{F}(f))
+\end{eqnarray}
+と表せる。
+\begin{eqnarray}
+  \mathcal{F}^{-1}(\mathcal{F}(U) \times \mathcal{F}(f)) &= \mathcal{F}^{-1} \left( \int f(x)e^{iwx}dx \times \int g(x)e^{iwx}dx \right) \\
+  &= \mathcal{F}^{-1}\left( \right)
+\end{eqnarray}
+\subsection{光学系}
+回折格子によって分光された光はレンズによってカメラで収束する
+\subsection{パラメータ}
+求める関数系は放射光関数と光学系関数からなる。
+
+\subsection{画像処理}
+同一ポジションで4枚の画像を撮影し各ピクセルごとに平均値を取る。
+ノイジーなピクセルはマスクしてフィッティングの対象に含まない。
 
 
 
