@@ -44,6 +44,7 @@ $\left[(x-x_0)^2 + (y-y_0)^2\right]^2 \ll z^3$が成立するなら
 \begin{eqnarray}
   \text{U}(x_0,y_0) \sim -\frac{i}{2\lambda zs_0}\int \text(U)(x,y) \exp(ik\left\{z +\frac{1}{2}\frac{(x-x_0)^2 + (y-y_0)^2}{z}\right\})
 \end{eqnarray}
+
 \subsubsection{数値計算上の計算手法}
 数値計算を実行する上では数値積分の手法では、伝搬後のN次元の配列が伝搬前のN次元配列全ての積分を用いて計算されるため計算量は$\text{N}^2$となる。
 このような計算コストの高い計算を避けるために、高速フーリエ変換を用いた計算が一般に用いられている。
@@ -64,10 +65,23 @@ $\left[(x-x_0)^2 + (y-y_0)^2\right]^2 \ll z^3$が成立するなら
   \mathcal{F}^{-1}(\mathcal{F}(U) \times \mathcal{F}(f)) &= \mathcal{F}^{-1} \left( \int f(x)e^{iwx}dx \times \int g(x)e^{iwx}dx \right) \\
   &= \mathcal{F}^{-1}\left( \right)
 \end{eqnarray}
+
 \subsection{光学系}
 回折格子によって分光された光はレンズによってカメラで収束する
+
 \subsection{パラメータ}
 求める関数系は放射光関数と光学系関数からなる。
+パラメータの定義を以下に示す。
+$\gamma$ 電子ビームエネルギーのローレンツ因子
+$\text{K}$ アンジュレータのK値
+$\text{z(U1-S)}$下流アンジュレータ-スリット間の距離
+$\text{z(S-C)}$スリット-カメラ間の距離
+$\text{w(S)}$スリットの鉛直方向の長さ
+$\text{y(beam)}$カメラに対するビーム中心のy座標
+$\text{y(slit)}$カメラに対するスリット中心のy座標
+
+
+
 
 \subsection{画像処理}
 同一ポジションで4枚の画像を撮影し各ピクセルごとに平均値を取る。

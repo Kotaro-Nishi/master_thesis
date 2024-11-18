@@ -13,17 +13,29 @@
 \begin{document}
 
 
-\section{Method}
-\subsection{Undulator}
-\subsubsection{Current operation}
-\subsubsection{Position operation}
+\section{手法}
+\subsection{アンジュレータ}
+
+\subsubsection{磁場制御}
+
+マトリックス型のホールプローブを用いて磁場を測定する。
+隣り合う電磁石の磁場が影響するため測定と電流のチューニングを繰り返し行う。
+アンジュレータ通過後の電子ビームの方向のずれを最小に抑えることが重要となる。
+
+\subsubsection{位置制御と読み取り}
+可動範囲は 825 mm
+ステップは 5 cm
+モータ
+(レーザを使った何か)で(um)単位で読み出す。
 
 \subsection{分光光学系}
+
 \subsubsection{grating}
 \begin{itemize}
   \item Fourie Transformation
   \item spectroscopy
 \end{itemize}
+
 \subsubsection{dispersive lens and }
 \begin{figure}[tb]
   \centering
@@ -39,6 +51,18 @@ $400 \text{nm}$領域には2本の輝線があり、このスペクトルを光�
 輝線スペクトルをガウス関数でフィッティングし、中心位置のピクセルを対応する波長にする。
 2本のスペクトル以外のピクセルは2本の輝線の波長 -ピクセル関係の線形性を仮定して決定する。
 
+\subsection{データ取得}
+データの取得をスタートすると、指定された位置で4枚の写真を撮る。
+露光時間は10 秒。
+指定位置まで移動するとDAQに信号が送られ、DAQはカメラにシャッター信号を送信する。
+
+\subsection{電子ビーム測定}
+
+ビームラインの切り替え
+プロファイルモニタによるビームチューニング
+画像によるビームチューニング
+
+\subsection{単アンジュレータによるデータ測定}
 
 \clearpage
 
