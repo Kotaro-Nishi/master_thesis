@@ -1,0 +1,111 @@
+\documentclass[a4paper,12pt,dvipdfmx,uplatex,openany]{jsbook}
+\usepackage{fancyhdr}
+\setlength{\footskip}{16pt}
+\usepackage{amsmath}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{color}
+%\usepackage{pagecolor}[white]
+\usepackage{amsmath,amssymb}
+%\usepackage[top=3cm, bottom=3cm, left=3cm, right=3cm]{geometry}
+\usepackage{braket}
+\usepackage{bm}
+\numberwithin{equation}{section}
+\usepackage{mathrsfs}
+\usepackage{siunitx}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[compat=1.1.0]{tikz-feynhand}
+\usepackage{caption}
+\usepackage{subcaption}
+%\usepackage{cleveref}
+\usepackage{float}
+\usepackage{multicol}
+\setlength{\columnsep}{15mm}
+\usepackage[dvipdfmx,backref=page]{hyperref}
+\usepackage{url}
+\usepackage{pxjahyper}
+\usepackage{bookmark}
+\setcounter{tocdepth}{3}
+\def\vector#1{\mbox{\boldmath $#1$}}
+\def\slash#1{\not\!#1}
+\def\slashb#1{\not\!\!#1}
+\def\delsla{\not\!\partial}
+\usepackage{xcolor}
+\hypersetup{
+ setpagesize=false,
+ bookmarksnumbered=true,%
+ bookmarksopen=true,%
+ colorlinks=true,%
+ linkcolor=black,
+ citecolor=red,
+ urlcolor=black,
+}
+%backreferenceのカスタマイズ. "Back to p.3"のように表示する.
+\renewcommand*{\backref}[1]{(p.#1へ戻る)}
+%\newcommand{\backtoc}{\hyperlink{toc}{[目次へ]}}
+\newcommand{\backtoc}{\texorpdfstring{\protect\hyperlink{toc}{\hspace{5pt} \scriptsize [目次へ]}}{}}
+\newcommand{\mychapter}[1]{\chapter[#1]{#1\backtoc}}
+\newcommand{\mysection}[1]{\section[#1]{#1\backtoc}}
+\newcommand{\mysubsection}[1]{\subsection[#1]{#1\backtoc}}
+
+\thispagestyle{empty} %ページ番号をつけない場合
+
+              % ここから本文が始まる
+\makeatletter
+
+\def\@thesis{修士論文}
+\def\id#1{\def\@id{#1}}
+\def\master#1{\def\@master{#1}}
+\def\department#1{\def\@department{#1}}
+
+\def\@maketitle{
+\begin{center}
+{\Large \@thesis \par} %修士論文と記載される部分
+\vspace{25mm}
+{\Large \@title \par}% 論文のタイトル部分
+\vspace{10mm}
+{\LARGE\bf\@department\par} % 提出年月日部分j
+\vspace{10mm}
+{\Large 提出日\@date \par} % 所属部分
+\vspace{80mm}
+{\Large \@master \par} % 学年部分
+\vspace{10mm}
+{\Large 学籍番号 \@id \par} % 学籍番号部分
+\vspace{10mm}
+{\Large 氏名 \@author}% 氏名
+\end{center}
+%\par\vskip 1.5em
+}
+
+\everymath{\rm}
+
+\begin{document}    
+\makeatother
+\title{\vspace{-80pt}修士論文\\[35pt]電子ビームエネルギー精密測定のための\\アンジュレータ放射光干渉法\\
+[30pt]{\Large Undulator radiation interferometry\\for electron beam energy measurement}}
+\date{令和7年 (2025年)}
+\department{東京大学大学院理学系研究科物理学専攻中村哲研究室}
+\id{35-236076}
+\master{修士２年}
+%\vspace{700pt}
+\author{\\[150pt]
+東京大学大学院 理学研究科 物理学専攻\\中村哲研究室\\
+\\
+西 幸太郎}
+
+\maketitle
+\include{0_abstruct}
+\setlength{\abovedisplayskip}{20pt} 
+\setlength{\belowdisplayskip}{20pt}
+\hypertarget{toc}{}
+%\hypertarget{toc}{}
+\tableofcontents
+\listoffigures
+\listoftables
+%\section[章]{章\texorpdfstring{\protect\hyperlink{toc}{\hspace{5pt} \small [目次へ]}}{}}
+%\section[章]{章\backtoc}
+%\include{1}
+%\appendix
+%\include{9_appendix}
+%\bibliography{Mthesis_ref} 
+%\bibliographystyle{unsrt}
+\end{document}         
