@@ -18,7 +18,7 @@
 アンジュレータ放射光の振幅は放射角の関数として以下のように計算できることが知られている。
 また放射光の位相は球面波を仮定する。
 
-\subsection{Fresnel diffraction}
+\subsection{フレネル回折}
 放射光がスリットを通過すると回折を受け、特徴的な縞模様が現れる。回折現象は以下のレイリーゾンマーフェルト積分によって厳密に計算することができる
 \begin{eqnarray}
   \text{U}(\text{P}) = \frac{1}{4\pi}\int_{S}\cos(ns)\text{U}(S)\frac{\exp(iks)}{s}\left( ik - \frac{1}{s}\right) -U(S)\frac{\exp(iks)}{s}\left(ik- \frac{1}{r}\right)\cos(nr) dS
@@ -66,20 +66,27 @@ $\left[(x-x_0)^2 + (y-y_0)^2\right]^2 \ll z^3$が成立するなら
   &= \mathcal{F}^{-1}\left( \right)
 \end{eqnarray}
 
+\subsection{電子ビームサイズ}
+
 \subsection{光学系}
 回折格子によって分光された光はレンズによってカメラで収束する
 
 \subsection{パラメータ}
 求める関数系は放射光関数と光学系関数からなる。
 パラメータの定義を以下に示す。
-$\gamma$ 電子ビームエネルギーのローレンツ因子
-$\text{K}$ アンジュレータのK値
-$\text{z(U1-S)}$下流アンジュレータ-スリット間の距離
-$\text{z(S-C)}$スリット-カメラ間の距離
-$\text{w(S)}$スリットの鉛直方向の長さ
-$\text{y(beam)}$カメラに対するビーム中心のy座標
-$\text{y(slit)}$カメラに対するスリット中心のy座標
+\begin{itemize}
+\item$\gamma$ 電子ビームエネルギーのローレンツ因子
+\item$\text{K}$ アンジュレータのK値
+\item$\text{z(U1-S)}$下流アンジュレータ-スリット間の距離
+\item$\text{z(S-C)}$スリット-カメラ間の距離
+\item$\text{w(S)}$スリットの鉛直方向の長さ
+\item$\text{y(beam)}$カメラに対するビーム中心のy座標
+\item$\text{y(slit)}$カメラに対するスリット中心のy座標
+\end{itemize}
 
+
+\subsection{パラメータ較正}
+アンジュレータひとつのデータの解析について
 
 
 
