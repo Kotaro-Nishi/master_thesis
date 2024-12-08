@@ -1,37 +1,51 @@
-\documentclass[a4paper,11pt,uplatex]{jsarticle}
-
+\documentclass[a4paper,11pt,uplatex]{jsbook}
+\input{0_preamble}
 
 % 数式
-\usepackage{amsmath,amsfonts}
-\usepackage{bm}
-\usepackage{physics}
+%\usepackage{amsmath,amsfonts}
+%\usepackage{bm}
+%\usepackage{physics}
 % 画像
-\usepackage[dvipdfmx]{graphicx}
-\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue]{hyperref}
-\usepackage{pxjahyper}
+%\usepackage[dvipdfmx]{graphicx}
+%\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue]{hyperref}
+%\usepackage{pxjahyper}
 
 \begin{document}
 
-
+\chapter{結果}
 \section{結果}
 \subsection{画像処理}
 各ピクセルが持つ不定性の結果を示す。
+\subsection{波長較正}
+水銀灯を用いて波長較正を行った結果を示す。
 
 \subsection{単アンジュレータ}
 下流側のアンジュレータのみを用いて取得したデータの解析結果を示す。
 このデータを用いてパラメータの較正をおこなった。
-
+\subsubsection{画像の全体的な傾向}
+波長依存性があり、これは線形で近似できると考えられる。\\
+アンジュレータの位置依存性があり、アンジュレータが下流に移動するにつれて3つの傾向が見られる。
+\begin{itemize}
+  \item 回折パターンの振幅が上昇する
+  \item 回折パターンの形状が変化する
+  \item 回折パターンの振幅が周期的に小さく変動する
+\end{itemize}
+\subsubsection{波長依存性}
+波長方向は線形の依存性を仮定した
+\subsubsection{位置依存性}
+振幅の上昇と周期的な変動がみられる。
 \subsubsection{放射光および光学系パラメータ}
 回折パターンの形状を決定するパラメータはアンジュレータ - スリット間距離、スリット - カメラ間距離、スリット幅の3つである。
-これに加えて放射光関数の情報も形状を決定する。
+これに加えて放射光関数の情報も形状を決定する。放射光関数の形状は理論式を仮定し、z(U2-slit)、z(slit-cam)、w(slit)の3つのパラメータの最適値を決定する。\\
+アンジュレータと光学系の距離に依存して光量が変化する。立体角を考えるとこの光量は距離rに対して$\frac{1}{r^2}$に比例すると考えられる。
+また距離によって振幅が周期的に変動する効果は、偏極電磁石による放射だと考えることができる。
+\subsubsection{振幅の位置依存性の解析}
+\subsubsection{回折パターンの適合度}
 
-\subsubsection{距離依存性}
-アンジュレータと光学系の距離に依存して光量が変化する。
-立体角を考えるとこの光量は距離rに対して$\frac{1}{r^2}$に比例する
 
-\subsection{振動パターン}
-2つのアンジュレータの放射光による干渉パターンの振動を解析する。
-
+\subsection{周期的変化の解析}
+2台のアンジュレータの放射光による干渉パターンの解析結果を示す。
+\subsubsection{パラメータ決定精度}
 
 \subsection{系統誤差}
 \subsubsection{波長依存性}

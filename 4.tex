@@ -1,21 +1,21 @@
-\documentclass[a4paper,11pt,uplatex]{jsarticle}
-
+\documentclass[a4paper,11pt,uplatex]{jsbook}
+\input{0_preamble}
 
 % 数式
-\usepackage{amsmath,amsfonts}
-\usepackage{bm}
-\usepackage{physics}
+%\usepackage{amsmath,amsfonts}
+%\usepackage{bm}
+%\usepackage{physics}
 % 画像
-\usepackage[dvipdfmx]{graphicx}
-\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue]{hyperref}
-\usepackage{pxjahyper}
+%\usepackage[dvipdfmx]{graphicx}
+%\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue]{hyperref}
+%\usepackage{pxjahyper}
 
 \begin{document}
 
-
+\chapter{データ解析}
 \section{モデル関数によるフィッティング}
 \subsection{放射光}
-アンジュレータ放射光の振幅は放射角の関数として以下のように計算できることが知られている。
+アンジュレータ放射光の振幅は放射角の関数として以下のように計算できることが知られている。詳細をAppendixに示す。
 また放射光の位相は球面波を仮定する。
 
 \subsection{フレネル回折}
@@ -52,7 +52,7 @@ $\left[(x-x_0)^2 + (y-y_0)^2\right]^2 \ll z^3$が成立するなら
 \begin{eqnarray}
   \text{U}(x_0,y_0) \sim \frac{1}{2i\lambda zs}\int_S \text{U}(x,y) \exp( ik \sqrt{z^2 + (x-x_0)^2 + (y-y_0)^2}) dxdy
 \end{eqnarray}
-これはカーネル関数$f(x,y) = \sqrt{z^2 +x^2 + y^2}$であるような畳み込みの形で書ける
+これはカーネル関数$f(x,y) = \sqrt{z^2 +x^2 + y^2}$であるような畳み込みの形で書ける。
 \begin{eqnarray}
   U(x_0,y_0) \sim (\text{U} * f)(x,y)
 \end{eqnarray}
@@ -87,14 +87,15 @@ $\left[(x-x_0)^2 + (y-y_0)^2\right]^2 \ll z^3$が成立するなら
 
 \subsection{パラメータ較正}
 アンジュレータひとつのデータの解析について
-アンジュレータ
 
+\section{統計誤差の見積もり}
+\section{系統誤差の見積もり}
 
-\subsection{画像処理}
+\section{画像処理}
 同一条件で4枚の画像を撮影し各ピクセルごとに平均値を取る
 ノイジーなピクセルはマスクしてフィッティングの対象に含まない。
 
-
+\section{下流アンジュレータの解析}
 
 
 

@@ -1,18 +1,21 @@
-\documentclass[a4paper,11pt,uplatex]{jsarticle}
+\documentclass[a4paper,11pt,uplatex]{jsbook}
 
-
+\input{0_preamble}
 % 数式
-\usepackage{amsmath,amsfonts}
-\usepackage{bm}
-\usepackage{physics}
+%\usepackage{amsmath,amsfonts}
+%\usepackage{bm}
+%\usepackage{physics}
+%\usepackage{siunitx}
 % 画像
-\usepackage[dvipdfmx]{graphicx}
-\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue]{hyperref}
-\usepackage{pxjahyper}
+%\usepackage[dvipdfmx]{graphicx}
+%\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue]{hyperref}
+%\usepackage{pxjahyper}
 
 \begin{document}
+
+\chapter{導入}
 \section{ハイパー核}
-本論文は、ドイツ、マインツ大学にある連続電子戦加速器マインツマイクロトロン(MAMI)における200 MeV領域の電子ビームエネルギー測定について論じる。
+本論文は、ドイツ、マインツ大学にある連続電子線加速器マインツマイクロトロン(MAMI)における200 MeV領域の電子ビームエネルギー測定について論じる。
 電子ビームエネルギーの絶対値を$\delta \text{E}/\text{E} \sim 10^{-4}$の精度で測定し、磁気運動量スペクトロメータの系統誤差を$\delta p/p \sim 10^{-4}$に抑えることで、
 過去に我々が測定した$^4_{\Lambda} \text{H}$における$\Lambda$粒子の束縛エネルギーの精度$100$ keVから向上させ、
 ハイパートライトン$^3_{\Lambda}\text{H}$における$\Lambda$束縛エネルギーを10 keVを切る精度で決定することを目指す。
@@ -51,7 +54,7 @@ $B_{\Lambda} = 406 \pm 120(stat.) \pm 110 (syst.)$ keVであり、どちらの�
 崩壊パイ中間子法は2010年代にドイツのマインツ大学マイクロトロン(MAMI)で我々の研究グループによって開発されたハイパー核の質量分光法である。
 10 keVを切る高いエネルギー分解能が実証されているため、ハイパートライトンパズルの解明に有効な手法であると期待された。
 この章では崩壊パイ中間子法の原理を述べる。そして高い分解能が実現できる理由と、解決すべき課題について述べる。
-\subsubsection{原理}
+\subsection{原理}
 電子ビームで生成したハイパー核が破砕化し、目的のハイパー核が標的中で静止し２体崩壊する反応を検出する。
 この時ハイパー核の質量$m(^A_{\Lambda}Z)$は２体崩壊に注意すると
 \begin{eqnarray}
@@ -77,11 +80,13 @@ $B_{\Lambda} = 406 \pm 120(stat.) \pm 110 (syst.)$ keVであり、どちらの�
 $B_\Lambda$の決定精度は$p_\pi$の不確かさによって決まる。
 さらに、静止かつ２体崩壊という崩壊の特徴により放出されるパイオンの運動量は単色的である。従って$p_\pi$の不確かさは$p_\pi$の分解能によってのみ決められる。\\
 \subsubsection{マインツマイクロトロン(MAMI)}
-MAMIの持つ高分解能運動量スペクトロメータは、過去の$^4_\Lambda He$実験によって130 MeV/c領域の$\pi$粒子に対して10 keV以下の高い分解能を実証している。
+MAMIの持つ高分解能運動量スペクトロメータは、過去の$^4_\Lambda \text{He}$実験によって130 MeV/c領域の$\pi$粒子に対して10 keV以下の高い分解能を実証している。
 これによって$m(^4_\Lambda \text{He})$や$B_\lambda$も10 keV以下のエネルギー分解能で決定可能であった。
 このような高い分解能は、他のハイパー核質量分光法や重イオン衝突実験では実現できないという点で崩壊パイ中間子法の大きな特徴であると言える。
+
 \subsubsection{磁気運動量スペクトロメータ}
 電磁石とドリフトチェンバー、チェレンコフ光検出器の説明
+
 \subsection{系統誤差}
 10 keVを切る高いエネルギー分解能に対して、崩壊パイ中間子法の系統誤差は100 keV程度と大きいことが指摘されていた。
 これは$p_\pi$の中心位置決定精度に対する系統誤差が100 keV程度あることに由来する。
@@ -95,7 +100,8 @@ MAMIの持つ高分解能運動量スペクトロメータは、過去の$^4_\La
 MAMIの電子線加速器が出せる最低エネルギーである180, 195 MeV, 210 MeVの3種類のエネルギーに対して電子弾性散乱による較正を行っている。\\
 しかしこれまでは200 MeV領域の入射電子ビームエネルギー$E_{beam}$の決定精度が$10^{-3}$つまり200 keV程度と大きかった。
 これが100 keVの大きな系統誤差の原因である。$10^{-4}$すなわち$20$ keVで電子ビームエネルギーを決定することができれば、崩壊パイ中間子法の実験全体の誤差を分可能と同程度の10 keVに抑制することができると期待される。
-\subsection{電子ビームエネルギー測定}
+
+\subsection{電子ビームエネルギー測定の重要性}
 電子弾性散乱に用いる200 MeV領域の電子ビームを測定する手法は限られている。
 我々は2016年からアンジュレータによる放射光を用いた電子ビームエネルギー較正手法(アンジュレータ放射光干渉法)の開発に取り組んできた。
 本研究はアンジュレータ放射光干渉法を用いて電子弾性散乱によるスペクトロメータ較正実験を行い、電子ビーム絶対値較正精度を改善することである。
@@ -119,4 +125,5 @@ MAMIの電子線加速器が出せる最低エネルギーである180, 195 MeV,
 \begin{align}
 \frac{1}{2} = \qty(\frac{1}{3}) + \qty{1}\Sigma
 \end{align}
+
 \end{document}

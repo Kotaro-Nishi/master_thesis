@@ -1,31 +1,43 @@
-\documentclass[a4paper,11pt,uplatex]{jsarticle}
-
+\documentclass[a4paper,11pt,uplatex]{jsbook}
+\input{0_preamble}
 
 % 数式
-\usepackage{amsmath,amsfonts}
-\usepackage{bm}
-\usepackage{physics}
+%\usepackage{amsmath,amsfonts}
+%\usepackage{bm}
+%\usepackage{physics}
 % 画像
-\usepackage[dvipdfmx]{graphicx}
-\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue]{hyperref}
-\usepackage{pxjahyper}
+%\usepackage[dvipdfmx]{graphicx}
+%\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue]{hyperref}
+%\usepackage{pxjahyper}
 
 \begin{document}
 
 
-\section{実験装置}
-
+\chapter{手法}
+この章の目的は、実験に用いた装置の性能や使用を詳細に説明することである。
+また、データ取得の手順を示す。
+\section{装置}
 \subsection{マインツマイクロトロン(MAMI)}
 Mainz Microtron(MAMI)はドイツ、マインツ大学が所有する連続電子線加速器施設である。最大エネルギー1508 MeVの電子ビームを供給する
 3台のRTM(Race Track Microtron)および1台のHDSM(Harmonic Double Siided Micrtron)から構成される。
-ハイパー核生成実験ではHDSMを持ちいて最大エネルギーの1508 MeV
+ハイパー核生成実験ではHDSMを用いて最大エネルギーの1508 MeVの電子ビームを供給する。
+スペクトロメータ較正実験では、
+
 \subsubsection{電子ビームライン}
+200 MeV領域の電子ビームはX1ビームラインに供給される。
+以下にX1ビームラインの構成を示す。
+
 \subsubsection{ビーム調整}
+まずビームプロファイルモニタを用いてフェイントビームの位置をmm単位で調整する。
+続いて、ビーム強度を5 $\mu\text{A}$に上げつつ放射線レベルが基準値よりも低くなるように微調整を行う。
+この時放射線レベルが安全基準よりも高くなることは、ビームがビームダンプまで輸送されるまでにビームパイプ中心から外れていることを示す。
+最後にカメラを用いてビームの位置を調整する。スリットに対してビームがずれている場合には回折パターンが上下非対称になる。
 
 \subsection{アンジュレータ}
 \subsubsection{磁場制御}
 マトリックス型のホールプローブを用いて磁場を測定する。
-隣り合う電磁石の磁場が影響するため測定と電流のチューニングを繰り返し行う。
+隣り合う電磁石の磁場が影響するため、適切な磁場を得るためには全ての電磁石の電流を同時に調整する必要がある。
+そのため、測定と電流のチューニングを繰り返し行う。
 アンジュレータ通過後の電子ビームの方向のずれを最小に抑えることが重要となる。
 
 \subsubsection{位置制御と読み取り}
@@ -51,6 +63,7 @@ Mainz Microtron(MAMI)はドイツ、マインツ大学が所有する連続電�
 \end{figure}
 \subsubsection{CMOS カメラ}
 
+\section{データ取得}
 \subsection{分光光学系の較正}
 波長較正として水銀灯を用いる。
 $400 \text{nm}$領域には2本の輝線があり、このスペクトルを光学系で観測することで2つの輝線スペクトルを観測できる。
@@ -69,9 +82,9 @@ $400 \text{nm}$領域には2本の輝線があり、このスペクトルを光�
 プロファイルモニタによるビームチューニング\\
 画像によるビームチューニング\\
 
-\subsection{}
-\subsection{弾性散乱実験との接続}
-\subsection{単アンジュレータによるデータ測定}
+\subsection{弾性散乱実験との同時運用}
+\subsection{下流側アンジュレータによるデータ測定}
+パラメータ較正を目的として、下流側アンジュレータのみを用いたデータ取得を行う。
 
 \clearpage
 

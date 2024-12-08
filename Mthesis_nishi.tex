@@ -1,0 +1,67 @@
+\documentclass[a4paper,11pt,dvipdfmx,uplatex,openany]{jsbook}
+\usepackage{docmute}
+\input{0_preamble}
+
+\thispagestyle{empty} %ページ番号をつけない場合
+
+              % ここから本文が始まる
+\makeatletter
+
+\def\@thesis{修士論文}
+\def\id#1{\def\@id{#1}}
+\def\master#1{\def\@master{#1}}
+\def\department#1{\def\@department{#1}}
+
+\def\@maketitle{
+\begin{center}
+{\Large \@thesis \par} %修士論文と記載される部分
+\vspace{25mm}
+{\Large \@title \par}% 論文のタイトル部分
+\vspace{10mm}
+{\LARGE\bf\@department\par} % 提出年月日部分j
+\vspace{10mm}
+{\Large 提出日\@date \par} % 所属部分
+\vspace{80mm}
+{\Large \@master \par} % 学年部分
+\vspace{10mm}
+{\Large 学籍番号 \@id \par} % 学籍番号部分
+\vspace{10mm}
+{\Large 氏名 \@author}% 氏名
+\end{center}
+%\par\vskip 1.5em
+}
+
+\everymath{\rm}
+
+\begin{document}    
+\makeatother
+\title{\vspace{-80pt}修士論文\\[35pt]電子ビームエネルギー精密測定のための\\アンジュレータ放射光干渉法\\[30pt]{\Large Undulator radiation interferometry\\for electron beam energy measurement}}
+\date{令和7年 (2025年)}
+\department{東京大学大学院理学系研究科物理学専攻中村哲研究室}
+\id{35-236076}
+\master{修士２年}
+%\vspace{700pt}
+\author{\\[150pt]東京大学大学院 理学研究科 物理学専攻\\中村哲研究室\\\\西 幸太郎}
+
+\maketitle
+\setlength{\abovedisplayskip}{20pt} 
+\setlength{\belowdisplayskip}{20pt}
+\hypertarget{toc}{}
+%\hypertarget{toc}{}
+\tableofcontents
+\listoffigures
+\listoftables
+%\section[章]{章\texorpdfstring{\protect\hyperlink{toc}{\hspace{5pt} \small [目次へ]}}{}}
+%\section[章]{章\backtoc}
+%\include{1}
+\input{1}
+\input{2}
+\input{3}
+\input{4}
+\input{5}
+\input{6}
+%\appendix
+%\include{9_appendix}
+%\bibliography{Mthesis_ref} 
+%\bibliographystyle{unsrt}
+\end{document}         
