@@ -20,16 +20,20 @@
 \usepackage{float}
 \usepackage{multicol}
 \setlength{\columnsep}{15mm}
-\usepackage[dvipdfmx,backref=page]{hyperref}
+%\usepackage[style=phys,articletitle=false,biblabel=brackets,chaptertitle=false,pageranges=false]{biblatex}
+%\usepackage[style=phys]{biblatex}
+\usepackage[dvipdfmx]{hyperref}
 \usepackage{url}
 \usepackage{pxjahyper}
 \usepackage{bookmark}
+%\usepackage[backref]{hyperref}
 \setcounter{tocdepth}{3}
 \def\vector#1{\mbox{\boldmath $#1$}}
 \def\slash#1{\not\!#1}
 \def\slashb#1{\not\!\!#1}
 \def\delsla{\not\!\partial}
-\usepackage{xcolor}
+\usepackage[dvipdfmx]{xcolor}
+
 
 \hypersetup{
  setpagesize=false,
@@ -41,7 +45,7 @@
  urlcolor=black,
 }
 %backreferenceのカスタマイズ. "Back to p.3"のように表示する.
-\renewcommand*{\backref}[1]{(p.#1へ戻る)}
+%\renewcommand*{\backref}[1]{(p.#1へ戻る)}
 %\newcommand{\backtoc}{\hyperlink{toc}{[目次へ]}}
 \newcommand{\backtoc}{\texorpdfstring{\protect\hyperlink{toc}{\hspace{5pt} \scriptsize [目次へ]}}{}}
 \newcommand{\mychapter}[1]{\chapter[#1]{#1\backtoc}}

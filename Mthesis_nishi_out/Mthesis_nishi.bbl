@@ -1,0 +1,65 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{esserObservation4Hyperhydrogen2015}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{2}{}{%
+        {{hash=b957682abe3d2910b5bad071a6771764}{%
+           family={Esser},
+           familyi={E\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=25b8f6e813b17414c38a2526887090d7}{%
+           family={Nagao},
+           familyi={N\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{979e426483bd231a8ee17e0fd10a2a6c}
+      \strng{fullhash}{979e426483bd231a8ee17e0fd10a2a6c}
+      \strng{fullhashraw}{979e426483bd231a8ee17e0fd10a2a6c}
+      \strng{bibnamehash}{979e426483bd231a8ee17e0fd10a2a6c}
+      \strng{authorbibnamehash}{979e426483bd231a8ee17e0fd10a2a6c}
+      \strng{authornamehash}{979e426483bd231a8ee17e0fd10a2a6c}
+      \strng{authorfullhash}{979e426483bd231a8ee17e0fd10a2a6c}
+      \strng{authorfullhashraw}{979e426483bd231a8ee17e0fd10a2a6c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0031-9007, 1079-7114}
+      \field{journaltitle}{Phys. Rev. Lett.}
+      \field{number}{23}
+      \field{title}{Observation of {H} $\Lambda$ 4 {Hyperhydrogen} by {Decay}-{Pion} {Spectroscopy} in {Electron} {Scattering}}
+      \field{urlday}{7}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{volume}{114}
+      \field{year}{2015}
+      \field{urldateera}{ce}
+      \field{pages}{232501}
+      \range{pages}{1}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
