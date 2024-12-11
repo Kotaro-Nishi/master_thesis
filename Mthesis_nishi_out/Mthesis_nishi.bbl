@@ -59,6 +59,70 @@
       \field{pages}{232501}
       \range{pages}{1}
     \endentry
+    \entry{klag2018}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=07e43d6c25c2509100597319af1e89a6}{%
+           family={Klag},
+           familyi={K\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{fullhash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{fullhashraw}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{bibnamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{authorbibnamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{authornamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{authorfullhash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{authorfullhashraw}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{NIM A}
+      \field{title}{Novel Optical Interferometry of Synchrotron Radiation for Absolute Electron Beam Energy Measurements}
+      \field{volume}{910}
+      \field{year}{2018}
+      \field{pages}{147\bibrangedash 156}
+      \range{pages}{10}
+    \endentry
+    \entry{klag2023}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=07e43d6c25c2509100597319af1e89a6}{%
+           family={Klag},
+           familyi={K\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IOP Publishing}%
+      }
+      \strng{namehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{fullhash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{fullhashraw}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{bibnamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{authorbibnamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{authornamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{authorfullhash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{authorfullhashraw}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \field{extraname}{2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{J. Phys.: Conf. Ser.}
+      \field{number}{1}
+      \field{title}{High Accuracy Synchrotron Radiation Interferometry with Relativistic Electrons}
+      \field{volume}{2482}
+      \field{year}{2023}
+      \field{pages}{012016}
+      \range{pages}{1}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
