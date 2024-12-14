@@ -19,31 +19,8 @@
 また放射光の位相は球面波を仮定する。
 
 \subsection{フレネル回折}
-放射光がスリットを通過すると回折を受け、特徴的な縞模様が現れる。回折現象は以下のレイリーゾンマーフェルト積分によって厳密に計算することができる
-\begin{eqnarray}
-  \text{U}(\text{P}) = \frac{1}{4\pi}\int_{S}\cos(ns)\text{U}(S)\frac{\exp(iks)}{s}\left( ik - \frac{1}{s}\right) -U(S)\frac{\exp(iks)}{s}\left(ik- \frac{1}{r}\right)\cos(nr) dS
-\label{レイリーゾンマーフェルト}
-\end{eqnarray}
-近似① $k \gg 1/r$, $k \gg 1/s$
-近似② $\cos(nr) \sim 1$,$\cos(ns) \sim 1$
-近似③ 領域Sにおいて$r(S)= z = \text{const.}$,$s(S) = s_0 = \text{const.}$
-により式(\ref{レイリーゾンマーフェルト})は
-\begin{eqnarray}
-  \text{U}(P) = -\frac{i}{2\lambda rs} \int_{S} U(S)\exp ik(r+s) dS
-  \label{レイリーゾンマーフェルト近似}
-\end{eqnarray}
-\begin{eqnarray}
-  \text{U}(P) = -\frac{i}{2\lambda rs} \int_{S} U(S)\exp ikr dS
-\end{eqnarray}
-このような回折現象は伝搬距離によっては近似計算できることが知られている。以下では積分領域$S$上の座標を$x,y$、観測点Pの座標を$x_0,y_0$と表記する。
-\begin{eqnarray}
-  r &=& \sqrt{z^2 + (x-x_0)^2 + (y-y_0)^2}\\
-  &=& z + \frac{1}{2}\frac{(x-x_0)^2 + (y-y_0)^2}{z} - \frac{1}{8}\frac{\left[(x-x_0)^2 + (y-y_0)^2\right]^2}{z^3} +\dots
-\end{eqnarray}
-$\left[(x-x_0)^2 + (y-y_0)^2\right]^2 \ll z^3$が成立するなら
-\begin{eqnarray}
-  \text{U}(x_0,y_0) \sim -\frac{i}{2\lambda zs_0}\int \text(U)(x,y) \exp(ik\left\{z +\frac{1}{2}\frac{(x-x_0)^2 + (y-y_0)^2}{z}\right\})
-\end{eqnarray}
+放射光がスリットを通過すると回折を受け、特徴的な縞模様が現れる。
+放射光関数で計算されたスリットにおける光波($U(x)$)から、カメラにおける回折光を計算する。
 
 \subsubsection{数値計算上の計算手法}
 数値計算を実行する上では数値積分の手法では、伝搬後のN次元の配列が伝搬前のN次元配列全ての積分を用いて計算されるため計算量は$\text{N}^2$となる。
@@ -58,13 +35,22 @@ $\left[(x-x_0)^2 + (y-y_0)^2\right]^2 \ll z^3$が成立するなら
 \end{eqnarray}
 畳み込みはフーリエ変換を用いることで
 \begin{eqnarray}
-  (U*f)(x,y) = \mathcal{F}^{-1}(\mathcal{F}(U) \times \mathcal{F}(f))
+  (U*f)(x,y) = \mathcal{F}^{-1}(\mathcal{F}(U) \times \mathcal{F}(f)) \label{convolution}
 \end{eqnarray}
-と表せる。
+と表せる。ここで$\mathcal{F}$はフーリエ変換を表す。これは以下のように示すことができる。
 \begin{eqnarray}
-  \mathcal{F}^{-1}(\mathcal{F}(U) \times \mathcal{F}(f)) &= \mathcal{F}^{-1} \left( \int f(x)e^{iwx}dx \times \int g(x)e^{iwx}dx \right) \\
-  &= \mathcal{F}^{-1}\left( \right)
+  (U*f)(x) = \int_{-\infty}^{\infty} U(t)f(x-t)dt
 \end{eqnarray}
+これをフーリエ変換したものは、
+\begin{eqnarray}
+  \mathcal{F}(U*f)(k) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} U(t)f(x-t)dt \exp(-ikx)dx
+\end{eqnarray}
+積分の順序を交換して$x-t = y$とおくと、
+\begin{eqnarray}
+  \mathcal{F}(U*f)(k) &=& \int_{-\infty}^{\infty} U(t) \exp(-ikt)dt \int_{-\infty}^{\infty} f(y) \exp(-iky)dy\\
+  &=& \mathcal{F}(U) \times \mathcal{F}(f)
+\end{eqnarray}
+したがって\ref{convolution}が示される。
 
 \subsection{電子ビームサイズ}
 
@@ -74,19 +60,26 @@ $\left[(x-x_0)^2 + (y-y_0)^2\right]^2 \ll z^3$が成立するなら
 \subsection{パラメータ}
 求める関数系は放射光関数と光学系関数からなる。
 パラメータの定義を以下に示す。
-\begin{itemize}
-\item$\gamma$ 電子ビームエネルギーのローレンツ因子
-\item$\text{K}$ アンジュレータのK値
-\item$\text{z(U2-S)}$下流アンジュレータ-スリット間の距離
-\item$\text{z(S-C)}$スリット-カメラ間の距離
-\item$\text{w(S)}$スリットの鉛直方向の長さ
-\item$\text{y(beam)}$カメラに対するビーム中心のy座標
-\item$\text{y(slit)}$カメラに対するスリット中心のy座標
-\end{itemize}
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c}
+  $\gamma$ & 電子ビームエネルギーのローレンツ因子 \\
+  $\text{K}$ & アンジュレータのK値 \\
+  $\text{z(U2-slit)}$ & 下流アンジュレータ-スリット間の距離 \\
+  $\text{z(slit-camera)}$ & スリット-カメラ間の距離 \\
+  $\text{w(slit)}$ & スリットの鉛直方向の長さ \\
+  $\text{y(beam)}$ & カメラに対するビーム中心のy座標 \\
+  $\text{y(slit)}$ & カメラに対するスリット中心のy座標 \\
+  $\delta \phi$ & 上流と下流のアンジュレータの位相のずれ\\
+\end{tabular}
+\end{table}
 
 
 \subsection{パラメータ較正}
-アンジュレータひとつのデータの解析について
+アンジュレータひとつのデータを解析し、z(U2- slit),z(slit-camera),w(slit)の最適値を求める。
+また、アンジュレータが下流に移動することによる光量の変化をampl パラメータのd依存性に押し込む
 
 \section{統計誤差の見積もり}
 統計誤差の見積もりはブートストラップ法によって行う。
