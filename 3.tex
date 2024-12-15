@@ -59,9 +59,13 @@ RTM3ではストリップによる加速の回数によって15 MeV間隔でエ�
 位置制御はモータで行う。可動範囲は 825 mm、間隔は 5 mmで指定する。
 移動したアンジュレータの絶対値は、リニアエンコーダ(Heidenhain LC415)で 5 $\mu m$ の精度で読み出すことができる。
 \subsubsection{アラインメント}
-セオドライトを用いてビームライン中心とアンジュレータ中心
+セオドライトを用いてアンジュレータと較正用水銀灯、スリットの位置を調整した。
+
+また青色レーザを用いて光学系全体の光軸調整を行った。
 \subsection{分光光学系}
 \subsubsection{スリット}
+矩形スリットを用いる
+スリットサイズは4 mm x 6mm
 \subsubsection{grating}
 \begin{itemize}
   \item フーリエ変換
@@ -69,15 +73,17 @@ RTM3ではストリップによる加速の回数によって15 MeV間隔でエ�
 \end{itemize}
 
 \subsubsection{波長分散レンズ}
+水平方向にのみ光波を収束する樽型レンズを用いた。焦点距離は1 m である。
 \begin{figure}[tb]
   \centering
   \includegraphics[width=0.8\linewidth]{image/3-lens.png}\\
   \caption{レンズ}
   \label{lens}
 \end{figure}
+
 \subsubsection{CMOS カメラ}
 光学系は波長が400 nmの領域において働くため、可視光領域のカメラを用いることができる。HAMAMATSU C14440-20UPを用いた。
-仕様を
+仕様を以下に示す。
 \begin{table}[h]
 \centering
 \begin{tabular}{c|c}
@@ -89,7 +95,8 @@ RTM3ではストリップによる加速の回数によって15 MeV間隔でエ�
 \end{table}
 
 \subsection{光学系のアラインメント}
-青色レーザを用いて光軸中心が光学素子の中心を通るようにアラインメントを行う。
+青色レーザーの光軸は、セオドライトを用いることでビームライン中心と合わせる。
+その後、基準となる青色レーザ光が光学素子の中心を通るように光学系全体のアラインメントを行う。
 
 \section{データ取得}
 
