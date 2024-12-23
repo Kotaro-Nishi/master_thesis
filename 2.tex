@@ -9,7 +9,6 @@
 %\usepackage[dvipdfmx]{graphicx}
 %\usepackage[dvipdfmx,colorlinks=true,linkcolor=blue]{hyperref}
 %\usepackage{pxjahyper}
-
 \begin{document}
 
 
@@ -28,8 +27,36 @@
 ウィグラーやアンジュレータと呼び、特に電子ビームラインに挿入する形で用いられることから挿入光源と総称される。
 アンジュレータ放射光干渉法はこのアンジュレータを利用した電子ビームエネルギー測定法である。
 次節ではまず、放射光の発生原理について述べる。
+
 \subsection{アンジュレータ放射光発生の原理}\label{sec:undulator}
-アンジュレータの原理を以下に示す。
+この節ではアンジュレータの原理を示す。
+\subsubsection{放射光の一般原理}
+リエナール・ヴィーヘルト・ポテンシャルから出発して、放射強度の角分布についての一般的な性質を理解したい。電子から観測点へ向かうベクトルを$\bm{R}$、これに平行な単位ベクトルを$\bm{n} = \bm{R}/R$、電子の電荷$e$、電子の相対論的速度$\bm{\beta} = \bm{v}/c$、
+放射が発生した時刻（遅延時刻）$t'$、放射の観測時刻$t$として、
+\begin{eqnarray}
+  \bm{A}(t) &=& \frac{\mu_0 c}{4\pi}\frac{e\bm{\beta(t')}}{(1-\bm{n}(t')\cdot\bm{\beta}(t'))\bm{R}(t')}\label{retarded potential}\\
+  \varphi(t) &=& \frac{1}{4\pi \epsilon_0}\frac{e}{(1-\bm{n}(t')\cdot\bm{\beta}(t'))\bm{R}(t')}\label{retarded potential phi}\\
+  t &=& t' + \frac{R(t')}{c}
+\end{eqnarray}
+放射される電磁場は、このポテンシャルをマクスウェル方程式に代入することで得られる。
+\begin{eqnarray}
+  \bm{E} &=& -\bm{\nabla} \varphi - \frac{1}{c}\frac{\partial \bm{A}}{\partial t}\\
+  \bm{B} &=& \bm{\nabla} \times \bm{A}
+\end{eqnarray}
+したがって、電磁場の放射強度は
+\begin{eqnarray}
+  \bm{E} &=& \frac{e}{4\pi \epsilon_0}\left( \frac{(1-\beta^2)(\bm{n}(t')-\bm{\beta}(t'))}{R(t')^2(1-\bm{n}(t')\cdot\bm{\beta}(t'))^3}+
+  \frac{\bm{n}(t')\times \left\{ (\bm{n}(t')-\bm{\beta}(t'))\times \bm{\dot{\beta}}(t')\right\}}{cR(t')(1-\bm{n}(t')\cdot\bm{\beta}(t'))^3} \right)\\
+  \bm{B} &=& \frac{\bm{n}\times\bm{E}}{c}
+\end{eqnarray}
+と与えられる。$1/R(t')^2$の項は遠方で無視できるとして簡単にすると、
+\begin{eqnarray}
+  \bm{E} &=& \frac{e}{4\pi \epsilon_0}\frac{\bm{n}(t')\times \left\{ (\bm{n}(t')-\bm{\beta}(t'))\times \bm{\dot{\beta}}(t')\right\}}{cR(t')(1-\bm{n}(t')\cdot\bm{\beta}(t'))^3}\\
+  \bm{B} &=& \frac{\bm{n}\times\bm{E}}{c}
+\end{eqnarray}
+放射強度はポインティングベクトル$\bm{S} =\bm{E}\times \bm{B}/\mu_0$を用いて、$\text{d}\bm{P} = (\bm{S}\cdot\bm{n})R^2\text{d}\Omega$と表されるので
+
+\subsubsection{アンジュレータの周期的磁場による放射}
 周期的な磁場$B = B_0 \sin(2\pi z/\lambda_u)$中を電子が運動すると、同じ周期長$\lambda_u$を持つ正弦波状の軌道を描き、いわゆる蛇行(undulation)運動をする。
 ここで軌道の特徴量として、z軸に対する電子軌道の最大の傾き角$\psi$を考えると、
 \begin{eqnarray}
@@ -98,6 +125,7 @@ $\text{K} \simeq 1$の時をアンジュレータと呼び準単色光が得ら�
 より現実に即した計算として、放射光の振幅と位相を式に従って計算し、スリット直前での干渉光をy座標の関数として表したのが図??である。
 下流アンジュレータの位置に対して周期的な変動が見られる。
 またy座標は放射角に対応しており、周期的変動の周期、位相が放射角に依存していることがわかる。
+
 
 \section{光学系}\label{sec:optics}
 放射光は光学系を通してカメラで光学的に撮影する。光学系の役割は分光とパルス波形の平面化にある。
