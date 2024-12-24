@@ -30,7 +30,8 @@
 
 \subsection{アンジュレータ放射光発生の原理}\label{sec:undulator}
 この節ではアンジュレータの原理を示す。
-\subsubsection{放射光の一般原理}
+
+\subsubsection{放射光の一般原理}\label{sec:general radiation}
 リエナール・ヴィーヘルト・ポテンシャルから出発して、放射強度の角分布についての一般的な性質を理解したい。電子から観測点へ向かうベクトルを$\bm{R}$、これに平行な単位ベクトルを$\bm{n} = \bm{R}/R$、電子の電荷$e$、電子の相対論的速度$\bm{\beta} = \bm{v}/c$、
 放射が発生した時刻（遅延時刻）$t'$、放射の観測時刻$t$として、
 \begin{eqnarray}
@@ -50,32 +51,94 @@
   \bm{B} &=& \frac{\bm{n}\times\bm{E}}{c}
 \end{eqnarray}
 と与えられる。$1/R(t')^2$の項は遠方で無視できるとして簡単にすると、
-\begin{eqnarray}
+\begin{eqnarray}\label{eq:e field}
   \bm{E} &=& \frac{e}{4\pi \epsilon_0}\frac{\bm{n}(t')\times \left\{ (\bm{n}(t')-\bm{\beta}(t'))\times \bm{\dot{\beta}}(t')\right\}}{cR(t')(1-\bm{n}(t')\cdot\bm{\beta}(t'))^3}\\
   \bm{B} &=& \frac{\bm{n}\times\bm{E}}{c}
 \end{eqnarray}
-放射強度はポインティングベクトル$\bm{S} =\bm{E}\times \bm{B}/\mu_0$を用いて、$\text{d}\bm{P} = (\bm{S}\cdot\bm{n})R^2\text{d}\Omega$と表されるので
+放射強度はポインティングベクトル$\bm{S} =\bm{E}\times \bm{B}/\mu_0 = |\bm{E}|^2\bm{n}/c\mu_0$を用いて、$\text{d}P(t) = (\bm{S}\cdot\bm{n})R^2\text{d}\Omega$と表される。
+ただし、このままでは左辺が$t$の関数として与えられているのに対し、右辺は$t'$の関数であり扱いづらい。ここでは$t'$に統一して、
+\begin{eqnarray} \label{eq:power}
+  \frac{\text{d}P(t')}{\text{d}\Omega} = \frac{\text{d}P(t)}{\text{d}\Omega}\frac{\text{d}t}{\text{d}t'} = \frac{e^2}{16\pi^2 \epsilon_0 c}\frac{\left|\bm{n}\times \left\{ (\bm{n}-\bm{\beta})\times \bm{\dot{\beta}}\right\}\right|^2}{(1-\bm{n}\cdot\bm{\beta})^5}
+\end{eqnarray}
+今は磁場による偏向の場合を考えたいため、$\bm{\beta} \perp \bm{\dot{\beta}}$に限定して議論を進める。
+電子の運動方向を$z$軸にとり$\bm{\beta} = (0,0,\beta)$とする。また、磁場が$y$軸に向いているとすれば、$\bm{\dot{\beta}} = (\dot{\beta},0,0)$とおける。3次元極座標表示で、$\bm{n} = (\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta)$とすると、
+\begin{eqnarray}\label{eq:power2}
+  \frac{\text{d}P(t')}{\text{d}\Omega} = \frac{e^2\dot{\beta}^2}{16\pi^2 \epsilon_0 c}\frac{(\cos\theta - \beta)^2 + (1-\beta^2)\sin^2\theta\sin^2\phi}{(1-\beta \cos\theta)^5}
+\end{eqnarray}
+$\beta \simeq 1$ の時に式(\ref{eq:power2})の分母が$\theta \ll 1$で0に近づくことにより、放射強度は電子の進行方向に鋭く集中することがわかる。$\theta \ll 1$のもとで$(1-\beta\cos\theta)^{-1}$が最大値の1/2になる角度を$\theta_{SR}$とすると、
+\begin{eqnarray}
+  \theta_{SR} = \sqrt{2\left(\frac{1}{\beta} -1\right)} \sim \frac{1}{\gamma}
+\end{eqnarray}
+となり、この角度より狭い円錐の中に放射強度の大部分が集中することがわかる。ここで、$\gamma$は電子のローレンツ因子である。
 
 \subsubsection{アンジュレータの周期的磁場による放射}
-周期的な磁場$B = B_0 \sin(2\pi z/\lambda_u)$中を電子が運動すると、同じ周期長$\lambda_u$を持つ正弦波状の軌道を描き、いわゆる蛇行(undulation)運動をする。
-ここで軌道の特徴量として、z軸に対する電子軌道の最大の傾き角$\psi$を考えると、
-\begin{eqnarray}
-  \psi = \int_0^{\lambda_u/4} \frac{dz}{\rho(z)} = 0.0477\frac{B_0[\text{T}]}{E[\text{GeV}]} \lambda_u[\text{m}]
+アンジュレータによって発生させられた周期的な磁場$B = B_0 \sin(2\pi z/\lambda_u)$中を電子が運動すると、同じ周期長$\lambda_u$を持つ正弦波状の軌道を描き、いわゆる蛇行(undulation)運動をする。
+この磁場中の電子の運動方程式を解くと、電子の速度および位置を
+\begin{eqnarray}\label{eq:undulator motion}
+  \beta_x &=& \frac{K\beta}{\gamma}\cos(\omega_0 t')\\
+  \beta_z &=& \beta\left[1 - \frac{K^2}{4\gamma^2} -\frac{K^2\cos (2\omega_0 t')}{4\gamma^2} \right]\\
+  r_x &=& \frac{K\lambda_U}{2\pi \gamma}\sin(\omega t')\\
+  r_z &=& \left(1-\frac{K^2}{4\gamma^2}\beta c t'\right) - \frac{K^2\lambda_U \sin(2\omega_0 t')}{16\pi \gamma^2}
 \end{eqnarray}
-電子の速度ベクトルのx,z成分はそれぞれ
+と得ることができる。ここで
 \begin{eqnarray}
-  v_x = v \cos(2\pi z/\lambda_u),
-  v_z = v \sqrt{ \sin(2\pi z/\lambda_u)}
+  \omega_0 = 2\pi c\beta \frac{1-K^2/4\gamma^2}{\lambda_U}
+\end{eqnarray}
+であり、$K$は偏向定数と呼ばれ、電子軌道の最大偏角$\Psi$と
+\begin{eqnarray}
+  K = \gamma \Psi = \frac{eB_0\lambda_u}{2\pi m c^2} = 93.4 B_0[\text{T}]\lambda_u[\text{m}]
+\end{eqnarray}
+のように関係づけられる。表式からわかるように、アンジュレータの周期と磁場によって偏向定数が決まる。
+
+アンジュレータ放射は偏向定数によって特徴づけられる。電子軌道は最大偏角$\Psi = K/\gamma$のサイン型であり、\ref{sec:general radiation}節で述べたように、放射強度の広がりは$1/\gamma$程度となることから、
+$K \sim 1$の場合には電子からの放射はほとんどすべて観測者に到達する。この時の電場はほぼサイン型になり、フーリエ変換して得られるスペクトルは単色性を持つ。このような放射をアンジュレータ放射と呼ぶ。
+一方、$K \gg 1$の場合には、電子がサイン型軌道の頂点を通過するときにのみ放射が観測されるため、大きくゆがんだパルス状になる。フーリエ変換によって得られるスペクトルは高調波が卓越する。このような放射をウィグラー放射と呼ぶ。
+このように偏向定数によって放射特性を変化させることができ、実用上は磁場強度を変化させることで求められる特性の放射を取り出すことができる。
+
+また放射スペクトル、すなわち放射強度の周波数($\omega$)分布を求めたい。そのためには式\ref{eq:e field}に\ref{eq:undulator motion}を代入し、電場の時間変化を得たうえでフーリエ変換を行えばよい。電場のフーリエ変換を
+\begin{eqnarray}
+  \bm{F}(\omega) = \int_{-\infty}^{\infty} \bm{E}(t')\exp(-i\omega t)dt
+\end{eqnarray}
+とすれば、全放射強度の角密度は
+\begin{eqnarray}
+  \frac{\text{d}W}{\text{d}\Omega} = \int_{-\infty}^{\infty} \frac{\text{d}P(t)}{\text{d}\Omega}dt = \frac{1}{2c\mu_0\pi}\int_{0}^{\infty} \left|R\bm{E}\right|^2 dt 
+  = \frac{1}{c\mu_0}\int_{-\infty}^{\infty} \bm{F}(\omega)\bm{F}(\omega)^*d\omega
+\end{eqnarray}
+と変形できる。一方で、単位周波数当たりの全放射強度は
+\begin{eqnarray}
+  \frac{\text{d}W}{\text{d}\Omega} = \int_{0}^{\infty}\frac{\text{d}^2I}{\text{d}\omega \text{d}\Omega}\text{d}\omega
+\end{eqnarray}
+したがって
+\begin{eqnarray}
+  \frac{\text{d}^2I}{\text{d}\omega \text{d}\Omega} = \frac{1}{2c\mu_0\pi}\bm{F}(\omega)\bm{F}(\omega)^*
+\end{eqnarray}
+ただし遅延時刻$t'$で評価された式も観測時刻$t$でフーリエ変換されていることに注意する。$\bm{n} =(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta)$を再び用いると、$\bm{n}\perp\bm{E}$であるから、
+$\bm{n}$に垂直な2成分だけなので、特に$x-z$平面と平行な成分$E_{\parallel}$およびこれに垂直な成分$E_{\perp}$に分解することができる。フーリエ変換した結果は次のように表せる。
+\begin{eqnarray}
+  E_\parallel &=& g\xi\left\{2S_0\gamma \theta \cos\phi - K (S_1 + S_{-1})\right\}\\
+  E_\perp &=& g\xi\left\{2S_0\gamma \theta \sin \phi\right\}
+\end{eqnarray}
+この式で、$N$をアンジュレータの周期数として、
+\begin{eqnarray}
+  g = -i \frac{e\gamma}{cR} \frac{\sin \left( N\pi (\omega/\omega_1 -1) \right)}{\omega/\omega_1 -1}\exp\left[-ik\omega_1 R/c \right]\\
+  \omega_1 = \frac{2\gamma^2\omega_0}{1+K^2/2 + (\gamma\theta)^2}\\
+  \xi = \frac{1}{1 + (\gamma\theta)^2 + K^2/2} \\
+  S_q = \sum_{p = -\infty}^{\infty} J_{1+2p+q}(2\xi K\gamma\theta\cos\phi)J_p(K^2/4)
+\end{eqnarray}
+であり、$J_p$は$p$次の整数次ベッセル関数である。このようにして、アンジュレータ放射光のスペクトルを求めることができる。
+\begin{eqnarray}
+  \begin{split}
+   \frac{\text{d}^2I}{\text{d}\omega \text{d}\Omega} &= \frac{e^2\gamma^2\xi^2}{\pi^2 c}\frac{\sin^2 \{N\pi(\omega/\omega_1 -1)\}}{(\omega/\omega_1 -1)^2}\\
+   &~~~~~~~~~~~~~~\times\left[ \{2S_0\gamma\theta\cos\phi - K(S_1 + S_{-1})\}^2 + \{2S_0\gamma \theta \sin \phi\}^2 \right]
+  \end{split}
 \end{eqnarray}
 
-磁場周期と電子ビームエネルギーに依存して、発生する放射光は特定の波長に強いピークを持つ。
-この特性はアンジュレータのK値と呼ばれる以下の特徴量によって表現できる。
-$\text{K} \simeq 1$の時をアンジュレータと呼び準単色光が得られるが、$\text{K} \gg 1$の時には広い波長にわたって等間隔にピークを持つような放射光が発生し、このような挿入光源をウィグラーと呼ぶ。
-アンジュレータ放射光の時間構造は以下に示すようなパルス型であることが知られている。
+最後に電場の時間変換と波形の外形について述べたい。
 \subsection{アンジュレータ放射光 - タンデムアンジュレータ}
 アンジュレータを電子ビームに沿って2つ連結した構成は放射光科学において広く使われている。
 これらのアンジュレータ間にシケイン電磁石を配置することで遅延を調整することが可能になる。
 アンジュレータの種類や構成によって位相や偏光状態の異なる様々な形状の放射光を得ることができる。
+
 \subsection{干渉の原理}\label{sec:interference}
 タンデム型アンジュレータから放射される放射光はダブルパルス型の波形となる。
 回折格子のそれぞれの格子から散乱された光は格子間隔に比例して遅延された光の干渉となる。
