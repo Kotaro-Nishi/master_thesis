@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.3 $
+% $ biblatex bbl format version 3.2 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,8 +18,8 @@
 
 
 \refsection{0}
-  \datalist[entry]{none/global//global/global/global}
-    \entry{esserObservation4Hyperhydrogen2015}{article}{}{}
+  \datalist[entry]{none/global//global/global}
+    \entry{esserObservation4Hyperhydrogen2015}{article}{}
       \true{moreauthor}
       \true{morelabelname}
       \name{author}{2}{}{%
@@ -36,12 +36,10 @@
       }
       \strng{namehash}{979e426483bd231a8ee17e0fd10a2a6c}
       \strng{fullhash}{979e426483bd231a8ee17e0fd10a2a6c}
-      \strng{fullhashraw}{979e426483bd231a8ee17e0fd10a2a6c}
       \strng{bibnamehash}{979e426483bd231a8ee17e0fd10a2a6c}
       \strng{authorbibnamehash}{979e426483bd231a8ee17e0fd10a2a6c}
       \strng{authornamehash}{979e426483bd231a8ee17e0fd10a2a6c}
       \strng{authorfullhash}{979e426483bd231a8ee17e0fd10a2a6c}
-      \strng{authorfullhashraw}{979e426483bd231a8ee17e0fd10a2a6c}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -59,7 +57,7 @@
       \field{pages}{232501}
       \range{pages}{1}
     \endentry
-    \entry{klag2018}{article}{}{}
+    \entry{klag2018}{article}{}
       \true{moreauthor}
       \true{morelabelname}
       \name{author}{1}{}{%
@@ -71,12 +69,10 @@
       }
       \strng{namehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{fullhash}{ff9e2336b9cb13f7418b3004f4bc94ed}
-      \strng{fullhashraw}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{bibnamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{authorbibnamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{authornamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{authorfullhash}{ff9e2336b9cb13f7418b3004f4bc94ed}
-      \strng{authorfullhashraw}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \field{extraname}{1}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
@@ -89,7 +85,7 @@
       \field{pages}{147\bibrangedash 156}
       \range{pages}{10}
     \endentry
-    \entry{klag2023}{article}{}{}
+    \entry{klag2023}{article}{}
       \true{moreauthor}
       \true{morelabelname}
       \name{author}{1}{}{%
@@ -104,12 +100,10 @@
       }
       \strng{namehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{fullhash}{ff9e2336b9cb13f7418b3004f4bc94ed}
-      \strng{fullhashraw}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{bibnamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{authorbibnamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{authornamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{authorfullhash}{ff9e2336b9cb13f7418b3004f4bc94ed}
-      \strng{authorfullhashraw}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \field{extraname}{2}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
