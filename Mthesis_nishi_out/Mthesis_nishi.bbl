@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.2 $
+% $ biblatex bbl format version 3.3 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,8 +18,8 @@
 
 
 \refsection{0}
-  \datalist[entry]{none/global//global/global}
-    \entry{esserObservation4Hyperhydrogen2015}{article}{}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{esserObservation4Hyperhydrogen2015}{article}{}{}
       \true{moreauthor}
       \true{morelabelname}
       \name{author}{2}{}{%
@@ -36,10 +36,12 @@
       }
       \strng{namehash}{979e426483bd231a8ee17e0fd10a2a6c}
       \strng{fullhash}{979e426483bd231a8ee17e0fd10a2a6c}
+      \strng{fullhashraw}{979e426483bd231a8ee17e0fd10a2a6c}
       \strng{bibnamehash}{979e426483bd231a8ee17e0fd10a2a6c}
       \strng{authorbibnamehash}{979e426483bd231a8ee17e0fd10a2a6c}
       \strng{authornamehash}{979e426483bd231a8ee17e0fd10a2a6c}
       \strng{authorfullhash}{979e426483bd231a8ee17e0fd10a2a6c}
+      \strng{authorfullhashraw}{979e426483bd231a8ee17e0fd10a2a6c}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -57,7 +59,243 @@
       \field{pages}{232501}
       \range{pages}{1}
     \endentry
-    \entry{klag2018}{article}{}
+    \entry{Schulz2015}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=32c72af0fb8495b488a7980d7deebaeb}{%
+           family={Schulz},
+           familyi={S\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{32c72af0fb8495b488a7980d7deebaeb}
+      \strng{fullhash}{32c72af0fb8495b488a7980d7deebaeb}
+      \strng{fullhashraw}{32c72af0fb8495b488a7980d7deebaeb}
+      \strng{bibnamehash}{32c72af0fb8495b488a7980d7deebaeb}
+      \strng{authorbibnamehash}{32c72af0fb8495b488a7980d7deebaeb}
+      \strng{authornamehash}{32c72af0fb8495b488a7980d7deebaeb}
+      \strng{authorfullhash}{32c72af0fb8495b488a7980d7deebaeb}
+      \strng{authorfullhashraw}{32c72af0fb8495b488a7980d7deebaeb}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{Doctral Thesis Jhonas Gutenberg-Universit\"{a}t Mainz}
+    \endentry
+    \entry{elastic}{article}{}{}
+      \name{author}{28}{}{%
+        {{hash=efb6cbf20dbbf90b77eb4d82a1cc8b0d}{%
+           family={Achenbach},
+           familyi={A\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=4a839bab7ff8bb7c4d51ab585e662f07}{%
+           family={Akiyama},
+           familyi={A\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=9a0571dcf22aa948fc8fd10130c93ebc}{%
+           family={Distler},
+           familyi={D\bibinitperiod},
+           given={M.O.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=cfa5e9602cf80b5203f387909ba57fea}{%
+           family={Eckert},
+           familyi={E\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=b957682abe3d2910b5bad071a6771764}{%
+           family={Esser},
+           familyi={E\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a6f877f77d97667a6adf3c03e218d702}{%
+           family={Geratz},
+           familyi={G\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=72af2d5cc08eaab980911eda206b0404}{%
+           family={Hoek},
+           familyi={H\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ef789c22159335000f88444d4c185bd6}{%
+           family={Itabashi},
+           familyi={I\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=7c0f8a23a94f61164b13fdc75c0a3780}{%
+           family={Kaneta},
+           familyi={K\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=1e75e57dfa64c1781fa469188f2b204c}{%
+           family={Kino},
+           familyi={K\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=07e43d6c25c2509100597319af1e89a6}{%
+           family={Klag},
+           familyi={K\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=ec8ba8979cfdd5a181dcb561e237ce03}{%
+           family={Merkel},
+           familyi={M\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=50db03ffe29a3d3b490e1e376456280e}{%
+           family={Mizuno},
+           familyi={M\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=3833aee80c982a4e3f735abb31894370}{%
+           family={M\"{u}ller},
+           familyi={M\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f18b816e55763faf4b1c483ca9e76231}{%
+           family={M\"{u}ller},
+           familyi={M\bibinitperiod},
+           given={U.},
+           giveni={U\bibinitperiod}}}%
+        {{hash=25b8f6e813b17414c38a2526887090d7}{%
+           family={Nagao},
+           familyi={N\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=0f2b88f31982b4f83b61f62202317287}{%
+           family={Nakamura},
+           familyi={N\bibinitperiod},
+           given={S.N.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=fea9524844a2dc3458f9cad7b276cdb1}{%
+           family={Nakamura},
+           familyi={N\bibinitperiod},
+           given={Y.R.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=ca80b1c4b25d7e7bbe8323cbfc1ea768}{%
+           family={Okuyama},
+           familyi={O\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=fa3d7a637cc51ca33957979d485130bf}{%
+           family={Pochodzalla},
+           familyi={P\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=3c12032c1124c8b80a650ca5191ce7f8}{%
+           family={Schlimme},
+           familyi={S\bibinitperiod},
+           given={B.S.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=7db94cf523aa24fb721f76ca34632c31}{%
+           family={Sfienti},
+           familyi={S\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=63892e085cf3f0a8861deac3938ff1e2}{%
+           family={Spreckels},
+           familyi={S\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=575d9a61796fd09c9b4e9dc8a957f87d}{%
+           family={Steinen},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=564d7c8900e3a065a438249d476cb116}{%
+           family={Tachibana},
+           familyi={T\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=f9b27dc2667c0f61924bc4d39915c037}{%
+           family={Thiel},
+           familyi={T\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=4703fcbedce0beb7cddc5e924cce4850}{%
+           family={Uehara},
+           familyi={U\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=30f702c7eb2dd4ca1822a9b1d1a1d3fd}{%
+           family={Toyama},
+           familyi={T\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{6bfa5aa34aef681c1c0744640faf9371}
+      \strng{fullhash}{8d076e18bd4a44f5a9fb780c876bcd28}
+      \strng{fullhashraw}{8d076e18bd4a44f5a9fb780c876bcd28}
+      \strng{bibnamehash}{8d076e18bd4a44f5a9fb780c876bcd28}
+      \strng{authorbibnamehash}{8d076e18bd4a44f5a9fb780c876bcd28}
+      \strng{authornamehash}{6bfa5aa34aef681c1c0744640faf9371}
+      \strng{authorfullhash}{8d076e18bd4a44f5a9fb780c876bcd28}
+      \strng{authorfullhashraw}{8d076e18bd4a44f5a9fb780c876bcd28}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{NIM A}
+      \field{month}{11}
+      \field{title}{The Spectrometer and Target Systems for Hypernuclear Physics at the {{Mainz Microtron}}}
+      \field{volume}{1043}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{pages}{167500}
+      \range{pages}{1}
+    \endentry
+    \entry{klein1997}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=eb0e270758d0f400a56014d6cfd62118}{%
+           family={Klein},
+           familyi={K\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=fe2fc62c1aa85f84a8ad745639f4a360}{%
+           family={Mayer},
+           familyi={M\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=eafc3dfc8ad6556eea4005f70433292d}{%
+           family={Kuske},
+           familyi={K\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=b8853368d35898edcf44821896a19323}{%
+           family={Thornagel},
+           familyi={T\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=22464bfa6bae597910a418be5726f582}{%
+           family={Ulm},
+           familyi={U\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{26d5d1bea69ded600cd00e96b3bf6e15}
+      \strng{fullhash}{e840f978b7433783245a36a3125826e9}
+      \strng{fullhashraw}{e840f978b7433783245a36a3125826e9}
+      \strng{bibnamehash}{e840f978b7433783245a36a3125826e9}
+      \strng{authorbibnamehash}{e840f978b7433783245a36a3125826e9}
+      \strng{authornamehash}{26d5d1bea69ded600cd00e96b3bf6e15}
+      \strng{authorfullhash}{e840f978b7433783245a36a3125826e9}
+      \strng{authorfullhashraw}{e840f978b7433783245a36a3125826e9}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{journaltitle}{NIM A}
+      \field{month}{1}
+      \field{number}{2-3}
+      \field{shorttitle}{Beam Diagnostics at the {{BESSY I}} Electron Storage Ring with {{Compton}} Backscattered Laser Photons}
+      \field{title}{Beam Diagnostics at the {{BESSY I}} Electron Storage Ring with {{Compton}} Backscattered Laser Photons: Measurement of the Electron Energy and Related Quantities}
+      \field{volume}{384}
+      \field{year}{1997}
+      \field{dateera}{ce}
+      \field{pages}{293\bibrangedash 298}
+      \range{pages}{6}
+    \endentry
+    \entry{klag2018}{article}{}{}
       \true{moreauthor}
       \true{morelabelname}
       \name{author}{1}{}{%
@@ -69,13 +307,15 @@
       }
       \strng{namehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{fullhash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{fullhashraw}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{bibnamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{authorbibnamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{authornamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{authorfullhash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{authorfullhashraw}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \field{extraname}{1}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{NIM A}
@@ -85,7 +325,7 @@
       \field{pages}{147\bibrangedash 156}
       \range{pages}{10}
     \endentry
-    \entry{klag2023}{article}{}
+    \entry{klag2023}{article}{}{}
       \true{moreauthor}
       \true{morelabelname}
       \name{author}{1}{}{%
@@ -100,13 +340,15 @@
       }
       \strng{namehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{fullhash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{fullhashraw}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{bibnamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{authorbibnamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{authornamehash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{authorfullhash}{ff9e2336b9cb13f7418b3004f4bc94ed}
+      \strng{authorfullhashraw}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \field{extraname}{2}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{J. Phys.: Conf. Ser.}
