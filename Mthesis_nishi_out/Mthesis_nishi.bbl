@@ -231,8 +231,8 @@
       \strng{authornamehash}{6bfa5aa34aef681c1c0744640faf9371}
       \strng{authorfullhash}{8d076e18bd4a44f5a9fb780c876bcd28}
       \strng{authorfullhashraw}{8d076e18bd4a44f5a9fb780c876bcd28}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{NIM A}
@@ -280,8 +280,8 @@
       \strng{authornamehash}{26d5d1bea69ded600cd00e96b3bf6e15}
       \strng{authorfullhash}{e840f978b7433783245a36a3125826e9}
       \strng{authorfullhashraw}{e840f978b7433783245a36a3125826e9}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{journaltitle}{NIM A}
@@ -314,8 +314,8 @@
       \strng{authorfullhash}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \strng{authorfullhashraw}{ff9e2336b9cb13f7418b3004f4bc94ed}
       \field{extraname}{1}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{NIM A}
