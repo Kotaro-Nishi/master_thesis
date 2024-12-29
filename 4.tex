@@ -42,6 +42,19 @@
 予想される回折パターンの性質を考えると、隣り合うピクセル同士の発光量の差は周囲の上下左右のピクセルに対して極端に発光量が多いピクセルはノイズであると判断してマスクし、フィッティングの対象に含まない。
 
 \noindent \textbf{\underline{結果}}\par
+あるピクセルにおける、4枚の画像の平均値と標準偏差の関係を図\ref{pixel}に示す。
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\linewidth]{image/4-pixel.png}
+  \caption{ピクセルの平均値と標準偏差の関係}\label{pixel}
+\end{figure}
+ピクセルの発光量はポアソン分布に従うことから、標準偏差は平均値の平方根に比例すると考えられる。
+オフセットを考慮してフィッティングした結果、平均値と標準偏差の関係は
+\begin{eqnarray}
+  \text{std} = 0.298(4) \sqrt{\text{mean} - 79.2(1.6) } 
+\end{eqnarray}
+となった。
+
 背景画像の結果を示す。平均してピクセル値が100 程度、標準誤差は5程度となった。
 
 全てのピクセルの平均値と標準偏差の関係を示す。
@@ -229,7 +242,13 @@ $\gamma$の分布を示す。この分布から求めた$\gamma$の平均値と�
 異なる波長に対するエネルギーの分布から、モデル関数や装置のもつ波長依存性による系統誤差を見積もる。
 
 \noindent \textbf{\underline{結果}}\par
-横軸を波長に、縦軸をその波長における$\gamma$の推定値としたグラフを示す。
+横軸を波長に、縦軸をその波長における$\gamma$の推定値としたグラフを図\ref{wldep}に示す。
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\linewidth]{image/4-wldep.png}
+  \caption{エネルギーの推定値の位置依存性}\label{wldep}
+\end{figure}
+
 また、アクセプタンス全体における$\gamma$の分布から波長依存性による系統誤差は??と見積もられた。
 \subsubsection{位置依存性}
 \noindent \textbf{\underline{解析}}\par
@@ -237,8 +256,13 @@ $\gamma$の分布を示す。この分布から求めた$\gamma$の平均値と�
 具体的には、アンジュレータの位置を4つの区間に分割し、各区間でエネルギーを求める。アンジュレータ位置に対する放射光関数の補正がどの程度の影響を持つかを見積もる。
 
 \noindent \textbf{\underline{結果}}\par
-横軸を4分割の区間のインデックス、縦軸を各区間で得られた$\gamma$の推定値としたグラフを示す。
-
+横軸を4分割の区間のインデックス、縦軸を各区間で得られた$\gamma$の推定値としたグラフを図\ref{posdep}に示す。
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\linewidth]{image/4-posdep.png}
+  \caption[アンジュレータ位置に対するエネルギーの推定値]{アンジュレータ位置に対するエネルギーの推定値。split index 1がもっとも上流であり、アンジュレータの可動範囲の最上流を0 mm としたときに
+  split index 1は 0 mm から205 mm、split index 2は205 mmから410 mm、split index 3は415 mmから620 mm、split index 4は620 mmから825 mmの範囲を示す。}\label{posdep}
+\end{figure}
 
 \subsubsection{エネルギー依存性}
 180、195、210 MeVの3つのエネルギーの結果を表に示す。
