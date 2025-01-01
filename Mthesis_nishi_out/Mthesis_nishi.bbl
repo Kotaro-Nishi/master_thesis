@@ -359,6 +359,11 @@
       \field{pages}{012016}
       \range{pages}{1}
     \endentry
+    \entry{lmfit}{article}{}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{journaltitle}{https://lmfit.github.io/lmfit-py/}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
