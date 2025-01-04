@@ -176,8 +176,8 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 \ref{sec:undulator radiation}節の議論を応用すると、タンデム型アンジュレータから放射される放射光はダブルパルス型の波形となることがわかる。
 そのままでは2つのパルスは干渉することができないため、遅延を発生させる必要がある。この役割を担っているのが回折格子である。
 回折格子のそれぞれの溝から散乱された光は格子間隔に比例して遅延された光の干渉となる。
-そのためダブルパルスの二つのパルスは格子による遅延を受けて干渉できることになる。
-\begin{figure}[b]
+そのためダブルパルスの二つのパルスは格子による遅延を受けて干渉できることになる(図\ref{fig:doublepulse})。
+\begin{figure}[h]
   \centering
   \includegraphics[width=10cm]{image/2-doublepulse.png}
   \caption[干渉の原理]{ダブルパルス間の間隔以上の遅延が回折格子の溝同士で起きれば、パルス同士の干渉作用を観測することができる。}
@@ -231,19 +231,19 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 \end{eqnarray}
 となる。
 
-より現実に即した計算として、放射光の振幅と位相を式に従って計算し、スリット直前での干渉光をy座標の関数として表したのが図??である。
+より現実に即した計算として、放射光の振幅と位相を式(\ref{eq:spectrum})に従って計算し、スリット直前での干渉光を$y$座標の関数として表したのが図??である。
 下流アンジュレータの位置に対して周期的な変動が見られる。
-またy座標は放射角に対応しており、周期的変動の周期、位相が放射角に依存していることがわかる。
+また$y$座標は放射角に対応しており、周期的変動の周期、位相が放射角に依存していることがわかる。
 
 
 \section{光学系}\label{sec:optics}
 放射光は光学系を通してカメラで光学的に撮影する。光学系の役割は分光とパルス波形の平面化にある。
 式(\ref{zero order energy formula})が示すとおり、
-電子ビームエネルギーは波長に依存するため$10^{-4}$のエネルギー絶対値較正精度を得るために波長決定精度は少なくとも$10^{-4}$程度必要となる。
+電子ビームエネルギーは波長の閉方向んの逆数に比例するため$10^{-4}$のエネルギー絶対値較正精度を得るために波長決定精度は少なくとも$10^{-4}$程度必要となる。
 またタンデムアンジュレータから放射される放射光は\ref{sec:undulator radiation}節で示したようにダブルパルス型の波形を持ちこのままでは２つのパルスは干渉を起こさない。
 そのため平面波化（フーリエ変換）が必要となる。
 図\ref{optics_schematic}に光学系の概要を示す。
-\begin{figure}[b]
+\begin{figure}[h]
   \centering
   \includegraphics[width=10cm]{image/2-opticsshematic.png}
   \caption{光学系の概要}
@@ -252,45 +252,208 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 矩形スリットで整形した光波は伝搬に伴って回折を生じる(\ref{sec:rayleigh}章)。後段には回折格子およびレンズがあり、
 光波は分光と平面波化(\ref{sec:grating},\ref{sec:grating2}章)を受けカメラに到達する。
 
-\subsection{レイリー・ゾンマーフェルト回折積分}\label{sec:rayleigh}
-光波の伝搬はマクスウェル方程式に従う。
-ある平面の波面から別の平面での波面を計算するには、レイリーゾンマーフェルト回折積分が知られている。
-今回のセットアップにおいては近軸近似を用いることで、スクリーンでの回折パターンを式(??)によって計算できる。
-回折現象は以下のレイリーゾンマーフェルト積分によって厳密に計算することができる。
-ここで$\text{P}$は観測点の座標、Sは伝搬元の平面である。
+\subsection{回折の定式化}\label{sec:rayleigh}
+この節ではマクスウェル方程式から出発して回折現象の定式化を行い、光学系に入射する放射光がカメラに作る像を計算する計算式を導出する。
+
+\subsubsection{ヘルムホルツ方程式}
+光波の伝搬はマクスウェル方程式に従う。マクスウェル方程式から、電場の従う波動方程式が
+\begin{eqnarray}
+  \bm{\nabla}^2\bm{E} - \frac{1}{c^2}\frac{\partial^2\bm{E}}{\partial t^2} = 0 \label{eq:wave}
+\end{eqnarray}
+と導ける。これは磁場についても同様であるから、これを一般化し、以降波動方程式のスカラー解を$u(P,t)$とあらわす。
+ここで$P$は空間座標を表す。さらに単色光を考えることで
+\begin{eqnarray}
+  u(P,t) = Re\left[U(P)\exp (-i\omega t)\right] \label{u}
+\end{eqnarray}
+と時間に依存する項を分けることができる。$U(P)$は空間座標に関する複素関数である。式(\ref{u})を式(\ref{eq:wave})に代入することで、
+$U$に関する方程式
+\begin{eqnarray}
+  \left(\bm{\nabla}^2 + k^2\right)U(P) = 0 \label{Helmholtz}
+\end{eqnarray}
+を導くことができる。ここで$k$は波数であり、$k = 2\pi \omega/c = 2\pi/\lambda_L$である。
+方程式(\ref{Helmholtz})をヘルムホルツ方程式と呼ぶ。
+
+ヘルムホルツ方程式はグリーン関数を用いて解くことができる。
+$U(P)、G(P)$を位置に関する複素関数、体積$V$の領域を囲む閉曲面$S$を定義すると、
+\begin{eqnarray}
+  \int_V \left(U\bm{\nabla}^2G - G\bm{\nabla}^2U\right) dv = \int_S \left( U\frac{\partial G}{\partial n} - G\frac{\partial U}{\partial n}\right) ds \label{green}
+\end{eqnarray}
+というグリーンの定理が成り立つ。ここで$\partial/\partial n$は閉曲面に垂直な外向きのベクトルに沿った偏微分を表す。
+適当なグリーン関数$G$を定義することで$U(P)$に関する方程式を立てることができる。
+
+\subsubsection{フレネル・キルヒホッフ回折積分}
+観測点の座標を$P_0$、$P_0$を囲む任意の閉曲面を$S$とする(図\ref{diff_cord})。$P_0$における光波$U(P_0)$を$S$の表面の光波で表すことを考えたい。
+\begin{figure}[h]
+  \centering
+  \includegraphics{image/2-diffraction_cordinate.png}
+  \caption[回折積分の座標系]{表面積分の積分領域$S$と観測点$P_0$}\label{diff_cord}
+\end{figure}
+ここでグリーン関数として、$P_0$を原点とする一様振幅の球面波を考えることにする。すなわち、空間上の任意の点$P_1$に対して
+\begin{eqnarray}
+  G(P_1) = \frac{\exp(ikr)}{r},~~~~~r = \left|P_0- P_1\right| \label{green_k}
+\end{eqnarray}
+この式は$P_0$において発散するので、積分領域に工夫が必要である。$P_0$を中心とした微小半径$\epsilon$の球面$S_\epsilon$を考え、体積分の積分領域を$S$と$S_\epsilon$で囲まれた領域とする。
+この時，面積分の積分領域は$S$および$S_\epsilon$である(図\ref{diff_cord})。
+領域V内部でグリーン関数(\ref{green_k})は
+\begin{eqnarray}
+  \left(\bm{\nabla}^2 + k^2\right)G = 0 
+\end{eqnarray}
+を満たす。これによりグリーンの定理\ref{green}の左辺は、$U$もヘルムホルツ方程式をみたすことから、
+\begin{eqnarray}
+  \int_V \left(U\bm{\nabla}^2G - G\bm{\nabla}^2U\right) dv =  - \int_V \left( k^2UG - k^2GU\right)dv  = 0
+\end{eqnarray}
+となる。したがって、右辺から、
+\begin{eqnarray}
+  \int_{S+S_\epsilon} \left( U\frac{\partial G}{\partial n} - G\frac{\partial U}{\partial n}\right)ds &=& 0\\
+  -\int_{S_\epsilon} \left( U\frac{\partial G}{\partial n} - G\frac{\partial U}{\partial n}\right) ds &=& 
+  \int_S \left( U\frac{\partial G}{\partial n} - G\frac{\partial U}{\partial n}\right) ds
+\end{eqnarray}
+ここに$G(P_1) = \exp(ikr)/r$を代入すると、
+\begin{eqnarray}
+  \frac{\partial G(P_1)}{\partial n} = \cos(\bm{n},\bm{r})\left(ik - \frac{1}{r}\right)\frac{\exp(ikr)}{r}
+\end{eqnarray}
+となる。特に$S_\epsilon$においては、$\epsilon \rightarrow 0$の極限をとることで、
+\begin{eqnarray}
+  \lim_{\epsilon \rightarrow 0} \int_S \left( U\frac{\partial G}{\partial n} - G\frac{\partial U}{\partial n}\right)ds
+   =4\pi U(P_0)
+\end{eqnarray}
+と計算できるから、
+\begin{eqnarray}
+  U(P_0) = \frac{1}{4\pi}\int_S \left( \frac{\partial U}{\partial n} \left[ \frac{\exp(ikr)}{r} \right] - U\frac{\partial}{\partial n} \left[ \frac{\exp(ikr)}{r}\right] \right) ds
+\end{eqnarray}
+より、$U(P_0)$が任意の閉曲面$S$の境界上の光波$U(P)$から計算できることがわかる。
+
+これをスリットによる回折現象のように、ある平面上の波面から回折像を計算する場面に適用したい。そのために図\ref{fig:diff_kir}のように半径$R$の球面$S_2$をスリットの平面$S_1$で切断した閉曲面を考える。
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=10cm]{image/2-diffraction_kir.png}
+  \caption[スリットによる回折の模式図]{スリットによる回折のための閉曲面の定義。観測点$P_0$を中心とする半径$R$の球面を$S_2$、この球面が開口のある平面で切断される平面を$S_1$とおく。
+  また開口面の領域を$\Sigma$と置く。}\label{fig:diff_kir}
+\end{figure}
+観測点$P_0$における光波は$S_1$および$S_2$を合わせた閉曲面上の積分となり、
+\begin{eqnarray}
+  U(P_0) = \frac{1}{4\pi}\int_{S_1+S_2} \left( \frac{\partial U}{\partial n} \left[ \frac{\exp(ikr)}{r} \right] - U\frac{\partial}{\partial n} \left[ \frac{\exp(ikr)}{r}\right] \right) ds
+\end{eqnarray}
+\textgt{$R$が十分大きい極限で、$S_2$の寄与が無視できること}を示したい。$S_2$上では
+\begin{eqnarray}
+  G = \frac{\exp(ikR)}{R} 
+\end{eqnarray}
+であるから、十分大きな$R$に対して
+\begin{eqnarray}
+  \frac{\partial G}{\partial n} = \left( jk-\frac{1}{R}\right)\frac{\exp(ikR)}{R} \simeq jkG
+\end{eqnarray}
+と近似できる。この時$S_2$上の積分は
+\begin{eqnarray}
+  \int_S  = \left[ G\frac{\partial U}{\partial n} - U (jkG)\right]ds = \int G(\frac{\partial U}{\partial n} -jkU)R^2d\Omega
+\end{eqnarray}
+と変換できる。ここで$|RG|$は$S_2$上で定数であるから、$S_2$上での積分が無視できる十分条件は、
+\begin{eqnarray}
+  \lim_{R\rightarrow \infty} R\left(\frac{\partial U}{\partial n} -jkU \right) = 0
+\end{eqnarray}
+が等方的に成り立つことである。$U$が外向きの球面波と近似できるときにはこの条件が成り立つが、今考えている状況は$S_2$上での内向きの光波を考える必要がないため、
+結論として\textgt{$S_2$上での積分は0と計算できる}。したがって、最終的に
+\begin{eqnarray}
+  U(P_0) = \frac{1}{4\pi}\int_{S_1} \left( \frac{\partial U}{\partial n} G - U\frac{\partial G}{\partial n}  \right) ds
+\end{eqnarray}
+によって計算できることが確かめられる。
+
+最後に、$S_1$全体における積分を開口面$\Sigma$のみに制限した積分計算で置き換えることが可能かを検討する。$S_1$上の積分を$\Sigma$の積分で置き換えるためには、
+\begin{itemize}
+  \item $\Sigma$における$U$, $\partial U/\partial n$が、開口面がない時の$S_1$と正確に一致すること
+  \item $\Sigma$以外の$S_1$上で$U$と$\partial U/\partial n$の寄与が0であること
+\end{itemize}
+を仮定する必要がある。これらの条件は\textgt{キルヒホッフの境界条件}として知られる。この条件は$\Sigma$の長さスケールが波長より十分大きい時には成り立つことが知られており、この場合には
+\begin{eqnarray}
+  U(p_0) &=& \frac{1}{4\pi}\int_\Sigma \left( \frac{\partial U}{\partial n}G - U \frac{\partial G}{\partial n}\right)ds \\
+  &=& \frac{1}{4\pi} \int_\Sigma \left( \frac{\partial U}{\partial n}\frac{\exp(ikr)}{r} - U \cos(\bm{n},\bm{r})\left(ik - \frac{1}{r}\right)\frac{\exp(ikr)}{r}\right)
+\end{eqnarray}
+と簡単にできる。
+
+\textgt{近似.1}として、$k \gg 1/r$の時には、
+\begin{eqnarray}
+  U(P_0) = \frac{1}{4\pi}\int_\Sigma \frac{\exp(ikr)}{r}\left[\frac{\partial U}{\partial n} - ik U \cos(\bm{n},\bm{r})\right]
+\end{eqnarray}
+本実験では$r\sim 4$~m、$\lambda_L \sim 400~$nmであるからこの近似が正当化できる。
+
+\subsubsection{レイリー・ゾンマーフェルト回折積分}
+フレネル・キルヒホッフの回折積分ではキルヒホッフの境界条件が暗に仮定されているが、$U$および$\partial U/\partial n$が開口面の外で同時に0になることを仮定すると、
+全領域に渡って$U=0$となることが解析的に得られる。これは物理的な解とは言えない。フレネル・キルヒホッフの回折積分は厳密にはこのような不整合性を内在している。
+この問題を解決するために、式(\ref{green})において別のグリーン関数を定義して解く方法が知られている。これがレイリーゾンマーフェルト回折積分である。
+
+グリーン関数として、$P_0$を原点とする球面波と、開口面$S_1$平面に対する鏡像の球面波の和を考える(図\ref{fig:diff_ray})。すなわち
+\begin{eqnarray}
+  G(P) = \frac{\exp(ikr_{01})}{r_{01}} -\frac{\exp(ik\tilde{r_{01}})}{\tilde{r_{01}}}
+\end{eqnarray}
+と取ると、$S_1$平面上で$G =0$となる。
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=10cm]{image/2-diffraction_ray.png}
+  \caption[レイリーゾンマーフェルト積分の座標系]{レイリーゾンマーフェルト回折積分のグリーン関数}\label{fig:diff_ray}
+\end{figure}
+したがって、$\Sigma$の外で$U =0 $であることに注意すれば、
+\begin{eqnarray}
+  U(P_0) = -\frac{1}{4\pi}\int_{\Sigma} \left( U\frac{\partial G}{\partial n} \right) ds
+\end{eqnarray}
+対応する$G$の法線微分は、
 \begin{eqnarray}
   \begin{split}
-  \text{U}(\text{P}) &= \frac{1}{4\pi}\int_{S}\cos(ns)\text{U}(S)\frac{\exp(iks)}{s}\left( ik - \frac{1}{s}\right) \\
-      &~~~~~-U(S)\frac{\exp(iks)}{s}\left(ik- \frac{1}{r}\right)\cos(nr) dS
+  \frac{\partial G}{\partial n} = &\cos(\bm{n},\bm{r_{01}})\left(ik - \frac{1}{r_{01}}\right)\frac{\exp(ikr_{01})}{r_{01}} \\
+  &- \cos(\bm{n},\bm{\tilde{r_{01}}})\left(ik - \frac{1}{\tilde{r_{01}}}\right)\frac{\exp(ik\tilde{r_{01}})}{\tilde{r_{01}}}
   \end{split}
-  \label{レイリーゾンマーフェルト}
 \end{eqnarray}
-近似① $k \gg 1/r$, $k \gg 1/s$、
-近似② $\cos(nr) \sim 1$,$\cos(ns) \sim 1$、
-近似③ 領域Sにおいて$r(S)= z = \text{const.}$,$s(S) = s_0 = \text{const.}$
+$P_1$が$S_1$上にあるから、$r_{01} = \tilde{r_{01}}$、$\cos(\bm{n},\bm{r_{01}}) = -\cos(\bm{n},\bm{\tilde{r_{02}}})$
+\begin{eqnarray}
+  \frac{\partial G}{\partial n} = 2\cos(\bm{n},\bm{r_{01}})\left(ik - \frac{1}{r_{01}}\right)\frac{\exp(ikr_{01})}{r_{01}}
+\end{eqnarray}
+フレネル・キルヒホッフの回折積分と同様に、\textgt{近似.1}$k \gg 1/r$の近似を用いるとより簡単に表せて、これを代入すれば、
+\begin{eqnarray}
+  U(P_0) = \frac{1}{i\lambda}\int_{\Sigma} U(P_1)\frac{\exp(ikr_{01})}{r_{01}}\cos(\bm{n},\bm{r_{01}})ds
+\end{eqnarray}
+と計算できることになる。この時、キルヒホッフの境界条件は$U=0$のみを用いているため、フレネル・キルヒホッフの回折積分で生じた不整合は解決できた。
+
+フレネル・キルヒホッフの回折積分もレイリー・ゾンマーフェルトの回折積分も実験結果を正しく説明できることが知られており、解析的にも等価であることが示せる\cite{FToptics}。
+ここでは計算の簡略化のため、以降レイリー・ゾンマーフェルトの回折積分の表式を用いて計算することにする。
+
+改めて書き下すと
+\begin{eqnarray}
+  U(P_0) = \frac{1}{i\lambda}\int_{\Sigma} U(P_1)\frac{\exp(ikr)}{r}\cos(\bm{n},\bm{r})ds
+\end{eqnarray}\label{レイリーゾンマーフェルト}
+開口面$\Sigma$上の座標$P_1$における光波$U(P_1)$から、観測点$P_0$における光波$U(P_0)$を、$r = |P_0- P_1|$を用いて計算できる。
+今回のセットアップでは更に近似を用いて簡潔に表すことができる。観測点$P_0$は$\Sigma$から4~m離れた平行な平面上（カメラのスクリーン）にあり、
+$\Sigma$は高さ6~mmの矩形スリット、スクリーンの幅は15~mmとする。
+\begin{itemize}
+  \item $k \gg 1/r$の近似。$r\sim4$~m、$\lambda_L \sim 400$~nmであるから、この近似が正当化できる。
+  \item $cos(\bm{n},\bm{r})$ = 1の近似。$\bm{n}$、$\bm{r}$がなす角$\theta$の最大値は$\tan\theta$ = 10.5~mm/4~m $\sim 0.0027$であり、
+  この時$\theta\sim 0.027$~rad、$\cos\theta \sim 1 - \theta^2/2$であるから、この近似が正当化できる。
+  \item $\Sigma$上で$r = const.$の近似。$z\sim$ 4~m、$|y|<10$~mmであるから、この近似が正当化できる。
+\end{itemize}
+これらの近似により、
 により式(\ref{レイリーゾンマーフェルト})は
 \begin{eqnarray}
-  \text{U}(P) = -\frac{i}{2\lambda rs} \int_{S} U(S)\exp ik(r+s) dS
+  U(P_0) = -\frac{i}{2\lambda r} \int_{\Sigma} U(P_1)\exp(ikr) ds
   \label{レイリーゾンマーフェルト近似}
 \end{eqnarray}
-\begin{eqnarray}
-  \text{U}(P) = -\frac{i}{2\lambda rs} \int_{S} U(S)\exp ikr dS
-\end{eqnarray}
+と計算できる。
 このような回折現象は伝搬距離によっては近似計算できることが知られている。以下では積分領域$S$上の座標を$x,y$、観測点Pの座標を$x_0,y_0$と表記する。
 \begin{eqnarray}
   r &=& \sqrt{z^2 + (x-x_0)^2 + (y-y_0)^2}\\
   &=& z + \frac{1}{2}\frac{(x-x_0)^2 + (y-y_0)^2}{z} - \frac{1}{8}\frac{\left[(x-x_0)^2 + (y-y_0)^2\right]^2}{z^3} +\dots
 \end{eqnarray}
-$\left[(x-x_0)^2 + (y-y_0)^2\right]^2 \ll z^3$が成立するなら
+と展開できるから、$\left[(x-x_0)^2 + (y-y_0)^2\right]^2/8\lambda_L \ll z^3$が成立するなら
 \begin{eqnarray}
-  \text{U}(x_0,y_0) \sim -\frac{i}{2\lambda zs_0}\int \text(U)(x,y) \exp(ik\left\{z +\frac{1}{2}\frac{(x-x_0)^2 + (y-y_0)^2}{z}\right\})
+  U(x_0,y_0) \sim -\frac{i}{2\lambda z}\int U(x,y) \exp(ik\left\{z +\frac{1}{2}\frac{(x-x_0)^2 + (y-y_0)^2}{z}\right\})
 \end{eqnarray}
+これはフレネル近似として知られている。更に$z$が大きく、$(x-2 + y^2)/\lambda_L \ll z$が成り立つならば、
+\begin{eqnarray}
+  U(x_0,y_0) \sim -\frac{i}{2\lambda z}\int U(x,y) \exp(ik\left\{z -\frac{xx_0 + yy_0}{z}\right\})
+\end{eqnarray}
+というフラウンホーファー近似が成立する。
 
 数値計算手法については第3章に記述する。
 \subsection{回折格子とレンズによる分光}\label{sec:grating}
 波面は回折格子で波長ごとに特定の方向に分光される。
 レンズによって集光することでカメラでは特定の波長が鋭いピークとなるため、高い波長分解能を実現できる。
-\begin{figure}[b]
+\begin{figure}[h]
   \centering
   \includegraphics[width=10cm]{image/2-dispersion.png}
   \caption{波長分光の概要}
@@ -304,11 +467,12 @@ $\left[(x-x_0)^2 + (y-y_0)^2\right]^2 \ll z^3$が成立するなら
 これまでの議論は電子1個の場合について述べたが、実際には電子ビームは多数の電子からなり、放射光もその一つ一つから放射されるパルスの重ね合わせである。
 そのため、異なる電子から放射されたパルス同士が干渉することも考慮しなければいけないが、自己相関の干渉項以外はランダム性から無視できると考えられる。
 \subsection{撮影画像}
-これらの一連の流れを図(??)に示した。
-\begin{figure}[b]
+これらの一連の流れを図(\ref{propagation})に示した。
+\begin{figure}[h]
   \centering
   \includegraphics[width=10cm]{image/2-propagation.png}
   \caption[撮影画像の概要]{撮影画像の概要。スリットによる回折の縞模様が、回折格子で水平方向にのみ平面波化される結果、水平方向の縞模様の画像が得られる。}
+  \label{propagation}
 \end{figure}
 放射光がスリットによって回折を受けると、カメラでは２次元の回折パターン構造が得られると推定される。
 一方で回折格子による分光、平面波化作用は水平方向にのみ作用する。従って画像の横軸は波長に対応し、縦軸の座標は観測角に対応する。
@@ -317,8 +481,8 @@ $\left[(x-x_0)^2 + (y-y_0)^2\right]^2 \ll z^3$が成立するなら
 モデル関数は、アンジュレータの位置座標とカメラにおけるy座標の関数として定義され、カメラの撮影画像を再現する。
 放射光関数と光学関数の2つの関数に分離される。
 放射光関数は、電子ビームとアンジュレータのパラメータを入力としてスリット直前の入射光の振幅および位相を計算する。
-振幅は式\ref{eq:spectrum}によって計算され、位相はアンジュレータの位置を光源とした球面波位相$\exp(-ikr)$を仮定する。
-光学関数は、入射光の位相と振幅を入力としてスクリーンにおける回折光の振幅を計算する。水平方向には平面波化されるため、回折積分は$y$軸方向にのみ行われる。
+振幅は式(\ref{eq:spectrum})によって計算され、位相はアンジュレータの位置を光源とした球面波位相$\exp(-ikr)$を仮定する。
+光学関数は、入射光の位相と振幅を入力としてスクリーンにおける回折光の振幅を計算する。水平方向には平面波化されるため、回折積分は$y$軸方向のみ計算すれば十分である。
 
 撮影画像を再現する最も確からしいパラメータの組を求めることで、電子ビームのエネルギーが決定できる。
 \end{document}
