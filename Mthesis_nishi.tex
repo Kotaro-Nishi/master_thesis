@@ -40,7 +40,8 @@
 }
 
 %\everymath{\rm}
-
+\setlength{\textwidth}{\fullwidth}
+\setlength{\evensidemargin}{\oddsidemargin}
 \begin{document}    
 \makeatother
 \title{\vspace{-80pt}修士論文\\[35pt]電子ビームエネルギー精密測定のための\\アンジュレータ放射光干渉法\\[30pt]{\Large Undulator radiation interferometry\\for electron beam energy measurement}}
@@ -55,19 +56,22 @@
 \setlength{\abovedisplayskip}{20pt} 
 \setlength{\belowdisplayskip}{20pt}
 \hypertarget{toc}{}
-%\hypertarget{toc}{}
+%\hypertarget{toc}{
+\input{01_abstract}
 \tableofcontents
 \listoffigures
 \listoftables
 %\section[章]{章\texorpdfstring{\protect\hyperlink{toc}{\hspace{5pt} \small [目次へ]}}{}}
 %\section[章]{章\backtoc}
 %\include{1}
+
 \input{1}
 \input{2}
 \input{3}
 \input{4}
 %\input{5}
 \input{6}
+\input{7}
 %\appendix
 \printbibliography[title=参考文献]
 %\bibliography{ref}

@@ -78,6 +78,38 @@
       \field{pages}{1306\bibrangedash 1309}
       \range{pages}{4}
     \endentry
+    \entry{khaustov}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=dcc9dd997b13904c8472a5cfc3669518}{%
+           family={Khaustov},
+           familyi={K\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{2fbe84808bbca7adca0fd4ae0cb04fc1}
+      \strng{fullhash}{2fbe84808bbca7adca0fd4ae0cb04fc1}
+      \strng{fullhashraw}{2fbe84808bbca7adca0fd4ae0cb04fc1}
+      \strng{bibnamehash}{2fbe84808bbca7adca0fd4ae0cb04fc1}
+      \strng{authorbibnamehash}{2fbe84808bbca7adca0fd4ae0cb04fc1}
+      \strng{authornamehash}{2fbe84808bbca7adca0fd4ae0cb04fc1}
+      \strng{authorfullhash}{2fbe84808bbca7adca0fd4ae0cb04fc1}
+      \strng{authorfullhashraw}{2fbe84808bbca7adca0fd4ae0cb04fc1}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{day}{30}
+      \field{journaltitle}{Physical Review C}
+      \field{month}{3}
+      \field{number}{5}
+      \field{shortjournal}{Phys. Rev. C}
+      \field{volume}{61}
+      \field{year}{2000}
+      \field{dateera}{ce}
+      \field{pages}{054603}
+      \range{pages}{1}
+    \endentry
     \entry{Ambartsumyan}{article}{}{}
       \name{author}{2}{}{%
         {{hash=24f48a0a919d88b3c8b1e5485395b853}{%
@@ -168,6 +200,38 @@
       \field{dateera}{ce}
       \field{pages}{1081\bibrangedash 1083}
       \range{pages}{3}
+    \endentry
+    \entry{antoniadis2013}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=0f9d89f2dffddd18d38d6d694c8ab8cb}{%
+           family={Antoniadis},
+           familyi={A\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{838fc9c3c8a029a29d6bbd6ad9e4de30}
+      \strng{fullhash}{838fc9c3c8a029a29d6bbd6ad9e4de30}
+      \strng{fullhashraw}{838fc9c3c8a029a29d6bbd6ad9e4de30}
+      \strng{bibnamehash}{838fc9c3c8a029a29d6bbd6ad9e4de30}
+      \strng{authorbibnamehash}{838fc9c3c8a029a29d6bbd6ad9e4de30}
+      \strng{authornamehash}{838fc9c3c8a029a29d6bbd6ad9e4de30}
+      \strng{authorfullhash}{838fc9c3c8a029a29d6bbd6ad9e4de30}
+      \strng{authorfullhashraw}{838fc9c3c8a029a29d6bbd6ad9e4de30}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{day}{26}
+      \field{journaltitle}{Science}
+      \field{month}{4}
+      \field{number}{6131}
+      \field{shortjournal}{Science}
+      \field{volume}{340}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \field{pages}{1233232}
+      \range{pages}{1}
     \endentry
     \entry{cromartie2019}{article}{}{}
       \true{moreauthor}
@@ -739,6 +803,28 @@
       \field{pages}{293\bibrangedash 298}
       \range{pages}{6}
     \endentry
+    \entry{herrmann}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=4ec41bcd23c2e57a28164e2bee51df6f}{%
+           family={Herrmann},
+           familyi={H\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{4ec41bcd23c2e57a28164e2bee51df6f}
+      \strng{fullhash}{4ec41bcd23c2e57a28164e2bee51df6f}
+      \strng{fullhashraw}{4ec41bcd23c2e57a28164e2bee51df6f}
+      \strng{bibnamehash}{4ec41bcd23c2e57a28164e2bee51df6f}
+      \strng{authorbibnamehash}{4ec41bcd23c2e57a28164e2bee51df6f}
+      \strng{authornamehash}{4ec41bcd23c2e57a28164e2bee51df6f}
+      \strng{authorfullhash}{4ec41bcd23c2e57a28164e2bee51df6f}
+      \strng{authorfullhashraw}{4ec41bcd23c2e57a28164e2bee51df6f}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{Doctral Thesis Jhonas Gutenberg-Universit\"{a}t Mainz}
+      \field{year}{2021}
+    \endentry
     \entry{klag2018}{article}{}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -803,6 +889,144 @@
       \field{pages}{012016}
       \range{pages}{1}
     \endentry
+    \entry{大柳}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=d49b310855b38faabd17d340a499332a}{%
+           family={宏之},
+           familyi={宏\bibinitperiod},
+           given={大柳},
+           giveni={大\bibinitperiod}}}%
+      }
+      \strng{namehash}{d49b310855b38faabd17d340a499332a}
+      \strng{fullhash}{d49b310855b38faabd17d340a499332a}
+      \strng{fullhashraw}{d49b310855b38faabd17d340a499332a}
+      \strng{bibnamehash}{d49b310855b38faabd17d340a499332a}
+      \strng{authorbibnamehash}{d49b310855b38faabd17d340a499332a}
+      \strng{authornamehash}{d49b310855b38faabd17d340a499332a}
+      \strng{authorfullhash}{d49b310855b38faabd17d340a499332a}
+      \strng{authorfullhashraw}{d49b310855b38faabd17d340a499332a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{シンクロトロン放射光の基礎 丸善出版}
+      \field{year}{1996}
+    \endentry
+    \entry{walker}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=ec2c7258b3f7d9767ee5d34d86dd9bb8}{%
+           family={Walker},
+           familyi={W\bibinitperiod},
+           given={R.\bibnamedelimi P.},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{ec2c7258b3f7d9767ee5d34d86dd9bb8}
+      \strng{fullhash}{ec2c7258b3f7d9767ee5d34d86dd9bb8}
+      \strng{fullhashraw}{ec2c7258b3f7d9767ee5d34d86dd9bb8}
+      \strng{bibnamehash}{ec2c7258b3f7d9767ee5d34d86dd9bb8}
+      \strng{authorbibnamehash}{ec2c7258b3f7d9767ee5d34d86dd9bb8}
+      \strng{authornamehash}{ec2c7258b3f7d9767ee5d34d86dd9bb8}
+      \strng{authorfullhash}{ec2c7258b3f7d9767ee5d34d86dd9bb8}
+      \strng{authorfullhashraw}{ec2c7258b3f7d9767ee5d34d86dd9bb8}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{Insertion Devices: Undulators and Wigglers}
+      \field{year}{1997}
+    \endentry
+    \entry{clarke}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=5014f0ed1f0e754e02a47ab0ff205135}{%
+           family={Clarke},
+           familyi={C\bibinitperiod},
+           given={J.\bibnamedelimi A.},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{5014f0ed1f0e754e02a47ab0ff205135}
+      \strng{fullhash}{5014f0ed1f0e754e02a47ab0ff205135}
+      \strng{fullhashraw}{5014f0ed1f0e754e02a47ab0ff205135}
+      \strng{bibnamehash}{5014f0ed1f0e754e02a47ab0ff205135}
+      \strng{authorbibnamehash}{5014f0ed1f0e754e02a47ab0ff205135}
+      \strng{authornamehash}{5014f0ed1f0e754e02a47ab0ff205135}
+      \strng{authorfullhash}{5014f0ed1f0e754e02a47ab0ff205135}
+      \strng{authorfullhashraw}{5014f0ed1f0e754e02a47ab0ff205135}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{The Science and Technology of Undulators and Wigglers}
+      \field{year}{2004}
+    \endentry
+    \entry{kaneyasu}{article}{}{}
+      \name{author}{9}{}{%
+        {{hash=c943a3281f104bc296a1be0294e6f8b9}{%
+           family={Kaneyasu},
+           familyi={K\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=ff956a807ead3701dfa4bbadbc19afb0}{%
+           family={Hosaka},
+           familyi={H\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=1dfabd85f97682f99d484bb4737932f9}{%
+           family={Mano},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4eb3858f4726accfbb777ffd2ae765a0}{%
+           family={Takashima},
+           familyi={T\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=1aa72a8168d5a60f768d484584434d5b}{%
+           family={Fujimoto},
+           familyi={F\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b0d5a962622246c0511e5bc21738e95b}{%
+           family={Salehi},
+           familyi={S\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=e04d65862941c6add6640c2ef7ca4e79}{%
+           family={Iwayama},
+           familyi={I\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=f76a071e7bc25fac84a0cca7cbef256e}{%
+           family={Hikosaka},
+           familyi={H\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=9ab3d98cd0492de37b2ebd41a013d901}{%
+           family={Katoh},
+           familyi={K\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{c837760ab1ca134cbd400666d64809b6}
+      \strng{fullhash}{a2d1f1504b23ef064ba6aa72712932b5}
+      \strng{fullhashraw}{a2d1f1504b23ef064ba6aa72712932b5}
+      \strng{bibnamehash}{a2d1f1504b23ef064ba6aa72712932b5}
+      \strng{authorbibnamehash}{a2d1f1504b23ef064ba6aa72712932b5}
+      \strng{authornamehash}{c837760ab1ca134cbd400666d64809b6}
+      \strng{authorfullhash}{a2d1f1504b23ef064ba6aa72712932b5}
+      \strng{authorfullhashraw}{a2d1f1504b23ef064ba6aa72712932b5}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{11}
+      \field{journaltitle}{Scientific Reports}
+      \field{month}{6}
+      \field{number}{1}
+      \field{shortjournal}{Sci Rep}
+      \field{title}{Double-Pulsed Wave Packets in Spontaneous Radiation from a Tandem Undulator}
+      \field{volume}{12}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{pages}{9682}
+      \range{pages}{1}
+    \endentry
     \entry{FToptics}{article}{}{}
       \name{author}{1}{}{%
         {{hash=ea089cff3a4a0b9bc1f4dacc668444db}{%
@@ -825,19 +1049,83 @@
       \field{journaltitle}{Introdution to Fourier Optics (third edition)}
       \field{year}{2004}
     \endentry
-    \entry{grating}{article}{}{}
+    \entry{ratschow}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=a5608f0eab4517cbd60f90f8fa18057a}{%
+           family={Ratschow},
+           familyi={R\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{a5608f0eab4517cbd60f90f8fa18057a}
+      \strng{fullhash}{a5608f0eab4517cbd60f90f8fa18057a}
+      \strng{fullhashraw}{a5608f0eab4517cbd60f90f8fa18057a}
+      \strng{bibnamehash}{a5608f0eab4517cbd60f90f8fa18057a}
+      \strng{authorbibnamehash}{a5608f0eab4517cbd60f90f8fa18057a}
+      \strng{authornamehash}{a5608f0eab4517cbd60f90f8fa18057a}
+      \strng{authorfullhash}{a5608f0eab4517cbd60f90f8fa18057a}
+      \strng{authorfullhashraw}{a5608f0eab4517cbd60f90f8fa18057a}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{Doctral Thesis, KPH 02/00, Jhonas Gutenberg-Universit\"{a}t Mainz}
+      \field{year}{2000}
+    \endentry
+    \entry{jankowiak}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=b3482a0bec5aa5763cb45bffda229868}{%
+           family={Jankowiak},
+           familyi={J\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{b3482a0bec5aa5763cb45bffda229868}
+      \strng{fullhash}{b3482a0bec5aa5763cb45bffda229868}
+      \strng{fullhashraw}{b3482a0bec5aa5763cb45bffda229868}
+      \strng{bibnamehash}{b3482a0bec5aa5763cb45bffda229868}
+      \strng{authorbibnamehash}{b3482a0bec5aa5763cb45bffda229868}
+      \strng{authornamehash}{b3482a0bec5aa5763cb45bffda229868}
+      \strng{authorfullhash}{b3482a0bec5aa5763cb45bffda229868}
+      \strng{authorfullhashraw}{b3482a0bec5aa5763cb45bffda229868}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{Compilation of : Measurement of the electron beam energy at the Mainz Microtron, MAMI Internal Report 03/2006}
+      \field{year}{2006}
+    \endentry
+    \entry{herter}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=ee761ce7d69e66002859288e3772800e}{%
+           family={Herter},
+           familyi={H\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee761ce7d69e66002859288e3772800e}
+      \strng{fullhash}{ee761ce7d69e66002859288e3772800e}
+      \strng{fullhashraw}{ee761ce7d69e66002859288e3772800e}
+      \strng{bibnamehash}{ee761ce7d69e66002859288e3772800e}
+      \strng{authorbibnamehash}{ee761ce7d69e66002859288e3772800e}
+      \strng{authornamehash}{ee761ce7d69e66002859288e3772800e}
+      \strng{authorfullhash}{ee761ce7d69e66002859288e3772800e}
+      \strng{authorfullhashraw}{ee761ce7d69e66002859288e3772800e}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{Diploma Thesis, KPH 04/92, Jhonas Gutenberg-Universit\"{a}t Mainz}
+      \field{year}{1992}
+    \endentry
+    \entry{grating}{article}{}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{journaltitle}{https://www.thorlabs.com/thorproduct.cfm?partnumber=GR50-1204}
     \endentry
     \entry{lmfit}{article}{}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{journaltitle}{https://lmfit.github.io/lmfit-py/}
     \endentry
   \enddatalist
-  \missing{Khaustov}
-  \missing{ntoniadis2013}
 \endrefsection
 \endinput
 

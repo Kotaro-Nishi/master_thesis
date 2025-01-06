@@ -21,7 +21,7 @@
 最後に2台のアンジュレータのデータの解析結果について述べる。\\
 なおエネルギー測定のデータセットは以下のように構成されている。
 \begin{itemize}
-  \item 水銀灯の波長較正データ1枚
+  \item 水銀灯の波長較正データ1枚 (図\ref{beamtime}水銀灯による波長較正を参照)
   \item アンジュレータの位置データ 166個の値
   \item 干渉光の画像データ 166 position $\times$ 4 画像 = 664枚
 \end{itemize}
@@ -52,6 +52,7 @@
   \includegraphics[width=0.8\linewidth]{image/4-pixel.png}
   \caption{ピクセルの平均値と標準偏差の関係}\label{pixel}
 \end{figure}
+
 ピクセルの発光量はポアソン分布に従うことから、標準偏差は平均値の平方根に比例すると考えられる。
 オフセットを考慮してフィッティングした結果、平均値と標準偏差の関係は
 \begin{eqnarray}
@@ -63,45 +64,40 @@
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\linewidth]{image/4-BG.png}
-  \caption{背景画像。ピクセル値が150以上のピクセルは150に置き換えて表示している。}\label{BG}
+  \caption{背景画像。ピクセル値が150以上のピクセルは150に置き換えて白で表示している。}\label{BG}
 \end{figure}
+
 背景画像のピクセル値の分布を図\ref{BGmean}に示す。全画素にわたるピクセル値の平均値は98.91、標準偏差は4.57であった。ピクセル値が150以上のピクセルは全体の0.14 \%であった。
-\begin{figure}[b]
+\begin{figure}[h]
   \centering
-  \begin{subfigure}[b]{0.33\linewidth}
+  \begin{subfigure}[b]{0.45\linewidth}
     \centering
     \includegraphics[width=\linewidth]{image/4-BGmean.png}
     \subcaption{150以下の平均値分布}
   \end{subfigure}
   \hfill
-  \begin{subfigure}[b]{0.33\linewidth}
+  \begin{subfigure}[b]{0.45\linewidth}
     \centering
     \includegraphics[width=\linewidth]{image/4-BGmeanlog.png}
     \subcaption{150 以下の平均値分布(対数表示)}
   \end{subfigure}
   \hfill
-  \begin{subfigure}[b]{0.33\linewidth}
+  \begin{subfigure}[b]{0.45\linewidth}
     \centering
     \includegraphics[width=\linewidth]{image/4-BGmeanall.png}
     \subcaption{平均値の全分布}
   \end{subfigure}
-  \caption[背景画像の光量分布]{背景画像のピクセルの平均値分布}
+  \caption[背景画像の光量分布]{背景画像のピクセルの平均値分布}\label{BGmean}
 \end{figure}
 
-
-
-\begin{figure}
+周囲のピクセルと比較した超過値の分布を示す(図\ref{excess})。
+閾値として40を設定し、閾値を超えるピクセルはノイズピクセルとして除去した。
+ノイズピクセルと判定されたピクセルの割合は0.22\%であった。
+\begin{figure}[h]
   \centering
-  \includegraphics[width=0.8\linewidth]{image/4-BGmean.png}
-  \caption{背景画像のピクセル値の平均値分布}\label{BGmean}
+  \includegraphics[width=0.5\linewidth]{image/4-excess.png}
+  \caption[超過値の分布]{周囲のピクセルと比較した超過値の分布。超過値が40を超えたピクセルを除去する前後の結果を示す。}\label{excess}
 \end{figure}
-
-
-全てのピクセルの平均値と標準偏差の関係を示す。
-
-周囲のピクセルと比較した超過値の分布を示す。閾値として今回は40を設定した。超過値が40を超えるピクセルはノイズピクセルとして除去した。
-ノイズピクセルと判定されたピクセルの割合は平均して??\%であった。
-また、ピクセルが異常を起こし、常にノイズピクセルとして判定される割合は??\%程度だったのに対し、放射線など偶発的にノイズが乗るピクセルは??\%程度であった。
 \subsection{平滑化}
 画像の平滑化が必要な場合には、波長方向にのみ行う。同様にノイズピクセルをマスクしたうえで、マスクされなかったピクセルの平均値と標準偏差を計算し、ピクセルの誤差は標準偏差を計算に用いたピクセルの数の平方根で割った値(標準誤差)とする。
 
@@ -115,8 +111,8 @@
 水銀灯の波長較正で得られた画像の例を図\ref{mercury}に示す。
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.8\linewidth]{image/4-mercury.png}
-  \caption[水銀灯の波長較正-1]{水銀灯の波長較正で得られた画像。404.656 nmと407.781 nmに対応する輝線が見える。この輝線スペクトルをもとにピクセル-波長関係から得られた波長の値が画像の上の軸である。}\label{mercury}
+  \includegraphics[width=0.6\linewidth]{image/4-mercury.png}
+  \caption[水銀灯の波長較正-1]{水銀灯の波長較正で得られた画像。404.656 nmと407.781 nmに対応する輝線が見える。この輝線スペクトルをもとにピクセル$-$波長関係から得られた波長の値が画像の上の軸である。}\label{mercury}
 \end{figure}
 $y$軸方向に50 ピクセルのカットをかけて、ガウシアンによるフィッティングを行った結果を図\ref{mercuryfit}に示す。
 輝線スペクトルの中心付近でのカットの結果、中心値のピクセルとフィットによる中心決定精度は
@@ -124,27 +120,27 @@ $y$軸方向に50 ピクセルのカットをかけて、ガウシアンによ�
   ピクセル_{404.7} &=& 1209.5912(9)\\
   ピクセル_{407.8} &=& 1868.155(4) 
 \end{eqnarray}
-と求められた。これらの値を元に、ピクセル-波長関係が求められる。特に1 ピクセルあたりの波長分散は、
+と求められた。これらの値を元に、ピクセル$-$波長関係が求められる。特に1 ピクセルあたりの波長分散は、
 \begin{eqnarray}
-  \lambda / ピクセル = 0.0047~\text{nm}
+  \lambda_L / ピクセル = 0.0047~\text{nm}
 \end{eqnarray}
 である。また、輝線スペクトルの幅($\sigma$)は404.656 nmのピークが3.5 ピクセル、407.781 nmのピークが2.1 ピクセルと見積もられているが、これはそれぞれ0.0016 nm、0.0010 nmの波長分散に相当し、
 較正波長約400 nm に対して$10^{-4}$以下に抑えられている。
 \begin{figure}[h]
   \centering
-  \begin{subfigure}[h]{0.33\linewidth}
+  \begin{subfigure}[h]{0.45\linewidth}
     \centering
     \includegraphics[width=\linewidth]{image/4-fpeak.png}
     \subcaption{404.656 nmのピーク}
   \end{subfigure}
   \hfill
-  \begin{subfigure}[h]{0.33\linewidth}
+  \begin{subfigure}[h]{0.45\linewidth}
     \centering
     \includegraphics[width=\linewidth]{image/4-speak.png}
     \subcaption{407.781 nmのピーク}
   \end{subfigure}
   \hfill
-  \begin{subfigure}[h]{0.33\linewidth}
+  \begin{subfigure}[h]{0.45\linewidth}
     \centering
     \includegraphics[width=\linewidth]{image/4-bothpeak.png}
     \subcaption{2つのピーク}
@@ -167,19 +163,20 @@ $y$軸方向のカットをかけるピクセルを輝線が明瞭に見える$y
 カメラの傾きによる波長分散の効果は$10^{-4}$以下に抑えられていると言える。
 \begin{figure}[h]
   \centering
-  \begin{subfigure}[h]{0.3\linewidth}
+  \begin{subfigure}[h]{\linewidth}
     \centering
     \includegraphics[width=\linewidth]{image/4-tilt.png}
     \subcaption{輝線の傾きの図示}
   \end{subfigure}
   \hfill
-  \begin{subfigure}[h]{0.3\linewidth}
+  \vspace{1em}
+  \begin{subfigure}[h]{0.45\linewidth}
     \centering
     \includegraphics[width=\linewidth]{image/4-tiltfpeak.png}
     \subcaption{404.656 nmのピーク}
   \end{subfigure}
   \hfill
-  \begin{subfigure}[h]{0.3\linewidth}
+  \begin{subfigure}[h]{0.45\linewidth}
     \centering
     \includegraphics[width=\linewidth]{image/4-tiltspeak.png}
     \subcaption{407.781 nmのピーク}
@@ -246,11 +243,11 @@ $y$軸方向のカットをかけるピクセルを輝線が明瞭に見える$y
 1電子の放射光であると仮定していた放射光関数は、電子ビームサイズを考慮すると、異なる電子からの放射光関数の重ね合わせとして表現できると考えられる。
 $y$軸方向のビームサイズを$\sigma_y$としてガウス状の広がりを仮定し、放射光関数をこのガウシアンで畳みこむ。
 これにより1電子放射光関数から得られる回折パターンはぼやける。電子ビームサイズによって回折パターンがぼやける様子を計算で再現した結果を図\ref{beamsize}に示す。
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.8\linewidth]{image/4-esize.png}
   \caption[電子ビームサイズによる回折パターンのぼやけ]{電子ビームサイズによる回折パターンのぼやけ。畳み込みがない場合(灰色)と比較して
-  ビームサイズの効果を入れた赤、緑、青の線は回折の微細構造がぼやけている}\label{beamsize}
+  ビームサイズの効果を入れた青、緑、赤の線は回折の微細構造がぼやけている}\label{beamsize}
 \end{figure}
 
 %\subsection{光学系}
@@ -263,7 +260,7 @@ $y$軸方向のビームサイズを$\sigma_y$としてガウス状の広がり�
   \centering
   \begin{tabular}{c|c}
     $\lambda_L$ & 観測光の波長。波長較正によってカメラの$x$軸と波長の関係が求められている。\\
-    $y$ & カメラにおける$y$座標。カメラのチップサイズ14.976~mmに対応して-74.88 mm から74.88 mmの値をとる\\
+    $y$ & カメラにおける$y$座標。カメラのチップサイズ14.976~mmに対応して-7.488 mm から7.488 mmの値をとる\\
     $d$ & アンジュレータの最上流を0と定義し、下流方向を正にとる。0 - 825 mmの値をとる\\
   \end{tabular}
   \caption[変数の定義]{変数の定義}\label{tab:variables}
@@ -298,9 +295,11 @@ $\delta \phi$というパラメータで位相差を調整する。
 
 
 \subsection{パラメータ較正}
-単独アンジュレータのデータを解析し、$z(U2- slit),z(slit-cam),w(slit)$の最適値を求める。
-2台のアンジュレータのデータではこれらのパラメータを固定してフィッティングを行う。ただし系統誤差を見積もるために、パラメータを変化させた場合のフィッティングも行う。\\
-また、アンジュレータが下流に移動することによる光量の変化をampl パラメータの$d$依存性に押し込む。この依存性から、上流アンジュレータと下流アンジュレータの寄与の係数も決定できる。
+単独アンジュレータのデータを解析し、
+%$z(U2- slit),z(slit-cam),w(slit)$の最適値を求める。
+%2台のアンジュレータのデータではこれらのパラメータを固定してフィッティングを行う。ただし系統誤差を見積もるために、パラメータを変化させた場合のフィッティングも行う。\\
+%また、
+アンジュレータが下流に移動することによる光量の変化をampl パラメータの$d$依存性に押し込む。この依存性から、上流アンジュレータと下流アンジュレータの寄与の係数を決定できる。
 \section{単独アンジュレータの解析}
 \noindent \textbf{\underline{解析}}\par
 パラメータ較正を目的とした単独アンジュレータのデータの解析を述べる。
@@ -311,8 +310,12 @@ $\delta \phi$というパラメータで位相差を調整する。
   \item 光学的な位置関係の変化による回折パターンの形状の変化
 \end{itemize}
 
-振幅の上昇と回折パターンの形状の変化から、距離のパラメータ $z(U2-slit),z(slit-cam),w(slits)$の最適値を求めることができる。
-$z(U2-slit),z(slit-cam),w(slit)$を固定してフィッティングを行い、適合度がもっとも良いパラメータの組を最適な値として定義する。
+振幅の上昇と回折パターンの形状の変化から、放射光の光量に対応する振幅係数がアンジュレータの位置に対してどのように依存するかを解析する。
+カメラで撮影された画像は回折像であるから、隣り合うピクセル同士の（回折の効果がなかった時の）真のピクセル値が互いに相関している。
+そのため、あるピクセルに注目しその$d$依存性を調べるだけでは十分な情報が得られないことが期待される。
+したがって、回折の効果を取り入れたフィッティングによって、ある位置での回折像全体にかかる係数$ampl(d)$を求めることが有効であると考えた。
+%距離のパラメータ $z(U2-slit),z(slit-cam),w(slits)$の最適値を求めることができる。
+%$z(U2-slit),z(slit-cam),w(slit)$を固定してフィッティングを行い、適合度がもっとも良いパラメータの組を最適な値として定義する。
 
 \noindent \textbf{\underline{結果}}\par
 電子ビームエネルギー210 MeVにおいて取得した単独アンジュレータのデータを解析した。
@@ -329,7 +332,26 @@ $z(U2-slit),z(slit-cam),w(slit)$を固定してフィッティングを行い、
 \end{figure}
 
 回折パターンの形状の変化はモデル関数において、放射光関数の球面波位相が変化することで説明できると考えられる。
-振幅の変化は、$ampl$パラメータを$d$によって変化するパラメータ$ampl(d)$としてフィッティングを行うことで詳しく調べられる。フィッティングをおこない$ampl$パラメータを$d$に対してプロットした結果を図\ref{DCampl}に示す。
+振幅の変化は、$ampl$パラメータを$d$によって変化するパラメータ$ampl(d)$としてフィッティングを行うことで詳しく調べられる。
+また、単独アンジュレータの画像では波長依存性が無視できると考えらえるから、波長方向に$500$ピクセルの平滑化を行った。
+\begin{figure}
+  \centering
+  \begin{subfigure}[h]{0.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{image/4-single_0.png}
+    \subcaption{$d$=0~mm}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[h]{0.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{image/4-single_500.png}
+    \subcaption{$d$=500~mm}
+  \end{subfigure}
+  \caption[単独アンジュレータのデータ]{単独アンジュレータでの回折像のフィッティング結果を示す。波長方向(画像の$x$軸方向)に500ピクセルの平滑化を行ったため、
+  明瞭な回折パターンが見られる。フィットの結果はこのパターンをよく再現している。}
+\end{figure}\label{single_d}
+
+フィッティングをおこない$ampl$パラメータを$d$に対してプロットした結果を図\ref{DCampl}に示す。
 $d$に対して全体的に上昇する傾向と、周期的に変動する傾向が見られる。この周期的変動は約135~mmであり、
 測定に用いた電子ビームエネルギー210 MeVに対応する周期的変動の周期(式(\ref{eq:energy_prim}))$\lambda_{osc} = 2\gamma^2\lambda_L \simeq 135~\text{mm}$に一致している。
 これはアンジュレータ放射光と可干渉で、$d$に依存しない位相の光波が入射しており、この光波と下流アンジュレータの放射光の
@@ -342,6 +364,8 @@ $d$依存性は$1/z(U2-slit)^2$を反映したものになると考えられる�
   ampl(d) = \frac{1}{(d - z(U2-slit))^2} + \sin\left( \frac{2\pi}{\lambda'_{osc}}d + \phi \right)\label{eq:ampl}
 \end{eqnarray}
 というモデル関数を用いてフィッティングを行うと、$z(U2-slit) = 10.51$ m、$\lambda_{osc}= 135.33$ mmという値が得られた。
+実測値$z(U2-slit)$ = 10.26~mに対して0.25~mのずれがある。この値はアンジュレータの中心とスリットまでの実測値であり、アンジュレータの長さ$0.52$~mを考慮すると
+アンジュレータの最上流からスリットまでの距離よりも短い。そのため個のずれはアンジュレータの長さの効果を取り入れた実効的な距離として解釈できる。
 
 \begin{figure}[h]
   \centering
@@ -355,7 +379,8 @@ $d$依存性は$1/z(U2-slit)^2$を反映したものになると考えられる�
 
 \section{2台のアンジュレータの解析}
 \noindent \textbf{\underline{解析}}\par
-パラメータ較正によって決定したパラメータを用いて2台のアンジュレータのデータを解析する。動かすパラメータは以下の通りである。
+2台のアンジュレータの場合にはよりフィッティングの$z(U2-slit)$,$z(slit-cam)$,$w(slit)$のパラメータを固定することでフィッティングの安定性を確保する。
+以下の自由なパラメータを用いて2台のアンジュレータのデータを解析する。
 \begin{table}[h]
 \centering
 \begin{tabular}{cc}
@@ -365,6 +390,8 @@ $d$依存性は$1/z(U2-slit)^2$を反映したものになると考えられる�
   $\delta \phi$ & 上流と下流のアンジュレータの位相のずれ\\
   ampl & 振幅
 \end{tabular}
+\caption[位置に依存する振幅パラメータによるフィッティング]{下流アンジュレータの位置$d$に依存する$ampl(d)$パラメータを用いてフィッティングした際の$ampl(d)$の$d$依存性。
+アンジュレータが下流側に移動すると光量が増加する傾向を反映して、$ampl(d)$パラメータが増加している。また周期的変動も見られる。}
 \end{table}
 
 これらのパラメータを動かしてモデル関数によるデータのフィッティングを行う。
@@ -387,6 +414,34 @@ $d$依存性は$1/z(U2-slit)^2$を反映したものになると考えられる�
   \caption[アンジュレータ位置に対する振幅の変化]{アンジュレータ位置に対する振幅の変化。較正波長 404.65 nm、$y$ =0 mmのピクセルを選び、ピクセル値を$d$に対してプロットすると周期的変動が見られる。}
 \end{figure}
 %fittingの結果
+この画像をフィッティングした結果を図\ref{double}に示す。
+\begin{figure}
+  \centering
+  \begin{subfigure}[h]{0.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{image/4-double_0.png}
+    \subcaption{$d$=0~mm}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[h]{0.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{image/4-double_200.png}
+    \subcaption{$d$=200~mm}
+  \end{subfigure}
+  \begin{subfigure}[h]{0.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{image/4-double_400.png}
+    \subcaption{$d$=400~mm}
+  \end{subfigure}
+  \begin{subfigure}[h]{0.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{image/4-double_600.png}
+    \subcaption{$d$=600~mm}
+  \end{subfigure}
+  \caption[2台のアンジュレータのデータ]{2台のアンジュレータのデータの回折パターンのフィッティングを示す。}
+\end{figure}\label{double}
+
+周期的な振動と、回折パターンの両方がうまくフィットできていることがわかる。
 
 \section{統計誤差の見積もり}
 \noindent \textbf{\underline{解析}}\par
@@ -394,16 +449,22 @@ $d$依存性は$1/z(U2-slit)^2$を反映したものになると考えられる�
 ブートストラップ法はデータから復元抽出を行い、その復元抽出データから統計量を計算することで統計量の分布を推定する手法である。
 下流アンジュレータの位置に関してランダムに復元抽出を複数回行い、抽出されたデータの集合に対してフィッティングを行う。得られたパラメータの分布から統計誤差を見積もる。
 
-また各パラメータ同士の相関もブートストラップ法の復元抽出データから求めることができる。
-理想的には全てのパラメータ同士が相関を持たない。
+%また各パラメータ同士の相関もブートストラップ法の復元抽出データから求めることができる。
+%理想的には全てのパラメータ同士が相関を持たない。
 
 \noindent \textbf{\underline{結果}}\par
-ブートストラップ法による統計誤差の見積もりの結果を示す。100個の異なる復元抽出データから得られる
-$\gamma$の分布を示す。この分布から求めた$\gamma$の平均値と標準偏差は
+$E_{beam} =195$~MeVのデータについてブートストラップ法による統計誤差の見積もりの結果の一例を示す。100個の異なる復元抽出データから得られる
+$\gamma$の分布を図\ref{gamm_hist}に示す。
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\linewidth]{image/4-gammahist.png}
+  \caption[ブートストラップ法による$\gamma$の分布]{ブートストラップ法による$\gamma$の分布。100個の異なる復元抽出データから得られる$\gamma$の分布を示す。} \label{gamm_hist}
+\end{figure}
+この分布から求めた$\gamma$の平均値と標準偏差は
 \begin{eqnarray}
-  \gamma = 381.232 \pm 0.052
+  \gamma = 381.1972 \pm 0.0383
 \end{eqnarray}
-である。
+となり、$\lambda_L$ =404.656~nmにおける電子ビームエネルギーの統計誤差は10$^{-4}$の水準に達した。
 \section{系統誤差の見積もり}
 波長依存性と位置依存性による誤差が主要な系統誤差の要因と考えられる。
 \subsubsection{波長依存性}
@@ -420,10 +481,13 @@ $\gamma$の分布を示す。この分布から求めた$\gamma$の平均値と�
   \caption{エネルギーの推定値の位置依存性}\label{wldep}
 \end{figure}
 
-また、アクセプタンス全体における$\gamma$の分布の平均値および標準偏差は、
+また、アクセプタンス全体における$\gamma_\lambda$の平均値および標準偏差は、
 \begin{eqnarray}
-  \gamma = 381.242 \pm 0.059
+  \gamma = 381.242 \pm 0.0587
 \end{eqnarray}
+となった。この結果から波長依存性による系統誤差は$2\times10^{-4}$以下の水準であった。
+
+この波長依存性の原因として、モデル関数の不完全性や光学系の非線形性が挙げられる。
 
 \subsubsection{位置依存性}
 \noindent \textbf{\underline{解析}}\par
@@ -438,8 +502,20 @@ $\gamma$の分布を示す。この分布から求めた$\gamma$の平均値と�
   \caption[アンジュレータ位置に対するエネルギーの推定値]{アンジュレータ位置に対するエネルギーの推定値。split index 1がもっとも上流であり、アンジュレータの可動範囲の最上流を0 mm としたときに
   split index 1は 0 mm から205 mm、split index 2は205 mmから410 mm、split index 3は415 mmから620 mm、split index 4は620 mmから825 mmの範囲を示す。}\label{posdep}
 \end{figure}
+少ないデータセットでブートストラップを行ったため、各々の統計誤差は大きくなっている。
+またsplit index 4のデータは特に統計誤差が大きい。これは2台のアンジュレータ同士の距離が離れた結果、放射光の振幅、位相関数の差が大きくなり、干渉光に個のずれの影響が大きくなるためだと考えられる。
+単独アンジュレータの解析によってこの位置依存性のずれは補正できる可能性がある。
 
 \subsubsection{エネルギー依存性}
-180、195、210 MeVの3つのエネルギーの結果を表に示す。
-
+180、195、210 MeVの3つのエネルギーの結果の一例を表\ref{energy_dep}に示す。
+\begin{table}
+\begin{tabular}{c|c|c}
+  エネルギー[MeV] & $\gamma$ & 統計誤差 \\
+  \hline
+  180 & 351.432 & 0.065 \\
+  195 & 381.242 & 0.0587 \\
+  210 & 409.892 & 0.082 \\
+\end{tabular}\caption{エネルギーごとの決定精度}\ref{energy_dep}
+\end{table}
+どのエネルギーにおいても統計誤差は$2\times10^{-4}$に収まっている。
 \end{document}

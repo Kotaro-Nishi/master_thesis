@@ -14,9 +14,14 @@
 
 \chapter{アンジュレータ放射光干渉法の原理}
 アンジュレータ放射光干渉法の概要を以下の図に示す。
-%図を入れる
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{image/2-URI.png}
+  \caption{アンジュレータ放射光干渉法の概要}
+\end{figure}
+
 初めに\ref{sec:undulator}章でアンジュレータ放射光の発生原理と放射される放射光の性質を述べる。
-続いて\ref{sec:tandem}節以降で２台のアンジュレータを用いることによる干渉の原理を示す。軸上($\theta =0$)放射の場合と、一般の$\theta$におけるエネルギー決定公式を導く。
+続いて\ref{sec:tandem}節以降で2台のアンジュレータを用いることによる干渉の原理を示す。軸上($\theta =0$)放射の場合と、一般の$\theta$におけるエネルギー決定公式を導く。
 続いて\ref{sec:optics}章で放射光観測のための光学系による光学処理の原理を示す。
 最後にこれらの原理をまとめた完全な物理モデルによる関数系の概要を示す。
 \section{アンジュレータ放射光}
@@ -31,10 +36,10 @@
 次節ではまず、放射光の発生原理について述べる。
 
 \subsection{アンジュレータ放射光発生の原理}\label{sec:undulator}
-この節ではアンジュレータの原理を示す。
+この節ではアンジュレータの原理を示す。より詳細な記述に関しては\cite{大柳,walker,clarke}などの教科書がある。
 
 \subsubsection{放射光の一般原理}\label{sec:general radiation}
-リエナール・ヴィーヘルト・ポテンシャルから出発して、放射強度の角分布についての一般的な性質を説明する。電子から観測点へ向かうベクトルを$\bm{R}$、これに平行な単位ベクトルを$\bm{n} = \bm{R}/R$、電子の電荷$e$、電子の相対論的速度$\bm{\beta} = \bm{v}/c$、
+リエナール・ヴィーヘルト・ポテンシャルから出発して、放射強度の角分布についての一般的な性質を説明する。電子から観測点へ向かうベクトルを$\bm{R}$、これに平行な単位ベクトルを$\bm{n} = \bm{R}/R$、電子の電荷e、電子の相対論的速度$\bm{\beta} = \bm{v}/c$、
 放射が発生した時刻（遅延時刻）$t'$、放射の観測時刻$t$として
 \begin{eqnarray}
   \bm{A}(t) &=& \frac{\mu_0 c}{4\pi}\frac{e\bm{\beta(t')}}{(1-\bm{n}(t')\cdot\bm{\beta}(t'))\bm{R}(t')}\label{retarded potential}\\
@@ -63,14 +68,14 @@
   \frac{\text{d}P(t')}{\text{d}\Omega} = \frac{\text{d}P(t)}{\text{d}\Omega}\frac{\text{d}t}{\text{d}t'} = \frac{e^2}{16\pi^2 \epsilon_0 c}\frac{\left|\bm{n}\times \left\{ (\bm{n}-\bm{\beta})\times \bm{\dot{\beta}}\right\}\right|^2}{(1-\bm{n}\cdot\bm{\beta})^5}
 \end{eqnarray}
 
-\begin{figure}[htbp]
+\begin{figure}[h]
   \centering
   \includegraphics[width=10cm]{image/2-cordinate.png}
-  \caption{座標系}
+  \caption{座標系}\label{cordinate}
 \end{figure}
 %アンジュレータであることを一言入れる。
 今はアンジュレータの磁場による偏向運動を考えたいため、$\bm{\beta} \perp \bm{\dot{\beta}}$として議論を進める。
-電子の運動方向を$z$軸にとり$\bm{\beta} = (0,0,\beta)$とする。また、磁場が$y$軸に向いているとすれば、$\bm{\dot{\beta}} = (\dot{\beta},0,0)$とおける。3次元極座標表示で、$\bm{n} = (\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta)$とすると、
+電子の運動方向を$z$軸にとり$\bm{\beta} = (0,0,\beta)$とする。また、磁場が$y$軸に向いているとすれば、$\bm{\dot{\beta}} = (\dot{\beta},0,0)$とおける\ref{cordinate}。3次元極座標表示で、$\bm{n} = (\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta)$とすると、
 \begin{eqnarray}\label{eq:power2}
   \frac{\text{d}P(t')}{\text{d}\Omega} = \frac{e^2\dot{\beta}^2}{16\pi^2 \epsilon_0 c}\frac{(\cos\theta - \beta)^2 + (1-\beta^2)\sin^2\theta\sin^2\phi}{(1-\beta \cos\theta)^5}
 \end{eqnarray}
@@ -98,7 +103,7 @@ $\beta \simeq 1$ の時に式(\ref{eq:power2})の分母が$\theta \ll 1$で0に�
 であり、$K$は偏向定数と呼ばれ、電子軌道の最大偏角$\Psi$と
 \begin{eqnarray}
   K = \gamma \Psi = \frac{eB_0\lambda_u}{2\pi m c^2} = 93.4 \frac{B_0}{[\text{T}]}\frac{\lambda_u}{[\text{m}]}
-\end{eqnarray}
+\end{eqnarray}\label{eq:K}
 のように関係づけられる。表式からわかるように、アンジュレータの周期と磁場によって偏向定数が決まる。
 
 アンジュレータ放射は偏向定数によって特徴づけられる。電子軌道は最大偏角$\Psi = K/\gamma$のサイン型であり、\ref{sec:general radiation}節で述べたように、放射強度の広がりは$1/\gamma$程度となることから、
@@ -133,7 +138,7 @@ $\bm{n}$に垂直な2成分だけなので、特に$x-z$平面と平行な成分
 この式で、$N$をアンジュレータの周期数として、
 \begin{eqnarray}
   g &=& -i \frac{e\gamma}{cR} \frac{\sin \left( N\pi (\omega/\omega_1 -1) \right)}{\omega/\omega_1 -1}\exp\left[-ik\omega_1 R/c \right]\\
-  \omega_1 &=& \frac{2\gamma^2\omega_0}{1+K^2/2 + (\gamma\theta)^2}\\
+  \omega_1 &=& \frac{2\gamma^2\omega_0}{1+K^2/2 + (\gamma\theta)^2} \label{resonance_wl}\\
   \xi &=& \frac{1}{1 + (\gamma\theta)^2 + K^2/2} \\
   S_q &=& \sum_{p = -\infty}^{\infty} J_{1+2p+q}(2\xi K\gamma\theta\cos\phi)J_p(K^2/4)
 \end{eqnarray}
@@ -161,16 +166,66 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 \end{eqnarray}
 したがってアンジュレータ放射の波長は
 \begin{eqnarray}
-  \lambda_L = \frac{\lambda_U}{2\gamma^2}(1+K^2/2)
+  \lambda_R = \frac{\lambda_U}{2\gamma^2}(1+K^2/2)
 \end{eqnarray}\label{eq:resonance_wl}
-にピークを持つようなスペクトルを持つことがわかる。
+にピークを持つようなスペクトルを持つことがわかる。これは式(\ref{resonance_wl})に対応しており、特に共鳴波長と呼ぶ。
+
+本研究で用いたアンジュレータの場合に得られる放射光強度の例を図\ref{resonance},\ref{noresonance}に示す。
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[h]{\linewidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{image/2-spec_res.png}
+    \subcaption{二次元スペクトル}
+  \end{subfigure}
+  \hfill
+  \vspace{1em}
+  \begin{subfigure}[h]{0.35\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{image/2-spec_res_x.png}
+    \subcaption{$y$=0}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[h]{0.35\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{image/2-spec_res_y.png}
+    \subcaption{$x$=0}
+  \end{subfigure}
+\caption[共鳴波長でのアンジュレータ放射]{$K$ = 0.710、$E_{beam}$ = 195~MeVのとき、アンジュレータから$z$=11~m後方で、$\lambda_L$=404.7~nmの
+波長を観測したときに得られる放射光強度（振幅）。この時共鳴波長は$\lambda_R = 403.6$~nmであり、ビーム軸で強度は最大になる。}\label{fig:resonance}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[h]{\linewidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{image/2-spe_nores.png}
+    \subcaption{2次元スペクトル}
+  \end{subfigure}
+  \hfill
+  \vspace{1em}
+  \begin{subfigure}[h]{0.35\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{image/2-spe_nores_x.png}
+    \subcaption{$y$=0でのスペクトル}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[h]{0.35\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{image/2-spe_nores_y.png}
+    \subcaption{$x$=0でのスペクトル}
+  \end{subfigure}
+\caption[非共鳴波長でのアンジュレータ放射]{$K$ = 1.046、$E_{beam}$ = 210~MeVのとき、アンジュレータから$z$=11~m後方で、$\lambda_L$=404.7~nmの
+波長を観測したときに得られる放射光強度（振幅）。この時共鳴波長は$\lambda_R = 366.4$~nmであり、観測波長よりも短い。
+このとき強度が最大になるのはビーム軸の外になる。}\label{fig:noresonance}
+\end{figure}
 
 \subsection{アンジュレータ放射光 - タンデムアンジュレータ}\label{sec:tandem}
 アンジュレータを電子ビームに沿って2つ連結した構成は放射光科学において広く使われている。
 これらのアンジュレータ間にシケイン電磁石を配置することで遅延を調整することが可能になる。
-アンジュレータの種類や構成によって位相や偏光状態の異なる様々な形状の放射光を得ることができる。
+アンジュレータの種類や構成によって位相や偏光状態の異なる様々な形状の放射光を得ることができる\cite{kaneyasu}。
 
-本研究では、タンデムアンジュレータを用いる。アンジュレータ自体を移動させることでアンジュレータ間の物理的距離を変化させる点が特徴的な構成である。
+本研究では、タンデムアンジュレータを用いてる。アンジュレータ自体を移動させることでアンジュレータ間の物理的距離を変化させる点が特徴的な構成である。
 
 \subsection{干渉の原理}\label{sec:interference}
 \ref{sec:undulator radiation}節の議論を応用すると、タンデム型アンジュレータから放射される放射光はダブルパルス型の波形となることがわかる。
@@ -186,10 +241,11 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 
 \subsection{電子ビームエネルギーと干渉光周期の関係式}
 ダブルパルスの間隔は以下のような近似で理解することができる。
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=10cm]{image/2-lambdaosc.png}
-  \caption{アンジュレータ放射光干渉法の概要}
+  \caption{アンジュレータ放射光干渉法の光路差、位相差、干渉光周期$\lambda_{osc}$の関係。$\lambda_{osc}$は、アンジュレータを$\lambda_{osc}$だけ移動させたときに
+  二つの波束の位相がちょうど1波長$\lambda_L$だけずれる長さとして定義される。}
 \end{figure}
 上流のアンジュレータで発生する放射光は電子ビームよりも早く、電子が下流側のアンジュレータに到達した時にはアンジュレータ間の距離に比例した光路差が生じる。
 \begin{eqnarray}
@@ -231,9 +287,9 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 \end{eqnarray}
 となる。
 
-より現実に即した計算として、放射光の振幅と位相を式(\ref{eq:spectrum})に従って計算し、スリット直前での干渉光を$y$座標の関数として表したのが図??である。
-下流アンジュレータの位置に対して周期的な変動が見られる。
-また$y$座標は放射角に対応しており、周期的変動の周期、位相が放射角に依存していることがわかる。
+%より現実に即した計算として、放射光の振幅と位相を式(\ref{eq:spectrum})に従って計算し、スリット直前での干渉光を$y$座標の関数として表したのが図??である。
+%下流アンジュレータの位置に対して周期的な変動が見られる。
+%また$y$座標は放射角に対応しており、周期的変動の周期、位相が放射角に依存していることがわかる。
 
 
 \section{光学系}\label{sec:optics}
@@ -326,7 +382,7 @@ $U(P)、G(P)$を位置に関する複素関数、体積$V$の領域を囲む閉�
 これをスリットによる回折現象のように、ある平面上の波面から回折像を計算する場面に適用したい。そのために図\ref{fig:diff_kir}のように半径$R$の球面$S_2$をスリットの平面$S_1$で切断した閉曲面を考える。
 \begin{figure}[h]
   \centering
-  \includegraphics[width=10cm]{image/2-diffraction_kir.png}
+  \includegraphics[width=7cm]{image/2-diffraction_kir.png}
   \caption[スリットによる回折の模式図]{スリットによる回折のための閉曲面の定義。観測点$P_0$を中心とする半径$R$の球面を$S_2$、この球面が開口のある平面で切断される平面を$S_1$とおく。
   また開口面の領域を$\Sigma$と置く。}\label{fig:diff_kir}
 \end{figure}
@@ -387,7 +443,7 @@ $U(P)、G(P)$を位置に関する複素関数、体積$V$の領域を囲む閉�
 と取ると、$S_1$平面上で$G =0$となる。
 \begin{figure}[h]
   \centering
-  \includegraphics[width=10cm]{image/2-diffraction_ray.png}
+  \includegraphics[width=7cm]{image/2-diffraction_ray.png}
   \caption[レイリーゾンマーフェルト積分の座標系]{レイリーゾンマーフェルト回折積分のグリーン関数}\label{fig:diff_ray}
 \end{figure}
 したがって、$\Sigma$の外で$U =0 $であることに注意すれば、
@@ -405,7 +461,7 @@ $P_1$が$S_1$上にあるから、$r_{01} = \tilde{r_{01}}$、$\cos(\bm{n},\bm{r
 \begin{eqnarray}
   \frac{\partial G}{\partial n} = 2\cos(\bm{n},\bm{r_{01}})\left(ik - \frac{1}{r_{01}}\right)\frac{\exp(ikr_{01})}{r_{01}}
 \end{eqnarray}
-フレネル・キルヒホッフの回折積分と同様に、\textgt{近似.1}$k \gg 1/r$の近似を用いるとより簡単に表せて、これを代入すれば、
+フレネル・キルヒホッフの回折積分と同様に、\textgt{近似.1}~$k \gg 1/r$の近似を用いるとより簡単に表せて、これを代入すれば、
 \begin{eqnarray}
   U(P_0) = \frac{1}{i\lambda}\int_{\Sigma} U(P_1)\frac{\exp(ikr_{01})}{r_{01}}\cos(\bm{n},\bm{r_{01}})ds
 \end{eqnarray}
