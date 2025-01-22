@@ -2,6 +2,43 @@
 \input{0_preamble}
 
 \begin{document}
-\chapter*{Appendix.A}
+\chapter*{Appendix.A アンジュレータ放射の電場計算}
+\cite{wiedemann2015}を参考に導出を行う。
+
+リエナール・ヴィーヘルトポテンシャルは
+\begin{eqnarray}
+  \bm{E}_r &=& \frac{1}{4\pi \epsilon_0} \frac{e}{c}  \frac{\bm{n}\times \left\{ (\bm{n}-\bm{\beta})\times \bm{\dot{\beta}}\right\}}
+  {R(1-\bm{n}\cdot\bm{\beta})^3} \Biggm\vert_r
+\end{eqnarray}
+これをフーリエ変換することによって、回折格子で波長ごとに分光された電場振幅を求めることができる。
+\begin{align}
+  \bm{E}(\omega) = \int_{-\infty}^{\infty} \bm{E}_r(t_r) e^{-i\omega t} dt
+\end{align}
+この時、観測者が観測する振幅を求める必要があるため、積分変数は観測者の時刻である。遅延時間との関係は
+\begin{align}
+  t = t_r + \frac{R_r}{c}
+\end{align}
+である。また
+\begin{align}
+  dt =  (1 - \bm{n}\bm{\beta})dt_r
+\end{align}
+の関係から、積分変数を変換して、
+\begin{align}
+  \bm{E}_r(\omega) &= \frac{1}{4\pi\epsilon_0}\frac{e}{c} \int_{-\infty}^{\infty}
+   \frac{\bm{n}\times \left\{ (\bm{n}-\bm{\beta})\times \bm{\dot{\beta}}\right\}}{R(1-\bm{n}\cdot\bm{\beta})^2} \Biggm\vert_r
+   e^{-i\omega (t_r + R_r /c)} dt_r \\
+\end{align}
+さらに$R$が一定であると仮定し、
+\begin{align}
+  \frac{\bm{n}\times \left\{ (\bm{n}-\bm{\beta})\times \bm{\dot{\beta}}\right\}}{R(1-\bm{n}\cdot\bm{\beta})^2} 
+   = \frac{d}{dt} \frac{\bm{n}\times \left( \bm{n} \times \bm{\beta}\right) }{1-\bm{n}\cdot\bm{\beta}}
+\end{align}
+の関係式を用いると
+\begin{align}
+  \bm{E}(\omega) = \frac{-ie\omega}{4\pi\epsilon_0 cR} 
+  \int_{-\infty}^{\infty} \left[ \bm{n}\times \left( \bm{n} \times \bm{\beta}\right) \right]_r e^{-i\omega (t_r + R_r/c)} dt_r
+\end{align}
+
+
 
 \end{document}

@@ -239,7 +239,7 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
   \label{fig:doublepulse}
 \end{figure}
 
-\subsection{電子ビームエネルギーと干渉光周期の関係式}
+\subsection{電子ビームエネルギーと干渉光周期の関係式}\label{sec:interference}
 ダブルパルスの間隔は以下のような近似で理解することができる。
 \begin{figure}[h]
   \centering
@@ -247,9 +247,9 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
   \caption{アンジュレータ放射光干渉法の光路差、位相差、干渉光周期$\lambda_{osc}$の関係。$\lambda_{osc}$は、アンジュレータを$\lambda_{osc}$だけ移動させたときに
   二つの波束の位相がちょうど1波長$\lambda_L$だけずれる長さとして定義される。}
 \end{figure}
-上流のアンジュレータで発生する放射光は電子ビームよりも早く、電子が下流側のアンジュレータに到達した時にはアンジュレータ間の距離に比例した光路差が生じる。
+上流のアンジュレータで発生する放射光は電子ビームよりも早く、電子が下流側のアンジュレータに到達した時にはアンジュレータ間の距離$d'$に比例した光路差が生じる。
 \begin{eqnarray}
-  \Delta = \frac{1}{2\gamma^2}d \label{path shift}
+  \Delta = \frac{1}{2\gamma^2}d' \label{path shift}
 \end{eqnarray}
 この時間差は放射光の2つのパルスの位相差となる。
 \begin{eqnarray}
@@ -259,10 +259,10 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 \begin{eqnarray}
   |\tilde{E} \left( 1+ e^{i\Phi}\right)|^2 
 &= |\tilde{E}|^2 \left( 1 + \cos(\Phi) \right)\\
-&= |\tilde{E}|^2 \left( 1 + \cos(\frac{2\pi}{2\gamma^2\lambda_L}d) \right) 
+&= |\tilde{E}|^2 \left( 1 + \cos(\frac{2\pi}{2\gamma^2\lambda_L}d') \right) 
   \label{oscillation}
 \end{eqnarray}
-これより、dを変化させると干渉光の位相差が変化し強度が周期的に変動することがわかる。
+これより、$d'$を変化させると干渉光の位相差が変化し強度が周期的に変動することがわかる。
 式(\ref{oscillation})から、アンジュレータ間距離を$2\gamma^2\lambda_L$だけ動かした時に１周する。
 この周期を$\lambda_{osc}$とおけば$\gamma$および電子ビームエネルギーが
 \begin{eqnarray}
@@ -275,11 +275,11 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 \subsection{補正 - 放射角度と干渉光周期の関係式}
 式(\ref*{path shift})は放射光角度が電子ビームと同じとき($\theta$ =0)の光路差である。
 電子ビームの軸と放射光の放射角(近似的に放射光の観測角)を$\theta$とおくと、
-アンジュレータ間の距離$d$と$\theta$で光路差が$d(1-\cos{\theta})$と表される。
+アンジュレータ間の距離$d'$と$\theta$で光路差が$d(1-\cos{\theta})$と表される。
 これと電子ビームの遅延による光路差の両方を考慮した光路差は、
 \begin{eqnarray}
-  \Delta &= d\frac{1}{2\gamma^2} + d(1 - \cos{\theta}) \\
-        &\sim d(\frac{1}{2\gamma^2} + \frac{\theta^2}{2})\\
+  \Delta &= d'\frac{1}{2\gamma^2} + d(1 - \cos{\theta}) \\
+        &\sim d'(\frac{1}{2\gamma^2} + \frac{\theta^2}{2})\\
 \end{eqnarray}
 と表せる。したがって放射光の観測角($\simeq$ 放射角)の補正を入れることで干渉光の周期は
 \begin{eqnarray}
@@ -532,13 +532,99 @@ $\Sigma$は高さ6~mmの矩形スリット、スクリーンの幅は15~mmとす
 \end{figure}
 放射光がスリットによって回折を受けると、カメラでは２次元の回折パターン構造が得られると推定される。
 一方で回折格子による分光、平面波化作用は水平方向にのみ作用する。従って画像の横軸は波長に対応し、縦軸の座標は観測角に対応する。
-\subsection{モデル関数}
-モデル関数の概要を示す。
-モデル関数は、アンジュレータの位置座標とカメラにおける$y$座標の関数として定義され、カメラの撮影画像を再現する。
-放射光関数と光学関数の2つの関数に分離される。
-放射光関数は、電子ビームとアンジュレータのパラメータを入力としてスリット直前の入射光の振幅および位相を計算する。
-振幅は式(\ref{eq:spectrum})によって計算され、位相はアンジュレータの位置を光源とした球面波位相$\exp(-ikr)$を仮定する。
-光学関数は、入射光の位相と振幅を入力としてスクリーンにおける回折光の振幅を計算する。水平方向には平面波化されるため、回折積分は$y$軸方向のみ計算すれば十分である。
 
-撮影画像を再現する最も確からしいパラメータの組を求めることで、電子ビームのエネルギーが決定できる。
+\section{モデル関数}
+モデル関数の概要を示す。
+モデル関数は、アンジュレータの位置座標$d$とカメラにおける$y$座標、および観測波長$\lambda_L$の関数として定義され、
+カメラの撮影画像のある波長での発光量を再現する。モデル関数は放射光関数と光学関数の2つの関数に分離される。
+
+これらの変数の定義を表\ref{tab:variables}に示す。
+\begin{table}[h]
+  \centering
+  \begin{tabular}{c|c}
+    $\lambda_L$ & 観測光の波長。波長較正によってカメラの$x$軸と波長の関係が求まる。\\
+    $y$ & カメラにおける$y$座標。-7.488 mm から7.488 mmの値をとる。\\
+    $d$ & アンジュレータの位置。0(最上流) $\sim$ 825(最下流) mmの値をとる。\\
+  \end{tabular}
+  \caption[変数の定義]{変数の定義}\label{tab:variables}
+\end{table}
+
+また関数の出力を制御するパラメータを表\ref{tab:prm}および図\ref{prm}に示す。
+\begin{table}[h]
+  \centering
+  \begin{tabular}{c|c}
+    $\gamma$ & 電子ビームエネルギーのローレンツ因子 \\
+    $K$ & アンジュレータの偏向定数 \\
+    $z(U1-slit)$ & 上流アンジュレータ-スリット間の距離\\
+    $z(U2-slit)$ & 下流アンジュレータ-スリット間の距離 \\
+    $z(slit-cam)$ & スリット-カメラ間の距離 \\
+    $w(slit)$ & スリットの鉛直方向の長さ \\
+    $y(beam)$ & カメラに対するビーム中心の$y$座標 \\
+    $y(slit)$ & カメラに対するスリット中心の$y$座標 \\
+    $\delta \phi$ & 上流と下流のアンジュレータ放射の位相差のオフセット\\
+    $ampl$ & 光量にかかる比例係数
+  \end{tabular}
+  \caption[パラメータの説明]{パラメータの説明}\label{tab:prm}
+\end{table}
+  
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\linewidth]{image/4-prm.png}
+  \caption[パラメータの定義]{パラメータの定義。アンジュレータ、光学系、
+  ビーム同士の幾何学的な位置関係に関するパラメータを示した。}\label{prm}
+\end{figure}
+
+\subsection{放射光関数}
+放射光関数は、電子ビームとアンジュレータのパラメータをもとにスリット直前の入射光の電場振幅および位相を計算する。
+
+振幅は式(\ref{eq:spectrum})によって計算される。特にスリット上で$x=0$として計算を行うと、$phi = \pm\pi/2$であり、 
+\begin{align}
+  \cos \phi = 0, \sin \phi = \pm 1
+\end{align}
+また、$\cos \phi = 0$と、ベッセル関数が$J_0(0) = 1, J_{p\ne 0}(0) = 0$であることから、
+\begin{align}
+  S_0 &= \sum_{p = -\infty}^{\infty} J_{1+2p}(0)J_p(K^2/4)  &= 0 \\
+  S_1 &= \sum_{p = -\infty}^{\infty} J_{2+2p}(0)J_p(K^2/4)  &=  J_{-1}(K^2/4)\\
+  S_{-1} &= \sum_{p = -\infty}^{\infty} J_{2p}(0)J_p(K^2/4) &= J_0(K^2/4)
+\end{align}
+したがって$x=0$における放射光の電場振幅は、
+\begin{align}
+  \frac{\text{d}^2E}{\text{d}\omega \text{d}\Omega} = \frac{e\gamma\xi}{\pi \sqrt{c}}\left| \frac{\sin \{N\pi(\omega/\omega_1 -1)\}}{(\omega/\omega_1 -1)} \right|
+  \left| K\left\{ J_1(K^2/4) - J_0(K^2/4) \right\} \right|
+\end{align}
+という実数関数で与えられる。特に$y$依存性は、$\theta \simeq (y -y(beam))/ z$に依存する$\xi$と$\omega_1$によって決まる。
+
+電場の位相はアンジュレータの位置を光源とした球面波位相
+\begin{align}
+  \exp(-ikr) \propto \exp( -ik \frac{(y - y(beam))^2}{z})
+\end{align}を仮定する。
+
+結局放射光関数の出力は$x=0$においては$y$方向の依存性のみに着目して定数部分を省けば、
+\begin{align}
+  Rad(x=0, y) \propto \frac{1}{1 + K^2 +\gamma^2\theta^2}\left| \frac{\sin \{N\pi(\omega/\omega_1 -1)\}}{(\omega/\omega_1 -1)} \right| \exp( -ik \frac{(y-y(beam))^2}{z})\\
+   \omega_1 = \frac{2\gamma^2\omega_0}{1+ K^2/2+(\gamma \theta^2)}  = \frac{2\gamma^2\omega_0}{1+ K^2/2+(\gamma (y-y(beam))/z)^2} 
+\end{align}
+このとき、$\lambda_L$は$k = 2\pi/\lambda$の関係にあり、
+下流アンジュレータの位置$d$は$z = z(U2-slit) - d $の形で関数に入力される。また、上流アンジュレータの場合には$z = z(U1-slit)$である。
+\subsection{干渉項}
+上流と下流の2つのアンジュレータからの放射光の位相差は\ref{sec:interference}節で述べたように$d'/2\gamma^2$と近似できるが、
+より厳密にはアンジュレータ内では電子の蛇行運動により$z$軸に沿った平均速度が電子の速度$\beta$よりも小さくなる効果を考慮する必要がある。
+この位相差のオフセットを$\delta \phi$として、干渉光の電場振幅は
+\begin{align}
+  Rad_{int} &= Rad(y, z(U1-slit)) + Rad(y, z(U2-slit) -d )\exp(i \left[2\pi \frac{d'}{2\gamma^2\lambda_L} + \delta \phi\right])\\
+  d' &= z(U1-slit) - z_0(U2-slit) + d
+\end{align}
+と表すことができる。
+\subsection{光学関数}
+光学関数は、入射光の電場振幅と位相を入力としてスクリーンにおける回折光の振幅を計算する。水平方向には平面波化されるため、回折積分は$y$軸方向のみ計算すれば十分である。
+まずスリットによる入射光の遮蔽を計算する。
+\begin{align}
+  Slit(y) = 
+  \begin{cases}
+    0       &  y  < y(slit) - w(slit)\\
+    Rad(y)  &  y(slit) - w(slit) \leq y \leq y(slit) + w(slit)\\
+    0       &  y(slit) + w(slit) < y
+  \end{cases}
+\end{align}
+次に$y$軸方向の回折を計算し、カメラでの電場振幅を求め、その絶対値の二乗により光量が求まる。
 \end{document}
