@@ -12,7 +12,7 @@
 
 \begin{document}
 
-\chapter{データ解析と結果}
+\chapter{データ解析と結果}\label{ana}
 この章ではデータ解析の手順と結果について述べる。
 
 単独アンジュレータのデータおよびエネルギー測定用の2台のアンジュレータのデータの2つのデータセットがある。
@@ -64,7 +64,7 @@
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\linewidth]{image/4-BG.png}
-  \caption{背景画像。ピクセル値が150以上のピクセルは150に置き換えて白で表示している。}\label{BG}
+  \caption[背景画像]{背景画像。ピクセル値が150以上のピクセルは150に置き換えて白で表示している。}\label{BG}
 \end{figure}
 
 背景画像のピクセル値の分布を図\ref{BGmean}に示す。全画素にわたるピクセル値の平均値は98.91、標準偏差は4.57であった。ピクセル値が150以上のピクセルは全体の0.14 \%であった。
@@ -187,75 +187,9 @@ $y$軸方向のカットをかけるピクセルを輝線が明瞭に見える$y
 \section{モデル関数によるフィッティング}
 \noindent \textbf{\underline{解析}}\par
 この節では、単独アンジュレータのデータおよび2台のアンジュレータのデータ両方の解析に用いるモデル関数について述べる。モデル関数は、エネルギーを含む各種パラメータとアンジュレータの位置を入力として、回折パターンの形状をカメラの$y$座標の関数として出力する関数である。
-\subsection{1電子放射光関数}
-アンジュレータ放射光の振幅は放射角の関数として式(\ref{eq:spectrum})のように計算できる。
-また放射光の位相は、アンジュレータの位置を光源とする球面波位相として計算する。
-\subsection{フレネル回折}
-放射光関数で計算されたスリットにおける光波($U(x)$)から、カメラにおける回折光を計算する。
-\subsubsection{数値計算上の計算手法}
-数値計算を実行する上では数値積分の手法では、伝搬後の$N$次元の配列が伝搬前の$N$次元配列全ての積分を用いて計算されるため計算量は$N^2$となる。
-このような計算コストの高い計算を避けるために、高速フーリエ変換を用いた計算が一般に用いられている。
-式(\ref{レイリーゾンマーフェルト近似})を再度$x,y,x_0,y_0$で書き直すと
-\begin{eqnarray}
-  U(x_0,y_0) \sim \frac{1}{2i\lambda zs}\int_S U(x,y) \exp( ik \sqrt{z^2 + (x-x_0)^2 + (y-y_0)^2}) dxdy
-\end{eqnarray}
-これはカーネル関数$f(x,y) = \sqrt{z^2 +x^2 + y^2}$であるような畳み込みの形で書ける。
-\begin{eqnarray}
-  U(x_0,y_0) \sim (U * f)(x,y)
-\end{eqnarray}
-畳み込みはフーリエ変換を用いることで
-\begin{eqnarray}
-  (U*f)(x,y) = \mathcal{F}^{-1}(\mathcal{F}(U) \times \mathcal{F}(f)) \label{convolution}
-\end{eqnarray}
-と表せる。ここで$\mathcal{F}$はフーリエ変換を表す。これは以下のように示すことができる。
-\begin{eqnarray}
-  (U*f)(x) = \int_{-\infty}^{\infty} U(t)f(x-t)dt
-\end{eqnarray}
-これをフーリエ変換したものは、
-\begin{eqnarray}
-  \mathcal{F}(U*f)(k) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} U(t)f(x-t)dt \exp(-ikx)dx
-\end{eqnarray}
-積分の順序を交換して$x-t = y$とおくと、
-\begin{eqnarray}
-  \mathcal{F}(U*f)(k) &=& \int_{-\infty}^{\infty} U(t) \exp(-ikt)dt \int_{-\infty}^{\infty} f(y) \exp(-iky)dy\\
-  &=& \mathcal{F}(U) \times \mathcal{F}(f)
-\end{eqnarray}
-したがって式(\ref{convolution})が示される。
 
-フーリエ変換による計算では、空間領域($x,y$)の光波を周波数領域($k_x,k_y$)に変換する場合、空間領域の光波は計算に用いた空間領域を1周期とする周期的な光波として扱われている(図\ref{ft}(a))。そのため、そのまま逆変換を行うと隣り合う空間領域の光波が干渉してしまい、いわゆる円状畳み込みの結果を与える。これを防ぐために、計算空間の端を0で埋めた上で計算に用いる空間領域を拡大するゼロパディングを行うことで、(直線状)畳み込みの結果を得ることができる(図\ref{ft}(b))。
-\begin{figure}
-  \centering
-  \begin{subfigure}[h]{0.3\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{image/4-ft.png}
-    \subcaption{円状畳み込み}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[h]{0.65\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{image/4-ft_zeropadding.png}
-    \subcaption{ゼロパディング}
-  \end{subfigure}
-  \caption[フーリエ変換による畳み込みの数値計算]{フーリエ変換による畳み込みの数値計算。左図のように周波数領域では周期的な光波として扱われている。そのため、畳み込みを行うと隣り合う空間領域が干渉しあう。ゼロパディングを行うとこの干渉を抑制することができる。}
-\end{figure}\label{ft}
 
-\subsection{電子ビームサイズ}
-1電子の放射光であると仮定していた放射光関数は、電子ビームサイズを考慮すると、異なる電子からの放射光関数の重ね合わせとして表現できると考えられる。
-$y$軸方向のビームサイズを$\sigma_y$としてガウス状の広がりを仮定し、放射光関数をこのガウシアンで畳みこむ。
-これにより1電子放射光関数から得られる回折パターンはぼやける。電子ビームサイズによって回折パターンがぼやける様子を計算で再現した結果を図\ref{beamsize}に示す。
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.8\linewidth]{image/4-esize.png}
-  \caption[電子ビームサイズによる回折パターンのぼやけ]{電子ビームサイズによる回折パターンのぼやけ。畳み込みがない場合(灰色)と比較して
-  ビームサイズの効果を入れた青、緑、赤の線は回折の微細構造がぼやけている}\label{beamsize}
-\end{figure}
-
-%\subsection{光学系}
-%回折格子によって分光された光はレンズによってカメラで収束する。スリットの形状および回折格子はx方向にも幅を持つが、計算時間の都合上y軸方向のみの1次元の計算を行う。
-%1次元の回折と2次元の回折の結果はほとんど変わらないことが確認されている。
-\subsection{パラメータ}
-モデル関数は、波長、カメラの$y$座標、アンジュレータの位置の関数として表現される。
-これらの変数を表\ref{tab:variables}に示す。
+これらの変数の定義を表\ref{tab:variables}に示す。
 \begin{table}[h]
   \centering
   \begin{tabular}{c|c}
@@ -265,45 +199,166 @@ $y$軸方向のビームサイズを$\sigma_y$としてガウス状の広がり�
   \end{tabular}
   \caption[変数の定義]{変数の定義}\label{tab:variables}
 \end{table}
-モデル関数で出力される放射光の形状を制御するパラメータの定義を表\ref{tab:prm}および図\ref{prm}に示す。
 
+また関数の出力を制御するパラメータを表\ref{tab:prm}および図\ref{prm}に示す。
 \begin{table}[h]
-\centering
-\begin{tabular}{c|c}
-  $\gamma$ & 電子ビームエネルギーのローレンツ因子 \\
-  $K$ & アンジュレータの偏向定数 \\
-  $z(U1-slit)$ & 上流アンジュレータ-スリット間の距離\\
-  $z(U2-slit)$ & 下流アンジュレータ-スリット間の距離 \\
-  $z(slit-cam)$ & スリット-カメラ間の距離 \\
-  $w(slit)$ & スリットの鉛直方向の長さ \\
-  $y(beam)$ & カメラに対するビーム中心の$y$座標 \\
-  $y(slit)$ & カメラに対するスリット中心の$y$座標 \\
-  $\delta \phi$ & 上流と下流のアンジュレータ放射の位相差のオフセット\\
-  $ampl$ & 光量にかかる比例係数
-\end{tabular}
-\caption[パラメータの説明]{パラメータの説明}\label{tab:prm}
+  \centering
+  \begin{tabular}{c|c|c}
+    パラメータ & 意味 & 実測値\\ \hline 
+    $\gamma$ & 電子ビームエネルギーのローレンツ因子 & 350,380,410 (目安)\\
+    $K$ & アンジュレータの偏向定数 & 0.710, 0.971, 1.046 \ref{undulator_setting}\\
+    $z(U1-slit)$ & 上流アンジュレータ-スリット間の距離 & 10.26(10) m(実測値)\\
+    $z(U2-slit)$ & 下流アンジュレータ-スリット間の距離 & 11.64(10) m(実測値)\\
+    $z(slit-cam)$ & スリット-カメラ間の距離 & 4.11(5) m(実測値)\\
+    $w(slit)$ & スリットの鉛直方向の長さの1/2 & 3.0(0.2) mm(実測値)\\
+    $y(beam)$ & カメラに対するビーム中心の$y$座標 & 数 mm(ビーム状況に依存)\\
+    $y(slit)$ & カメラに対するスリット中心の$y$座標 & 数 mm\\
+    $\delta d$ & 上流と下流のアンジュレータ放射の位相差のオフセット &  -\\
+    $ampl$ & 光量にかかる比例係数 & - 
+  \end{tabular}
+  \caption[パラメータの説明]{パラメータの説明。実測値があるものは値を示した。また、$\gamma$と$K$の3つの値は順に
+  180,195,210~MeVの3つのビームエネルギーに対応している。$y(beam),y(slit),\delta d, ampl$の4つのパラメータはビームのコンディションに依存する任意パラメータである。}\label{tab:prm}
 \end{table}
-
+  
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\linewidth]{image/4-prm.png}
   \caption[パラメータの定義]{パラメータの定義。アンジュレータ、光学系、
   ビーム同士の幾何学的な位置関係に関するパラメータを示した。}\label{prm}
 \end{figure}
-上流と下流のアンジュレータ放射の位相差は電子がアンジュレータ間を移動するのにかかる時間に比例する。
-この時間はアンジュレータ間の距離に比例するのではなく、電子がアンジュレータ内で蛇行することによる平均の速度も影響するため、
-$\delta \phi$というパラメータで位相差を調整する。
 
+\subsection{放射光関数}
+放射光関数は、電子ビームとアンジュレータのパラメータをもとにスリット直前の入射光の電場振幅および位相を計算する。
 
-\subsection{パラメータ較正}
-単独アンジュレータのデータを解析し、
-%$z(U2- slit),z(slit-cam),w(slit)$の最適値を求める。
-%2台のアンジュレータのデータではこれらのパラメータを固定してフィッティングを行う。ただし系統誤差を見積もるために、パラメータを変化させた場合のフィッティングも行う。\\
-%また、
-アンジュレータが下流に移動することによる光量の変化をampl パラメータの$d$依存性に押し込む。この依存性から、上流アンジュレータと下流アンジュレータの寄与の係数を決定できる。
-\section{単独アンジュレータの解析}
+振幅は式(\ref{eq:spectrum})によって計算される。特にスリット上で$x=0$として計算を行うと、$\phi = \pm\pi/2$であり、 
+\begin{align}
+  \cos \phi = 0, \sin \phi = \pm 1
+\end{align}
+また、$\cos \phi = 0$と、ベッセル関数が$J_0(0) = 1, J_{p\ne 0}(0) = 0$であることから、
+\begin{align}
+  S_0 &= \sum_{p = -\infty}^{\infty} J_{1+2p}(0)J_p(K^2/4)  &= 0 \\
+  S_1 &= \sum_{p = -\infty}^{\infty} J_{2+2p}(0)J_p(K^2/4)  &=  J_{-1}(K^2/4)\\
+  S_{-1} &= \sum_{p = -\infty}^{\infty} J_{2p}(0)J_p(K^2/4) &= J_0(K^2/4)
+\end{align}
+したがって$x=0$における放射光の電場振幅は、
+\begin{align}
+  \frac{\text{d}^2E}{\text{d}\omega \text{d}\Omega} = \frac{e\gamma\xi}{\pi \sqrt{c}}\left| \frac{\sin \{N\pi(\omega/\omega_1 -1)\}}{(\omega/\omega_1 -1)} \right|
+  \left| K\left\{ J_1(K^2/4) - J_0(K^2/4) \right\} \right|
+\end{align}
+という実数関数で与えられる。特に$y$依存性は、$\theta \simeq (y -y(beam))/ z$に依存する$\xi$と$\omega_1$によって決まる。
+$y(beam)$による放射光関数の振幅の$y$依存性を図\ref{fig:ybeam}に示す。
+\begin{figure}[h]
+  \centering
+  \includegraphics[width = 0.8\linewidth]{image/2-ybeam.png}
+  \caption[放射光関数のビーム位置依存性]{放射光関数の振幅の$y(beam)$依存性。$\gamma$= 380, $K$ = 0.971, $z$ = 10.26 mのパラメータで計算した。
+  また後述のスリットによる遮蔽の計算が行われている。}
+  \label{fig:ybeam}
+\end{figure}
+
+電場の位相はアンジュレータの位置を光源とした球面波位相
+\begin{align}
+  \exp(-ikr) \propto \exp( -ik \frac{(y - y(beam))^2}{z})
+\end{align}
+を仮定する。球面波位相の導入による放射光関数の実部と虚部を図\ref{fig:phase}に示す。
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\linewidth]{image/2-phase.png}
+  \caption[放射光関数の球面波位相]{放射光関数の球面波位相の導入。$\gamma$= 380, $K$ = 0.971, $z$ = 10.26 mのパラメータで計算した。また後述のスリットによる遮蔽の計算が行われている。}
+  \label{fig:phase}
+\end{figure}
+
+結局放射光関数の出力は$x=0$においては$y$方向の依存性のみに着目して定数部分を省けば、
+\begin{align}
+  Rad(x=0, y) \propto \frac{1}{1 + K^2 +\gamma^2\theta^2}\left| \frac{\sin \{N\pi(\omega/\omega_1 -1)\}}{(\omega/\omega_1 -1)} \right| \exp( -ik \frac{(y-y(beam))^2}{z})\\
+   \omega_1 = \frac{2\gamma^2\omega_0}{1+ K^2/2+(\gamma \theta^2)}  = \frac{2\gamma^2\omega_0}{1+ K^2/2+(\gamma (y-y(beam))/z)^2} 
+\end{align}
+このとき、$\lambda_L$は$k = 2\pi/\lambda$の関係にあり、
+下流アンジュレータの位置$d$は$z = z(U2-slit) - d $の形で関数に入力される。また、上流アンジュレータの場合には$z = z(U1-slit)$である。
+
+\subsection{電子ビームサイズ}
+1電子の放射光であると仮定していた放射光関数は、電子ビームサイズを考慮すると、異なる電子からの放射光関数の重ね合わせとして表現できると考えられる。
+$y$軸方向のビームサイズを$\sigma_y$としてガウス状の広がりを仮定し、放射光関数をこのガウシアンで畳みこむ。
+これにより1電子放射光関数から得られる回折パターンはぼやける。電子ビームサイズによって回折パターンがぼやける様子を計算で再現した結果を図\ref{beamsize}に示す。
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\linewidth]{image/4-esize.png}
+  \caption[放射光関数の電子ビームサイズの効果]{電子ビームサイズによる回折パターンのぼやけ。畳み込みがない場合(灰色)と比較して
+  ビームサイズの効果を入れた青、緑、赤の線は回折の微細構造がぼやけている}\label{beamsize}
+\end{figure}
+
+\subsection{干渉項}
+上流と下流の2つのアンジュレータからの放射光の位相差は\ref{sec:interference}節で述べたように$d'/2\gamma^2$と近似できるが、
+より厳密にはアンジュレータ内では電子の蛇行運動により$z$軸に沿った平均速度が電子の速度$\beta$よりも小さくなる効果を考慮する必要がある。
+この位相差のオフセットを$\delta d$として、干渉光の電場振幅は
+\begin{align}
+  Rad_{int} &= Rad(y, z(U1-slit)) + Rad(y, z(U2-slit) -d )\exp(i \left[2\pi \frac{d' + \delta d}{2\gamma^2\lambda_L}\right])\\
+  d' &= z(U1-slit) - z_0(U2-slit) + d
+\end{align}
+と表すことができる。干渉項による放射光関数の変化を図\ref{fig:int}に示す。
+
+\begin{figure}[h]
+  \begin{subfigure}[h]{0.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{image/2-int-d00png.png}
+    \subcaption{$d$ = 0 mm}
+  \end{subfigure}
+  \begin{subfigure}[h]{0.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{image/2-int-d60.png}
+    \subcaption{$d$ = 60 mm}
+  \end{subfigure}
+  \caption[放射光関数の干渉項位相]{干渉項位相を導入した放射光関数。$\gamma$=380, $K$=0.971, $z$=10.26 m,$y(beam)$=0 mmのパラメータで計算した。}
+  \label{fig:int}
+\end{figure}
+
+\subsection{光学関数}
+光学関数は、入射光の電場振幅と位相を入力としてスクリーンにおける回折光の振幅を計算する。水平方向には平面波化されるため、回折積分は$y$軸方向のみ計算すれば十分である。
+まずスリットによる入射光の遮蔽を計算する。
+\begin{align}
+  Slit(y) = 
+  \begin{cases}
+    0       &  y  < y(slit) - w(slit)\\
+    Rad(y)  &  y(slit) - w(slit) \leq y \leq y(slit) + w(slit)\\
+    0       &  y(slit) + w(slit) < y
+  \end{cases}
+\end{align}
+$y(slit)$と$w(slit)$による遮蔽の計算結果の例を図\ref{fig:slit}に示す。
+
+\begin{figure}[h]
+  \begin{subfigure}[h]{0.45\linewidth}
+    \centering
+    \includegraphics[width = \linewidth]{image/2-yslit.png}
+    \subcaption{$y(slit)$による電場振幅の変化}
+  \end{subfigure}
+  \begin{subfigure}[h]{0.45\linewidth}
+    \centering
+    \includegraphics[width = \linewidth]{image/2-wslit.png}
+    \subcaption{$w(slit)$による電場振幅の変化}
+  \end{subfigure}
+  \caption[光学関数のスリット座標]{パラメータ$y(slit)$と$w(slit)$。一つのアンジュレータからの放射光関数の結果を示している。
+  $\gamma$=380, $K$=0.971, $z$=10.26 mのパラメータで計算した。}\label{fig:slit}
+\end{figure}
+次に$y$軸方向の回折をレイリー・ゾンマーフェルト積分に従って計算しカメラでの電場振幅を求め、その絶対値の二乗により規格化した光量$I(y)$が求まる。
+この計算では高速フーリエ変換を用いた数値計算の高速化が可能である。詳細についてはAppendix に記述した。
+\begin{align}
+  I(y) = \left| \int_{slit} Slit(y')\exp(i\frac{2\pi}{\lambda_L} \sqrt{z(slit-cam)^2 + (y-y')^2})\text{d}y' \right|^2 
+\end{align}
+この時$z(slit-cam)$が回折計算のパラメータとなる(図\ref{zp})。
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.8\linewidth]{image/2-zp.png}
+  \caption[光学関数のスリット-カメラ間距離]{光学関数の計算におけるパラメータ$z(slit-cam)$依存性。$\gamma$=380, $K$=0.971, $z$=10.26 mのパラメータで計算した。}\label{zp}
+\end{figure}
+
+ここまでの計算によって、モデル関数の$y$依存性が放射光および光学の物理モデルによって再現でき、規格化された光量の分布が得られる。
+最後に振幅の比例係数$ampl$を導入することで、実際の光量に合わせたモデル関数を得ることができる。
+\begin{align}
+  Model(y|\lambda_L,d) = ampl \times I(y) 
+\end{align}
+原則として、全ての$d$に対して共通のパラメータの組を用いてモデル関数によるフィットを行う。
+
 \noindent \textbf{\underline{解析}}\par
-パラメータ較正を目的とした単独アンジュレータのデータの解析を述べる。
+$ampl$パラメータ較正を目的として、単独アンジュレータのデータを解析した。
 下流アンジュレータのみの磁場によって得られるデータから、放射光関数の位置依存性の情報が抽出できる。
 理想的な条件では、アンジュレータが下流に移動すると以下のような変化が見られると考えられる。
 \begin{itemize}
@@ -326,7 +381,7 @@ $\delta \phi$というパラメータで位相差を調整する。
 \subsubsection{位置依存性}
 アンジュレータが下流に移動することによる回折パターンの変化を図\ref{DCposdep}に示す。上流側のパターンと比較すると、下流側($d= 825$)の回折パターンは振幅が大きくなり、回折パターン全体の幅が広がっていることがわかる。
 また回折パターンは上流下流にかかわらず8つのピークがあるが、ピーク同士の相対的な高さの変化も見られる。
-\begin{figure}
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.8\linewidth]{image/4-DCposdep.png}
   \caption[アンジュレータ位置依存性]{単独アンジュレータデータの位置依存性。アンジュレータが最上流(赤)と最下流(青)に移動したときの回折パターンを比較すると、振幅やパターン全体の幅、回折のピーク同士の高さが変化していることがわかる。}\label{DCposdep}
@@ -334,8 +389,10 @@ $\delta \phi$というパラメータで位相差を調整する。
 
 回折パターンの形状の変化はモデル関数において、放射光関数の球面波位相が変化することで説明できると考えられる。
 振幅の変化は、$ampl$パラメータを$d$によって変化するパラメータ$ampl(d)$としてフィッティングを行うことで詳しく調べられる。
-また、単独アンジュレータの画像では波長依存性が無視できると考えらえるから、波長方向に$500$ピクセルの平滑化を行った。
-\begin{figure}
+また、単独アンジュレータの画像では干渉がなく、波長によって回折画像がほとんど変わらないと考えられるから、波長方向に$500$ピクセルの平滑化を行った。
+この結果を図\ref{single_d}に示した。平滑化によって回折パターンの微細構造が見えており、フィット結果がこの構造を再現していることがわかる。
+また、平滑化を行わない画像で、$\lambda_L =404.65~$nmでの画像をフィットした結果、$\chi^2/\text{ndf} = 58921/61030$となった。
+\begin{figure}[H]
   \centering
   \begin{subfigure}[h]{0.45\linewidth}
     \centering
@@ -349,10 +406,10 @@ $\delta \phi$というパラメータで位相差を調整する。
     \subcaption{$d$=500~mm}
   \end{subfigure}
   \caption[単独アンジュレータのデータ]{単独アンジュレータでの回折像のフィッティング結果を示す。波長方向(画像の$x$軸方向)に500ピクセルの平滑化を行ったため、
-  明瞭な回折パターンが見られる。フィットの結果はこのパターンをよく再現している。}
-\end{figure}\label{single_d}
+  明瞭な回折パターンが見られる。フィットの結果はこのパターンをよく再現している。}\label{single_d}
+\end{figure}
 
-フィッティングをおこない$ampl$パラメータを$d$に対してプロットした結果を図\ref{DCampl}に示す。
+フィッティングの結果得られた$ampl$パラメータを$d$に対してプロットした結果を図\ref{DCampl}に示す。
 $d$に対して全体的に上昇する傾向と、周期的に変動する傾向が見られる。この周期的変動は約135~mmであり、
 測定に用いた電子ビームエネルギー210 MeVに対応する周期的変動の周期(式(\ref{eq:energy_prim}))$\lambda_{osc} = 2\gamma^2\lambda_L \simeq 135~\text{mm}$に一致している。
 これはアンジュレータ放射光と可干渉で、$d$に依存しない位相の光波が入射しており、この光波と下流アンジュレータの放射光の
@@ -364,9 +421,9 @@ $d$依存性は$1/z(U2-slit)^2$を反映したものになると考えられる�
 \begin{eqnarray}
   ampl(d) = \frac{1}{(d - z(U2-slit))^2} + \sin\left( \frac{2\pi}{\lambda'_{osc}}d + \phi \right)\label{eq:ampl}
 \end{eqnarray}
-というモデル関数を用いてフィッティングを行うと、$z(U2-slit) = 10.51$ m、$\lambda_{osc}= 135.33$ mmという値が得られた。
+というモデル関数を用いてフィッティングを行うと、$z(U2-slit) = 10.51$ m、$\lambda'_{osc}= 135.33$ mmという値が得られた。
 実測値$z(U2-slit)$ = 10.26~mに対して0.25~mのずれがある。この値はアンジュレータの中心とスリットまでの実測値であり、アンジュレータの長さ$0.52$~mを考慮すると
-アンジュレータの最上流からスリットまでの距離よりも短い。そのため個のずれはアンジュレータの長さの効果を取り入れた実効的な距離として解釈できる。
+アンジュレータの最上流からスリットまでの距離よりも短い。そのためこのずれはアンジュレータの長さの効果を取り入れた実効的な距離として解釈できる。
 
 \begin{figure}[h]
   \centering
@@ -375,12 +432,12 @@ $d$依存性は$1/z(U2-slit)^2$を反映したものになると考えられる�
   ともにおよそ135~mm周期で振動する傾向が見られる。}\label{DCampl}
 \end{figure}
 
-下流アンジュレータの$1/(z(U2-slit))^2$の依存性を外挿し、上流アンジュレータに対応する$ampl$パラメータも決定できる。
-2台のアンジュレータの解析では、$ampl(d)$パラメータを用いてフィッティングを行う。
+下流アンジュレータの$1/(z(U2-slit) - d)^2$の依存性を外挿し、上流アンジュレータに対応する$ampl$パラメータが$1/(z(U2-slit) -z(U1-slit))^2$のように決定できる。
+2台のアンジュレータの解析では、共通の1つの$ampl$パラメータを用いて、$ampl/(z(U-slit))^2$の振幅に固定しフィッティングを行う。
 
 \section{2台のアンジュレータの解析}
 \noindent \textbf{\underline{解析}}\par
-2台のアンジュレータの場合にはよりフィッティングの$z(U2-slit)$,$z(slit-cam)$,$w(slit)$のパラメータを固定することでフィッティングの安定性を確保する。
+2台のアンジュレータの場合にはよりフィッティングの$z(U2-slit)$, $z(slit-cam)$, $w(slit)$のパラメータを固定することでフィッティングの安定性を確保する。
 以下の自由なパラメータを用いて2台のアンジュレータのデータを解析する。
 \begin{table}[h]
 \centering
@@ -388,8 +445,8 @@ $d$依存性は$1/z(U2-slit)^2$を反映したものになると考えられる�
   $\gamma$ & 電子ビームエネルギーのローレンツ因子 \\
   $y(beam)$ & カメラに対するビーム中心の$y$座標 \\
   $y(slit)$ & カメラに対するスリット中心の$y$座標 \\
-  $\delta \phi$ & 上流と下流のアンジュレータの位相のずれ\\
-  ampl & 振幅
+  $\delta d$ & 上流と下流のアンジュレータの位相差のオフセット\\
+  $ampl$ & 振幅
 \end{tabular}
 \caption[位置に依存する振幅パラメータによるフィッティング]{下流アンジュレータの位置$d$に依存する$ampl(d)$パラメータを用いてフィッティングした際の$ampl(d)$の$d$依存性。
 アンジュレータが下流側に移動すると光量が増加する傾向を反映して、$ampl(d)$パラメータが増加している。また周期的変動も見られる。}
@@ -398,7 +455,7 @@ $d$依存性は$1/z(U2-slit)^2$を反映したものになると考えられる�
 これらのパラメータを動かしてモデル関数によるデータのフィッティングを行う。
 フィッティングは既約カイ二乗値による最小二乗法を用いる。
 またpythonのlmfitパッケージ\cite{lmfit}を用いてフィッティングを行う。\\
-フィッティングで得られた$\gamma$の値から電子ビームエネルギーを求める。
+フィットによって得られた$\gamma$の最適値から電子ビームを求める。
 
 \noindent \textbf{\underline{結果}}\par
 図\ref{images}に2台のアンジュレータで得られる画像の例を示す。アンジュレータの位置$d$によって回折パターンの形状が変化することがわかる。波長によって振動の初期位相が違うため、強弱が長波長側に移動していくように見える。
@@ -415,7 +472,7 @@ $d$依存性は$1/z(U2-slit)^2$を反映したものになると考えられる�
   \caption[アンジュレータ位置に対する振幅の変化]{アンジュレータ位置に対する振幅の変化。較正波長 404.65 nm、$y$ =0 mmのピクセルを選び、ピクセル値を$d$に対してプロットすると周期的変動が見られる。}
 \end{figure}
 %fittingの結果
-この画像をフィッティングした結果を図\ref{double}に示す。
+この画像をフィッティングした結果を図\ref{fig:double}に示す。
 \begin{figure}
   \centering
   \begin{subfigure}[h]{0.45\linewidth}
@@ -439,11 +496,12 @@ $d$依存性は$1/z(U2-slit)^2$を反映したものになると考えられる�
     \includegraphics[width=\linewidth]{image/4-double_600.png}
     \subcaption{$d$=600~mm}
   \end{subfigure}
-  \caption[2台のアンジュレータのデータ]{2台のアンジュレータのデータの回折パターンのフィッティングを示す。}
-\end{figure}\label{double}
+  \caption[2台のアンジュレータのデータ]{2台のアンジュレータのデータの回折パターンのフィッティングを示す。}\label{fig:double}
 
-周期的な振動と、回折パターンの両方がうまくフィットできていることがわかる。
+\end{figure}
 
+周期的な振動と、回折パターンの両方がフィットできている。
+  
 \section{統計誤差の見積もり}
 \noindent \textbf{\underline{解析}}\par
 統計誤差の見積もりはブートストラップ法によって行う。
@@ -484,11 +542,17 @@ $\gamma$の分布を図\ref{gamm_hist}に示す。
 
 また、アクセプタンス全体における$\gamma_\lambda$の平均値および標準偏差は、
 \begin{eqnarray}
-  \gamma = 381.242 \pm 0.0587
+  \gamma = 381.232 \pm 0.076
 \end{eqnarray}
 となった。この結果から波長依存性による系統誤差は$2\times10^{-4}$以下の水準であった。
 
 この波長依存性の原因として、モデル関数の不完全性や光学系の非線形性が挙げられる。
+
+195 MeVでのエネルギー測定の結果、
+\begin{align}
+  E_{beam} = 381.197 ~\pm 0.038(stat.) ~^{+0.100}_{-0.051}(syst.)~\text{MeV}
+\end{align}
+という結果が得られた。
 
 \subsubsection{位置依存性}
 \noindent \textbf{\underline{解析}}\par
@@ -509,14 +573,32 @@ $\gamma$の分布を図\ref{gamm_hist}に示す。
 
 \subsubsection{エネルギー依存性}
 180、195、210 MeVの3つのエネルギーの結果の一例を表\ref{energy_dep}に示す。
-\begin{table}
-\begin{tabular}{c|c|c}
-  エネルギー[MeV] & $\gamma$ & 統計誤差 \\
+\begin{table}[H]
+\begin{tabular}{c|ccc}
+  エネルギー[MeV] & $\gamma$ & 統計誤差 & 系統誤差（波長依存性由来）\\
   \hline
-  180 & 351.432 & 0.065 \\
-  195 & 381.242 & 0.0587 \\
-  210 & 409.892 & 0.082 \\
-\end{tabular}\caption{エネルギーごとの決定精度}\ref{energy_dep}
+  180 & 351.435 & 0.066  & 0.105\\
+  195 & 381.197 & 0.038 & 0.076\\
+  210 & 410.392 & 0.051  & 0.093\\
+\end{tabular}\caption{エネルギーごとの決定精度}\label{energy_dep}
 \end{table}
 どのエネルギーにおいても統計誤差は$2\times10^{-4}$に収まっている。
+
+また180 MeVと210 MeVにおける波長依存性の結果を図\ref{wldep_180210}に示す。
+\begin{figure}
+  \begin{subfigure}[h]{0.45\linewidth}
+    \centering
+    \includegraphics[width = \linewidth]{image/4-wldep180.png}
+    \subcaption{180 MeV}
+  \end{subfigure}
+  \begin{subfigure}[h]{0.45\linewidth}
+    \centering
+    \includegraphics[width = \linewidth]{image/4-wldep210.png}
+    \subcaption{210 MeV}
+  \end{subfigure}
+  \caption{180 MeVと210 MeVにおける波長依存性の結果}お
+\end{figure}
+\ref{wldep}の195 MeVの結果と合わせて比較すると、180 MeVと195 MeVにおいては長波長側でエネルギーが大きくなる傾向があるのに対して、
+210 MeVでは短波長側でエネルギーが大きくなる傾向があることがわかる。これは、210 MeVでは400 nm領域が共鳴波長の360 nmから外れているために
+210 MeVだけが異なる振る舞いをしていると考えられる。
 \end{document}

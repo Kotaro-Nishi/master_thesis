@@ -28,7 +28,7 @@
 素粒子の標準理論によれば、自然界の粒子は全てそれ以上分割できない最小単位の粒子（素粒子）からなり、素粒子の間に働く力は、強い力、弱い力、電磁気力、重力の４種類の力であると理解されている。
 素粒子は物質を構成する粒子と力を媒介する粒子に分類でき、さらに物質を構成する粒子は強い相互作用をするクォークと強い相互作用をしないレプトンに分類できる。
 クォークは表\ref{tab:quark}に示すように三世代に分類されている。
-\begin{table}[h]
+\begin{table}[t]
 \centering
 \begin{tabular}{c||c|c|c||c|c}
   \hline
@@ -51,7 +51,7 @@
 uクォーク、dクォークはそれぞれアイソスピンの$z$成分として+1/2、$-$1/2を持ち、陽子、中性子は+1/2、$-$1/2を持つ。強い相互作用はアイソスピンのSU(2)空間回転に対してほとんど対称であることが知られている。
 u、dクォークのSU(2)対称性にsクォークを加えて拡張したSU(3)対称性は、u、dクォークに比べてsクォークが比較的重く、疑似的な対称性とみなされている。
 これらu、d、sクォークからなるバリオンはフレーバーSU(3)の枠組みにおいて、スピン1/2のバリオン8重項、スピン3/2のバリオン10重項に分類される(図\ref{fig:baryon})。
-一方でc、b、t クォークはu,d,sクォークと比較すると極端に重いため、SU(N)の対称性が破れる。
+一方でc,b,t クォークはu,d,sクォークと比較すると極端に重いため、SU(N)の対称性が破れる。
 \begin{figure}[h]
   \centering
   \includegraphics[width=10cm]{image/1_baryon.png}
@@ -73,7 +73,7 @@ u、dクォークのSU(2)対称性にsクォークを加えて拡張したSU(3)�
                              &                              &                                              & $n + \pi^+$ & 48.31(30)\\ \hline
   $\Sigma^-$                 & 1197.45(7)                   & $0.486(5) \times 10^{-10}$                   & $n + \pi^-$ & 99.848(5)\\ \hline
 \end{tabular}
-\caption{ハイペロンの性質。数値の末尾に付けた括弧は統計誤差を表す\cite{Beringer}。}
+\caption[代表的なハイペロンの性質]{ハイペロンの性質。数値の末尾に付けた括弧は統計誤差を表す\cite{Beringer}。}
 \end{table}
 
 原子核中に核子だけでなくハイペロンを含む原子核をハイパー核と呼ぶ。ハイパー核には通常核子には見られない性質が現れることが知られており、それ自体が重要な研究対象である。
@@ -194,8 +194,33 @@ YN相互作用を実験的に調べる手法の一つが質量分光である。
 これに対して2010年代に重イオン衝突実験が、ハイパートライトンの寿命が予測よりも有意に短いことを示唆する実験結果を次々と報告した\cite{HI-1,HI-2,HI-3,HI-4}。これらの値は$\tau \sim$200 psであり、
 $B_{\Lambda} = 130$ keVの結果と整合性のある物理的な解釈はいまだない。この問題をハイパートライトンパズルと呼ぶ。
 
-2020 年代にSTAR,ALICEの2つの重イオン衝突実験が報告した結果によれば、それぞれ$B_{\Lambda}= 102 \pm 63(stat.) \pm 67(syst.)$ keV\cite{STAR}, 
-$B_{\Lambda} = 406 \pm 120(stat.) \pm 110 (syst.)$ keV\cite{ALICE}であり、どちらのグループの結果も統計誤差・系統誤差ともに100~keV程度ある。\\
+2020 年代にSTAR,ALICEの2つの重イオン衝突実験が束縛エネルギーや寿命の測定を行っている。STAR実験\cite{STAR}は
+\begin{align*}
+  B_{\Lambda} = 406 \pm 120(stat.) \pm 110 (syst.) ~\text{keV}
+\end{align*}
+という結果を報告しているのに対し、ALICE実験\cite{ALICE}では
+\begin{align*}
+  \tau        &= 253 \pm 11(stat.) \pm 6(syst.) ~\text{ps},\\
+  B_{\Lambda} &= 102 \pm 63(stat.) \pm 67(syst.) ~\text{keV}
+\end{align*}
+という結果を報告している。これらの結果を図\ref{fig:hypertriton}に示す。
+
+ALICE実験の結果は100~keVの弱い束縛に対して寿命が253~psと従来の描像とは矛盾のない結果が得られているものの、
+同じ重イオン衝突実験による2つの実験結果で異なる結果が得られていることや、$B_{\Lambda}$の統計誤差、系統誤差が100~keV程度と大きいことから、
+ハイパートライトンパズルの解決には引き続き実験的な検証が求められている。特に重イオン衝突実験以外の手法による測定が重要であると考えられる。
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.8\linewidth}
+    \centering
+    \includegraphics[width=10cm]{image/1-lifetime.png}
+  \end{subfigure}
+  \begin{subfigure}{0.8\linewidth}
+    \centering
+    \includegraphics[width=10cm]{image/1-binding.png}
+  \end{subfigure}
+  \caption[過去のハイパートライトンの寿命測定及び束縛エネルギー測定実験]{過去実験によるハイパートライトンの寿命(上)、束縛エネルギー(下)の測定結果の比較。図は\cite{ALICE}より引用。}\label{fig:hypertriton}
+\end{figure}
 
 \section{崩壊パイ中間子法}\label{DPS}
 崩壊パイ中間子法は2010年代にドイツのマインツ大学マイクロトロン(MAMI)で我々の研究グループによって開発されたハイパー核の質量分光法である\cite{esserObservation4Hyperhydrogen2015}。
@@ -208,7 +233,7 @@ $B_{\Lambda} = 406 \pm 120(stat.) \pm 110 (syst.)$ keV\cite{ALICE}であり、�
   m(^A_{\Lambda}Z) = \sqrt{m(^A(Z+1))^2 + (p_\pi/c)^2} + \sqrt{m_\pi^2 + (p_\pi/c)^2} \label{mass formula}
 \end{eqnarray}
 と$\pi$中間子の運動量$p_\pi$のみで求めることができる(図\ref{fig:DPS})。
-\begin{figure}
+\begin{figure}[H]
   \centering
   \includegraphics[width=10cm]{image/1-DPS.png}
   \caption[崩壊パイ中間子法の原理]{崩壊パイ中間子法の原理。電子ビームで生成されたハイパー核が標的中で静止したのち2体崩壊し、$\pi$中間子が放出される。
@@ -239,17 +264,18 @@ $B_\Lambda$の決定精度は、静止かつ2体崩壊という崩壊の特徴�
 
 \subsubsection{マインツマイクロトロン(MAMI)}
 我々の研究グループはドイツ、マインツ大学マイクロトロン(MAMI)において、崩壊パイ中間子法を用いてハイパー核の質量分光を行ってきた。
-質量分光実験を行う実験ホール(A1 Hall)には、標的チェンバーを中心に、$p_\pi$測定用の磁気運動量スペクトロメータ(Spek A,C)、$K^+$検出用のKaosスペクトロメータが配置されている。
+質量分光実験を行う実験ホール(A1 Hall、図\ref{exp_hall})には、標的チェンバーを中心に、$p_\pi$測定用の磁気運動量スペクトロメータ(Spek A,C)、$K^+$検出用のKaosスペクトロメータが配置されている。
 \begin{figure}[h]
   \centering
   \includegraphics[width=10cm]{image/1-HallA.png}
   \caption[MAMI実験ホール]{A1 Hall概観図。MAMI加速器で加速された電子がビームラインを通って標的チェンバー内の標的に照射される。崩壊パイ中間子法では、照射されて生成されたハイパー核が崩壊する際の$\pi$中間子の運動量を
   Spek A,Cで測定する。またKaosスペクトロメータでは$K^+$中間子の粒子識別を行うことでイベント選択を行う。\cite{esserObservation4Hyperhydrogen2015}}
+  \label{exp_hall}
 \end{figure}
 
 2014年に行った$^4_{\Lambda}\text{H}$の実験\cite{Schulz2015}では、$\pi$中間子の運動量が
 $p_\pi = 132.867 \pm 0.007(\text{stat.}) \pm 0.106(\text{syst.})$ MeV/$c$と測定され、10 keV以下の運動量分解能を実現している(図\ref{fig:pi_spec})。
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=10cm]{image/1-PionSpectrum.png}
   \caption[過去実験での$p_\pi$スペクトル]{高分解能の$\pi$中間子スペクトル。細いピークが133 MeV/c付近に位置しており、これは$^4_{\Lambda}\text{H}$の崩壊で得られる$p_\pi$である\cite{Schulz2015}}
@@ -280,13 +306,15 @@ MAMIの持つ高分解能運動量スペクトロメータ(Spek A,C)によって
 \begin{eqnarray}
   p_e' = \sqrt{\left(\frac{E_{beam}}{1 + E_{beam}/m_T(1 - \cos{\theta})} \right)^2 - m_e^2}\label{elastic scattering}
 \end{eqnarray}
-と計算できる。散乱角と入射エネルギーに対する弾性散乱のピークから運動量の絶対値を較正する。
+と計算できる。散乱角と入射エネルギーに対する弾性散乱のピーク(図\ref{elastic_scat})から運動量の絶対値を較正する。
 ハイパー核の崩壊で放出される$\pi$の運動量はおよそ 100 - 140 MeV/c の領域にあるため、散乱電子も同程度の運動量であることが望ましい。
 MAMIの電子線加速器が出せる最低エネルギーである180、195、210 MeVの3種類のエネルギーに対して電子弾性散乱による較正を行っている。
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\linewidth]{image/1-elastic.png}
-  \caption[電子弾性散乱によるスペクトロメータ較正]{電子弾性散乱によるスペクトロメータ較正実験で得られる散乱電子スペクトル。210 MeVで$^{181}\text{Ta}$標的と$^{12}\text{C}$標的を用いて電子弾性散乱を行った例を示している。\cite{elastic}}
+  \caption[電子弾性散乱によるスペクトロメータ較正]{電子弾性散乱によるスペクトロメータ較正実験で得られる散乱電子スペクトル。
+  210 MeVで$^{181}\text{Ta}$標的と$^{12}\text{C}$標的を用いて電子弾性散乱を行った例を示している。\cite{elastic}}
+  \label{elastic_scat}
 \end{figure}
 
 
@@ -315,11 +343,11 @@ MAMIではビームエネルギーを測定するために、偏向電磁石に�
 \begin{eqnarray}
   E_2 = \frac{4E_1\gamma^2}{1 + \gamma^2\phi^2} \label{compton2}
 \end{eqnarray}
-と表される。Ge検出器のようなγ線検出器で散乱電子のエネルギーを測定することで、式(\ref{compton2})で表される最大エネルギー領域にコンプトンエッジが現れる。このエッジの位置から電子ビームエネルギーを求めることができる。
-\begin{figure}[h]
+と表される。Ge検出器のような$\gamma$線検出器で散乱電子のエネルギーを測定することで、式(\ref{compton2})で表される最大エネルギー領域にコンプトンエッジが現れる(図\ref{fig:comp})。このエッジの位置から電子ビームエネルギーを求めることができる。
+\begin{figure}[H]
   \centering
   \includegraphics[width=10cm]{image/1-CBS.png}
-  \caption[逆コンプトン散乱法]{逆コンプトン散乱法による電子ビームエネルギー測定で得られるコンプトンエッジ\cite{klein1997}}
+  \caption[逆コンプトン散乱法]{逆コンプトン散乱法による電子ビームエネルギー測定で得られるコンプトンエッジ\cite{klein1997}}\label{fig:comp}
 \end{figure}
 
 しかしこの手法で200 MeV領域の電子ビームエネルギーを測定するには、断面積が小さく、高強度の電子ビームが必要となる。%定量的に書く
@@ -337,7 +365,4 @@ MAMI加速器では最大でも30~$\mu$Aの強度の電子ビームしか供給�
 従来の手法や既知の手法では十分な精度を得ることができなかった。
 そこで我々は2016年からアンジュレータによる放射光を用いた電子ビームエネルギー較正手法(アンジュレータ放射光干渉法)の開発に取り組んできた\cite{klag2018,klag2023}。
 本研究の目的はアンジュレータ放射光干渉法を用いて電子弾性散乱によるスペクトロメータ較正実験を行い、$10^{-4}$以上の電子ビーム絶対値較正精度を達成することである。
-
-%この章のまとめだと思って、200 MeVのエネルギー測定が必要である。そのためにアンジュレータ放射光干渉法を開発している、という話を丁寧にする。
-%定量的ゴールを書いておいて、結論でそれを達成したという話をする
 \end{document}

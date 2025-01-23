@@ -36,7 +36,7 @@
 次節ではまず、放射光の発生原理について述べる。
 
 \subsection{アンジュレータ放射光発生の原理}\label{sec:undulator}
-この節ではアンジュレータの原理を示す。より詳細な記述に関しては\cite{大柳,walker,clarke}などの教科書がある。
+この節ではアンジュレータの原理を示す。より詳細な記述に関しては\cite{大柳,walker,clarke}などがある。
 
 \subsubsection{放射光の一般原理}\label{sec:general radiation}
 リエナール・ヴィーヘルト・ポテンシャルから出発して、放射強度の角分布についての一般的な性質を説明する。電子から観測点へ向かうベクトルを$\bm{R}$、これに平行な単位ベクトルを$\bm{n} = \bm{R}/R$、電子の電荷e、電子の相対論的速度$\bm{\beta} = \bm{v}/c$、
@@ -68,10 +68,10 @@
   \frac{\text{d}P(t')}{\text{d}\Omega} = \frac{\text{d}P(t)}{\text{d}\Omega}\frac{\text{d}t}{\text{d}t'} = \frac{e^2}{16\pi^2 \epsilon_0 c}\frac{\left|\bm{n}\times \left\{ (\bm{n}-\bm{\beta})\times \bm{\dot{\beta}}\right\}\right|^2}{(1-\bm{n}\cdot\bm{\beta})^5}
 \end{eqnarray}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=10cm]{image/2-cordinate.png}
-  \caption{座標系}\label{cordinate}
+  \caption{放射光計算の座標系}\label{cordinate}
 \end{figure}
 %アンジュレータであることを一言入れる。
 今はアンジュレータの磁場による偏向運動を考えたいため、$\bm{\beta} \perp \bm{\dot{\beta}}$として議論を進める。
@@ -107,9 +107,26 @@ $\beta \simeq 1$ の時に式(\ref{eq:power2})の分母が$\theta \ll 1$で0に�
 のように関係づけられる。表式からわかるように、アンジュレータの周期と磁場によって偏向定数が決まる。
 
 アンジュレータ放射は偏向定数によって特徴づけられる。電子軌道は最大偏角$\Psi = K/\gamma$のサイン型であり、\ref{sec:general radiation}節で述べたように、放射強度の広がりは$1/\gamma$程度となることから、
-$K \sim 1$の場合には電子からの放射はほとんどすべて観測者に到達する。この時の電場はほぼサイン型になり、フーリエ変換して得られるスペクトルは単色性を持つ。このような放射をアンジュレータ放射と呼ぶ。
+$K \sim 1$の場合には電子からの放射はほとんどすべて観測者に到達する。この時の電場はほぼサイン型になり、フーリエ変換して得られるスペクトルは単色性を持つ(図\ref{Kvalue})。このような放射をアンジュレータ放射と呼ぶ。
 一方、$K \gg 1$の場合には、電子がサイン型軌道の頂点を通過するときにのみ放射が観測されるため、大きくゆがんだパルス状になる。フーリエ変換によって得られるスペクトルは高調波が卓越する。このような放射をウィグラー放射と呼ぶ。
 このように偏向定数によって放射特性を変化させることができ、実用上は磁場強度を変化させることで求められる特性の放射を取り出すことができる。
+\begin{figure}
+  \begin{subfigure}[h]{0.5\linewidth}
+    \centering
+    \includegraphics[width= \linewidth]{image/2-Kvalue.png}
+    \caption{蛇行運動中の放射}
+  \end{subfigure}
+  \begin{subfigure}[h]{0.4\linewidth}
+    \centering
+    \includegraphics[width= \linewidth]{image/2-KandWave.png}
+    \caption{偏向定数$K$による放射の違い}
+  \end{subfigure}
+  \centering
+  \caption[周期的磁場中の電子の運動による放射特性]{周期的磁場中の電子の運動による放射特性。放射が$1/\gamma$の狭い角度に集中することから
+  観測者に強い放射が到達するのは蛇行運動のうち電子が観測者の方向に運動している時に限られる。
+  また、偏向定数に依存して放射の時間構造はサイン型や歪んだパルス状などの形をとり、これに対応して周波数特性が変化する。}\label{Kvalue}
+\end{figure}
+
 
 また放射スペクトル、すなわち放射強度の周波数($\omega$)分布を求めたい。そのためには式\ref{eq:e field}に\ref{eq:undulator motion}を代入し、電場の時間変化を得たうえでフーリエ変換を行えばよい。
 電場のフーリエ変換は観測点における周波数成分を求めることに対応するため
@@ -130,7 +147,7 @@ $K \sim 1$の場合には電子からの放射はほとんどすべて観測者�
   \frac{\text{d}^2I}{\text{d}\omega \text{d}\Omega} = \frac{1}{2c\mu_0\pi}\bm{F}(\omega)\bm{F}(\omega)^*
 \end{eqnarray}
 ただし遅延時刻$t'$で評価された式も観測時刻$t$でフーリエ変換されていることに注意する。$\bm{n} =(\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta)$を再び用いると、$\bm{n}\perp\bm{E}$であるから、
-$\bm{n}$に垂直な2成分だけなので、特に$x-z$平面と平行な成分$E_{\parallel}$およびこれに垂直な成分$E_{\perp}$に分解することができる。フーリエ変換した結果は次のように表せる。
+$\bm{n}$に垂直な2成分だけなので、特に$x-z$平面と平行な成分$E_{\parallel}$およびこれに垂直な成分$E_{\perp}$に分解することができる。フーリエ変換した結果は次のように表せる\cite{大柳}。
 \begin{eqnarray}
   E_\parallel &=& g\xi\left\{2S_0\gamma \theta \cos\phi - K (S_1 + S_{-1})\right\}\\
   E_\perp &=& g\xi\left\{2S_0\gamma \theta \sin \phi\right\}
@@ -150,15 +167,26 @@ $\bm{n}$に垂直な2成分だけなので、特に$x-z$平面と平行な成分
   \end{split}
 \end{eqnarray}
 
-最後に、電場の時間変化について簡単な計算を行う。$\theta = 0$で観測することを考える
+最後に、電場の時間変化について簡単な計算を行う。$\theta = 0$で観測することを考える(図\ref{fig:time})。
 アンジュレータの入口に到達する時刻を$t' = t'_1 $、アンジュレータの出口から出る時刻を$t' = t'_2$とする。アンジュレータの長さを$L$とすれば、
 $t'_2 - t'_1 \simeq L / v$と書ける。さらにアンジュレータの出口から観測点までの距離を$R$とすれば、電場の時間変化の始まりと終わりを検知する時刻は、
 $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観測者が検知するパルス幅$\Delta t$は、$v/c \simeq 1- 1/2\gamma^2$を考慮して
 \begin{eqnarray}
   \Delta t = t_2 - t_1 = \frac{L}{v}  - \frac{L}{c} \simeq \frac{L}{2c\gamma^2}
 \end{eqnarray}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{image/2-TimeStructure.png}
+  \caption{アンジュレータ放射の観測点における電場の時間変化}\label{fig:time}
+\end{figure}
 同様の計算は、アンジュレータの1周期について行うことも可能であり、電場変化の周期は$L\rightarrow \lambda_U$の変換によって求められる。
-電場変化の周期はアンジュレータの磁場変化の周期に対応することから、アンジュレータ放射の時間構造は磁場と同じ回数振動するパルス状の波形になる。
+電場変化の周期はアンジュレータの磁場変化の周期に対応することから、アンジュレータ放射の時間構造は磁場と同じ回数振動するパルス状の波形になる(図\ref{fig:time2})。
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\linewidth]{image/2-TimeStructure2.png}
+  \caption{アンジュレータ放射の時間構造}\label{fig:time2}
+\end{figure}
+
 アンジュレータ内の蛇行運動によって$z$軸方向の平均の相対論的速度は式\ref{eq:undulator motion}より$<\beta_z> =\beta (1-K^2/4\gamma^2)$であることがわかり、結果として観測される放射の周期は
 \begin{eqnarray}
   T &=& \frac{\lambda_U}{v(1-K^2/4\gamma^2)} \\
@@ -170,12 +198,12 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 \end{eqnarray}\label{eq:resonance_wl}
 にピークを持つようなスペクトルを持つことがわかる。これは式(\ref{resonance_wl})に対応しており、特に共鳴波長と呼ぶ。
 
-本研究で用いたアンジュレータの場合に得られる放射光強度の例を図\ref{resonance},\ref{noresonance}に示す。
-\begin{figure}[h]
+本研究で用いたアンジュレータの場合に得られる放射光強度の例を図\ref{fig:resonance},\ref{fig:noresonance}に示す。
+\begin{figure}[H]
   \centering
   \begin{subfigure}[h]{\linewidth}
     \centering
-    \includegraphics[width=0.8\linewidth]{image/2-spec_res.png}
+    \includegraphics[width=0.9\linewidth]{image/2-spec_res.png}
     \subcaption{二次元スペクトル}
   \end{subfigure}
   \hfill
@@ -195,11 +223,11 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 波長を観測したときに得られる放射光強度（振幅）。この時共鳴波長は$\lambda_R = 403.6$~nmであり、ビーム軸で強度は最大になる。}\label{fig:resonance}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \begin{subfigure}[h]{\linewidth}
     \centering
-    \includegraphics[width=0.8\linewidth]{image/2-spe_nores.png}
+    \includegraphics[width=0.9\linewidth]{image/2-spe_nores.png}
     \subcaption{2次元スペクトル}
   \end{subfigure}
   \hfill
@@ -225,14 +253,14 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 これらのアンジュレータ間にシケイン電磁石を配置することで遅延を調整することが可能になる。
 アンジュレータの種類や構成によって位相や偏光状態の異なる様々な形状の放射光を得ることができる\cite{kaneyasu}。
 
-本研究では、タンデムアンジュレータを用いてる。アンジュレータ自体を移動させることでアンジュレータ間の物理的距離を変化させる点が特徴的な構成である。
+本研究では、タンデムアンジュレータを用いている。アンジュレータ自体を移動させることでアンジュレータ間の物理的距離を変化させる点が特徴的な構成である。
 
 \subsection{干渉の原理}\label{sec:interference}
-\ref{sec:undulator radiation}節の議論を応用すると、タンデム型アンジュレータから放射される放射光はダブルパルス型の波形となることがわかる。
+\ref{sec:undulator radiation}節の議論から、タンデム型アンジュレータから放射される放射光はダブルパルス型の波形となることがわかる。
 そのままでは2つのパルスは干渉することができないため、遅延を発生させる必要がある。この役割を担っているのが回折格子である。
 回折格子のそれぞれの溝から散乱された光は格子間隔に比例して遅延された光の干渉となる。
 そのためダブルパルスの二つのパルスは格子による遅延を受けて干渉できることになる(図\ref{fig:doublepulse})。
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=10cm]{image/2-doublepulse.png}
   \caption[干渉の原理]{ダブルパルス間の間隔以上の遅延が回折格子の溝同士で起きれば、パルス同士の干渉作用を観測することができる。}
@@ -241,11 +269,11 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 
 \subsection{電子ビームエネルギーと干渉光周期の関係式}\label{sec:interference}
 ダブルパルスの間隔は以下のような近似で理解することができる。
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=10cm]{image/2-lambdaosc.png}
-  \caption{アンジュレータ放射光干渉法の光路差、位相差、干渉光周期$\lambda_{osc}$の関係。$\lambda_{osc}$は、アンジュレータを$\lambda_{osc}$だけ移動させたときに
-  二つの波束の位相がちょうど1波長$\lambda_L$だけずれる長さとして定義される。}
+  \caption[干渉項の振動周期]{アンジュレータ放射光干渉法の光路差、位相差、干渉光周期$\lambda_{osc}$の関係。$\lambda_{osc}$は、アンジュレータを$\lambda_{osc}$だけ移動させたときに
+  二つの波束の位相がちょうど1波長$\lambda_L$だけずれる長さとして定義される。}\label{fig:lambda_osc}
 \end{figure}
 上流のアンジュレータで発生する放射光は電子ビームよりも早く、電子が下流側のアンジュレータに到達した時にはアンジュレータ間の距離$d'$に比例した光路差が生じる。
 \begin{eqnarray}
@@ -263,7 +291,7 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
   \label{oscillation}
 \end{eqnarray}
 これより、$d'$を変化させると干渉光の位相差が変化し強度が周期的に変動することがわかる。
-式(\ref{oscillation})から、アンジュレータ間距離を$2\gamma^2\lambda_L$だけ動かした時に１周する。
+式(\ref{oscillation})から、アンジュレータ間距離を$2\gamma^2\lambda_L$だけ動かした時に１周する(図\ref{fig:lambda_osc})。
 この周期を$\lambda_{osc}$とおけば$\gamma$および電子ビームエネルギーが
 \begin{eqnarray}
   \gamma = \sqrt{\frac{\lambda_{\text{osc}}}{2\lambda_L}}\\
@@ -306,7 +334,7 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
   \label{optics_schematic}
 \end{figure}
 矩形スリットで整形した光波は伝搬に伴って回折を生じる(\ref{sec:rayleigh}章)。後段には回折格子およびレンズがあり、
-光波は分光と平面波化(\ref{sec:grating},\ref{sec:grating2}章)を受けカメラに到達する。
+光波は分光と平面波化(\ref{sec:grating}, \ref{sec:grating2}章)を受けカメラに到達する。
 
 \subsection{回折の定式化}\label{sec:rayleigh}
 この節ではマクスウェル方程式から出発して回折現象の定式化を行い、光学系に入射する放射光がカメラに作る像を求める式を導出する。
@@ -339,11 +367,12 @@ $U(P)、G(P)$を位置に関する複素関数、体積$V$の領域を囲む閉�
 
 \subsubsection{フレネル・キルヒホッフ回折積分}
 観測点の座標を$P_0$、$P_0$を囲む任意の閉曲面を$S$とする(図\ref{diff_cord})。$P_0$における光波$U(P_0)$を$S$の表面の光波で表すことを考えたい。
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=5cm]{image/2-diffraction_cordinate.png}
   \caption[回折積分の座標系]{表面積分の積分領域$S$と観測点$P_0$}\label{diff_cord}
 \end{figure}
+
 ここでグリーン関数として、$P_0$を原点とする一様振幅の球面波を考えることにする。すなわち、空間上の任意の点$P_1$に対して
 \begin{eqnarray}
   G(P_1) = \frac{\exp(ikr)}{r},~~~~~r = \left|P_0- P_1\right| \label{green_k}
@@ -380,7 +409,7 @@ $U(P)、G(P)$を位置に関する複素関数、体積$V$の領域を囲む閉�
 より、$U(P_0)$が任意の閉曲面$S$の境界上の光波$U(P)$から計算できることがわかる。
 
 これをスリットによる回折現象のように、ある平面上の波面から回折像を計算する場面に適用したい。そのために図\ref{fig:diff_kir}のように半径$R$の球面$S_2$をスリットの平面$S_1$で切断した閉曲面を考える。
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=7cm]{image/2-diffraction_kir.png}
   \caption[スリットによる回折の模式図]{スリットによる回折のための閉曲面の定義。観測点$P_0$を中心とする半径$R$の球面を$S_2$、この球面が開口のある平面で切断される平面を$S_1$とおく。
@@ -441,7 +470,7 @@ $U(P)、G(P)$を位置に関する複素関数、体積$V$の領域を囲む閉�
   G(P) = \frac{\exp(ikr_{01})}{r_{01}} -\frac{\exp(ik\tilde{r}_{01})}{\tilde{r}_{01}}
 \end{eqnarray}
 と取ると、$S_1$平面上で$G =0$となる。
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=7cm]{image/2-diffraction_ray.png}
   \caption[レイリーゾンマーフェルト積分の座標系]{レイリーゾンマーフェルト回折積分のグリーン関数}\label{fig:diff_ray}
@@ -508,11 +537,11 @@ $\Sigma$は高さ6~mmの矩形スリット、スクリーンの幅は15~mmとす
 数値計算手法については第3章に記述する。
 \subsection{回折格子とレンズによる分光}\label{sec:grating}
 波面は回折格子で波長ごとに特定の方向に分光される。
-レンズによって集光することでカメラでは特定の波長が鋭いピークとなるため、高い波長分解能を実現できる。
-\begin{figure}[h]
+レンズによって集光することでカメラでは特定の波長が鋭いピークとなるため、高い波長分解能を実現できる(図\ref{fig:dispersion})。
+\begin{figure}[H]
   \centering
   \includegraphics[width=10cm]{image/2-dispersion.png}
-  \caption{波長分光の概要}
+  \caption{波長分光の概要}\label{fig:dispersion}
 \end{figure}
 \subsection{回折格子による平面波化}\label{sec:grating2}
 回折格子は図(\ref{fig:doublepulse})のようにブレードと呼ばれる溝が掘られている。
@@ -524,7 +553,7 @@ $\Sigma$は高さ6~mmの矩形スリット、スクリーンの幅は15~mmとす
 そのため、異なる電子から放射されたパルス同士が干渉することも考慮しなければいけないが、自己相関の干渉項以外はランダム性から無視できると考えられる。
 \subsection{撮影画像}
 これらの一連の流れを図\ref{propagation}に示した。
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth]{image/2-propagation.png}
   \caption[撮影画像の概要]{撮影画像の概要。スリットによる回折の縞模様が、回折格子で水平方向にのみ平面波化される結果、水平方向の縞模様の画像が得られる。}
@@ -536,95 +565,7 @@ $\Sigma$は高さ6~mmの矩形スリット、スクリーンの幅は15~mmとす
 \section{モデル関数}
 モデル関数の概要を示す。
 モデル関数は、アンジュレータの位置座標$d$とカメラにおける$y$座標、および観測波長$\lambda_L$の関数として定義され、
-カメラの撮影画像のある波長での発光量を再現する。モデル関数は放射光関数と光学関数の2つの関数に分離される。
-
-これらの変数の定義を表\ref{tab:variables}に示す。
-\begin{table}[h]
-  \centering
-  \begin{tabular}{c|c}
-    $\lambda_L$ & 観測光の波長。波長較正によってカメラの$x$軸と波長の関係が求まる。\\
-    $y$ & カメラにおける$y$座標。-7.488 mm から7.488 mmの値をとる。\\
-    $d$ & アンジュレータの位置。0(最上流) $\sim$ 825(最下流) mmの値をとる。\\
-  \end{tabular}
-  \caption[変数の定義]{変数の定義}\label{tab:variables}
-\end{table}
-
-また関数の出力を制御するパラメータを表\ref{tab:prm}および図\ref{prm}に示す。
-\begin{table}[h]
-  \centering
-  \begin{tabular}{c|c}
-    $\gamma$ & 電子ビームエネルギーのローレンツ因子 \\
-    $K$ & アンジュレータの偏向定数 \\
-    $z(U1-slit)$ & 上流アンジュレータ-スリット間の距離\\
-    $z(U2-slit)$ & 下流アンジュレータ-スリット間の距離 \\
-    $z(slit-cam)$ & スリット-カメラ間の距離 \\
-    $w(slit)$ & スリットの鉛直方向の長さ \\
-    $y(beam)$ & カメラに対するビーム中心の$y$座標 \\
-    $y(slit)$ & カメラに対するスリット中心の$y$座標 \\
-    $\delta \phi$ & 上流と下流のアンジュレータ放射の位相差のオフセット\\
-    $ampl$ & 光量にかかる比例係数
-  \end{tabular}
-  \caption[パラメータの説明]{パラメータの説明}\label{tab:prm}
-\end{table}
-  
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.8\linewidth]{image/4-prm.png}
-  \caption[パラメータの定義]{パラメータの定義。アンジュレータ、光学系、
-  ビーム同士の幾何学的な位置関係に関するパラメータを示した。}\label{prm}
-\end{figure}
-
-\subsection{放射光関数}
-放射光関数は、電子ビームとアンジュレータのパラメータをもとにスリット直前の入射光の電場振幅および位相を計算する。
-
-振幅は式(\ref{eq:spectrum})によって計算される。特にスリット上で$x=0$として計算を行うと、$phi = \pm\pi/2$であり、 
-\begin{align}
-  \cos \phi = 0, \sin \phi = \pm 1
-\end{align}
-また、$\cos \phi = 0$と、ベッセル関数が$J_0(0) = 1, J_{p\ne 0}(0) = 0$であることから、
-\begin{align}
-  S_0 &= \sum_{p = -\infty}^{\infty} J_{1+2p}(0)J_p(K^2/4)  &= 0 \\
-  S_1 &= \sum_{p = -\infty}^{\infty} J_{2+2p}(0)J_p(K^2/4)  &=  J_{-1}(K^2/4)\\
-  S_{-1} &= \sum_{p = -\infty}^{\infty} J_{2p}(0)J_p(K^2/4) &= J_0(K^2/4)
-\end{align}
-したがって$x=0$における放射光の電場振幅は、
-\begin{align}
-  \frac{\text{d}^2E}{\text{d}\omega \text{d}\Omega} = \frac{e\gamma\xi}{\pi \sqrt{c}}\left| \frac{\sin \{N\pi(\omega/\omega_1 -1)\}}{(\omega/\omega_1 -1)} \right|
-  \left| K\left\{ J_1(K^2/4) - J_0(K^2/4) \right\} \right|
-\end{align}
-という実数関数で与えられる。特に$y$依存性は、$\theta \simeq (y -y(beam))/ z$に依存する$\xi$と$\omega_1$によって決まる。
-
-電場の位相はアンジュレータの位置を光源とした球面波位相
-\begin{align}
-  \exp(-ikr) \propto \exp( -ik \frac{(y - y(beam))^2}{z})
-\end{align}を仮定する。
-
-結局放射光関数の出力は$x=0$においては$y$方向の依存性のみに着目して定数部分を省けば、
-\begin{align}
-  Rad(x=0, y) \propto \frac{1}{1 + K^2 +\gamma^2\theta^2}\left| \frac{\sin \{N\pi(\omega/\omega_1 -1)\}}{(\omega/\omega_1 -1)} \right| \exp( -ik \frac{(y-y(beam))^2}{z})\\
-   \omega_1 = \frac{2\gamma^2\omega_0}{1+ K^2/2+(\gamma \theta^2)}  = \frac{2\gamma^2\omega_0}{1+ K^2/2+(\gamma (y-y(beam))/z)^2} 
-\end{align}
-このとき、$\lambda_L$は$k = 2\pi/\lambda$の関係にあり、
-下流アンジュレータの位置$d$は$z = z(U2-slit) - d $の形で関数に入力される。また、上流アンジュレータの場合には$z = z(U1-slit)$である。
-\subsection{干渉項}
-上流と下流の2つのアンジュレータからの放射光の位相差は\ref{sec:interference}節で述べたように$d'/2\gamma^2$と近似できるが、
-より厳密にはアンジュレータ内では電子の蛇行運動により$z$軸に沿った平均速度が電子の速度$\beta$よりも小さくなる効果を考慮する必要がある。
-この位相差のオフセットを$\delta \phi$として、干渉光の電場振幅は
-\begin{align}
-  Rad_{int} &= Rad(y, z(U1-slit)) + Rad(y, z(U2-slit) -d )\exp(i \left[2\pi \frac{d'}{2\gamma^2\lambda_L} + \delta \phi\right])\\
-  d' &= z(U1-slit) - z_0(U2-slit) + d
-\end{align}
-と表すことができる。
-\subsection{光学関数}
-光学関数は、入射光の電場振幅と位相を入力としてスクリーンにおける回折光の振幅を計算する。水平方向には平面波化されるため、回折積分は$y$軸方向のみ計算すれば十分である。
-まずスリットによる入射光の遮蔽を計算する。
-\begin{align}
-  Slit(y) = 
-  \begin{cases}
-    0       &  y  < y(slit) - w(slit)\\
-    Rad(y)  &  y(slit) - w(slit) \leq y \leq y(slit) + w(slit)\\
-    0       &  y(slit) + w(slit) < y
-  \end{cases}
-\end{align}
-次に$y$軸方向の回折を計算し、カメラでの電場振幅を求め、その絶対値の二乗により光量が求まる。
+カメラの撮影画像のある波長$\lambda_L$での発光量を再現する。モデル関数は、
+放射光の電場振幅・位相を計算する放射光関数と、回折の効果を計算する光学関数に分離できる。
+具体的な関数の形は、第\ref{ana}章で述べる。
 \end{document}
