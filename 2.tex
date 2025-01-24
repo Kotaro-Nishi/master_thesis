@@ -23,7 +23,7 @@
 初めに\ref{sec:undulator}章でアンジュレータ放射光の発生原理と放射される放射光の性質を述べる。
 続いて\ref{sec:tandem}節以降で2台のアンジュレータを用いることによる干渉の原理を示す。軸上($\theta =0$)放射の場合と、一般の$\theta$におけるエネルギー決定公式を導く。
 続いて\ref{sec:optics}章で放射光観測のための光学系による光学処理の原理を示す。
-最後にこれらの原理をまとめた完全な物理モデルによる関数系の概要を示す。
+最後に\ref{sec:model fnc}章でこれらの原理をまとめた完全な物理モデルによる関数系の概要を示す。
 \section{アンジュレータ放射光}
 高エネルギーの荷電粒子が磁場中を通過するなどして加速度運動をすると、シンクロトロン放射光と呼ばれる電磁波が発生する。
 特に素粒子実験や加速器設計の立場からは、シンクロトロン放射によるエネルギー損失は無視できない問題であった。
@@ -39,19 +39,19 @@
 この節ではアンジュレータの原理を示す。より詳細な記述に関しては\cite{大柳,walker,clarke}などがある。
 
 \subsubsection{放射光の一般原理}\label{sec:general radiation}
-リエナール・ヴィーヘルト・ポテンシャルから出発して、放射強度の角分布についての一般的な性質を説明する。電子から観測点へ向かうベクトルを$\bm{R}$、これに平行な単位ベクトルを$\bm{n} = \bm{R}/R$、電子の電荷e、電子の相対論的速度$\bm{\beta} = \bm{v}/c$、
+リエナール・ヴィーヘルト・ポテンシャルから出発して、放射強度の角度分布についての一般的な性質を説明する。電子から観測点へ向かうベクトルを$\bm{R}$、これに平行な単位ベクトルを$\bm{n} = \bm{R}/R$、電子の電荷$e$、電子の相対論的速度$\bm{\beta} = \bm{v}/c$、
 放射が発生した時刻（遅延時刻）$t'$、放射の観測時刻$t$として
 \begin{eqnarray}
   \bm{A}(t) &=& \frac{\mu_0 c}{4\pi}\frac{e\bm{\beta(t')}}{(1-\bm{n}(t')\cdot\bm{\beta}(t'))\bm{R}(t')}\label{retarded potential}\\
   \varphi(t) &=& \frac{1}{4\pi \epsilon_0}\frac{e}{(1-\bm{n}(t')\cdot\bm{\beta}(t'))\bm{R}(t')}\label{retarded potential phi}\\
   t &=& t' + \frac{R(t')}{c}
 \end{eqnarray}
-放射される電磁場は、電磁ポテンシャルの定義より得ることができる。
+と書ける。放射される電磁場は、電磁ポテンシャルの定義から得ることができる。
 \begin{eqnarray}
   \bm{E} &=& -\bm{\nabla} \varphi - \frac{1}{c}\frac{\partial \bm{A}}{\partial t}\\
   \bm{B} &=& \bm{\nabla} \times \bm{A}
 \end{eqnarray}
-したがって、電磁場は
+したがって
 \begin{eqnarray}
   \bm{E} &=& \frac{e}{4\pi \epsilon_0}\left( \frac{(1-\beta^2)(\bm{n}(t')-\bm{\beta}(t'))}{R(t')^2(1-\bm{n}(t')\cdot\bm{\beta}(t'))^3}+
   \frac{\bm{n}(t')\times \left\{ (\bm{n}(t')-\bm{\beta}(t'))\times \bm{\dot{\beta}}(t')\right\}}{cR(t')(1-\bm{n}(t')\cdot\bm{\beta}(t'))^3} \right)\\
@@ -67,15 +67,19 @@
 \begin{eqnarray} \label{eq:power}
   \frac{\text{d}P(t')}{\text{d}\Omega} = \frac{\text{d}P(t)}{\text{d}\Omega}\frac{\text{d}t}{\text{d}t'} = \frac{e^2}{16\pi^2 \epsilon_0 c}\frac{\left|\bm{n}\times \left\{ (\bm{n}-\bm{\beta})\times \bm{\dot{\beta}}\right\}\right|^2}{(1-\bm{n}\cdot\bm{\beta})^5}
 \end{eqnarray}
+と表記することにする。
 
+
+%アンジュレータであることを一言入れる。
+今はアンジュレータの磁場による偏向運動を考えたいため、$\bm{\beta} \perp \bm{\dot{\beta}}$として議論を進める。
+電子の運動方向を$z$軸にとり$\bm{\beta} = (0,0,\beta)$とする。また、磁場が$y$軸に向いているとすれば、$\bm{\dot{\beta}} = (\dot{\beta},0,0)$とおける(図\ref{cordinate})。
 \begin{figure}[H]
   \centering
   \includegraphics[width=10cm]{image/2-cordinate.png}
   \caption{放射光計算の座標系}\label{cordinate}
 \end{figure}
-%アンジュレータであることを一言入れる。
-今はアンジュレータの磁場による偏向運動を考えたいため、$\bm{\beta} \perp \bm{\dot{\beta}}$として議論を進める。
-電子の運動方向を$z$軸にとり$\bm{\beta} = (0,0,\beta)$とする。また、磁場が$y$軸に向いているとすれば、$\bm{\dot{\beta}} = (\dot{\beta},0,0)$とおける\ref{cordinate}。3次元極座標表示で、$\bm{n} = (\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta)$とすると、
+
+3次元極座標表示で、$\bm{n} = (\sin\theta\cos\phi,\sin\theta\sin\phi,\cos\theta)$とすると、
 \begin{eqnarray}\label{eq:power2}
   \frac{\text{d}P(t')}{\text{d}\Omega} = \frac{e^2\dot{\beta}^2}{16\pi^2 \epsilon_0 c}\frac{(\cos\theta - \beta)^2 + (1-\beta^2)\sin^2\theta\sin^2\phi}{(1-\beta \cos\theta)^5}
 \end{eqnarray}
@@ -88,7 +92,7 @@ $\beta \simeq 1$ の時に式(\ref{eq:power2})の分母が$\theta \ll 1$で0に�
 %ここで、$\gamma$は電子のローレンツ因子である。
 
 \subsubsection{アンジュレータの周期的磁場による放射}\label{sec:undulator radiation}
-アンジュレータによって発生させられた周期的な磁場$B = B_0 \sin(2\pi z/\lambda_u)$中を電子が運動すると、同じ周期長$\lambda_u$を持つ正弦波状の軌道を描き、いわゆる蛇行(undulation)運動をする。
+アンジュレータによって発生させられた周期的な磁場$B = B_0 \sin(2\pi z/\lambda_U)$中を電子が運動すると、同じ周期長$\lambda_U$を持つ正弦波状の軌道を描き、いわゆる蛇行(undulation)運動をする。
 この磁場中の電子の運動方程式を解くと、電子の速度および位置を
 \begin{eqnarray}\label{eq:undulator motion}
   \beta_x &=& \frac{K\beta}{\gamma}\cos(\omega_0 t')\\
@@ -102,7 +106,7 @@ $\beta \simeq 1$ の時に式(\ref{eq:power2})の分母が$\theta \ll 1$で0に�
 \end{eqnarray}
 であり、$K$は偏向定数と呼ばれ、電子軌道の最大偏角$\Psi$と
 \begin{eqnarray}
-  K = \gamma \Psi = \frac{eB_0\lambda_u}{2\pi m c^2} = 93.4 \frac{B_0}{[\text{T}]}\frac{\lambda_u}{[\text{m}]}
+  K = \gamma \Psi = \frac{eB_0\lambda_U}{2\pi m c^2} = 93.4 \frac{B_0}{[\text{T}]}\frac{\lambda_U}{[\text{m}]}
 \end{eqnarray}\label{eq:K}
 のように関係づけられる。表式からわかるように、アンジュレータの周期と磁場によって偏向定数が決まる。
 
@@ -119,7 +123,7 @@ $K \sim 1$の場合には電子からの放射はほとんどすべて観測者�
   \begin{subfigure}[h]{0.4\linewidth}
     \centering
     \includegraphics[width= \linewidth]{image/2-KandWave.png}
-    \caption{偏向定数$K$による放射の違い}
+    \caption{偏向定数$K$による放射の違い\cite{walker}}
   \end{subfigure}
   \centering
   \caption[周期的磁場中の電子の運動による放射特性]{周期的磁場中の電子の運動による放射特性。放射が$1/\gamma$の狭い角度に集中することから
@@ -128,7 +132,7 @@ $K \sim 1$の場合には電子からの放射はほとんどすべて観測者�
 \end{figure}
 
 
-また放射スペクトル、すなわち放射強度の周波数($\omega$)分布を求めたい。そのためには式\ref{eq:e field}に\ref{eq:undulator motion}を代入し、電場の時間変化を得たうえでフーリエ変換を行えばよい。
+また放射スペクトル、すなわち放射強度の周波数($\omega$)分布を求めたい。そのためには式(\ref{eq:e field})に式(\ref{eq:undulator motion})を代入し、電場の時間変化を得たうえでフーリエ変換を行えばよい。
 電場のフーリエ変換は観測点における周波数成分を求めることに対応するため
 \begin{eqnarray}
   \bm{F}(\omega) = \int_{-\infty}^{\infty} \bm{E}(t')\exp(-i\omega t)dt
@@ -187,7 +191,7 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
   \caption{アンジュレータ放射の時間構造}\label{fig:time2}
 \end{figure}
 
-アンジュレータ内の蛇行運動によって$z$軸方向の平均の相対論的速度は式\ref{eq:undulator motion}より$<\beta_z> =\beta (1-K^2/4\gamma^2)$であることがわかり、結果として観測される放射の周期は
+アンジュレータ内の蛇行運動によって$z$軸方向の平均の相対論的速度は式(\ref{eq:undulator motion})より$<\beta_z> =\beta (1-K^2/4\gamma^2)$であることがわかり、結果として観測される放射の周期は
 \begin{eqnarray}
   T &=& \frac{\lambda_U}{v(1-K^2/4\gamma^2)} \\
   &=& \frac{\lambda_U}{2c\gamma^2}(1 + K^2/2)
@@ -198,7 +202,7 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 \end{eqnarray}\label{eq:resonance_wl}
 にピークを持つようなスペクトルを持つことがわかる。これは式(\ref{resonance_wl})に対応しており、特に共鳴波長と呼ぶ。
 
-本研究で用いたアンジュレータの場合に得られる放射光強度の例を図\ref{fig:resonance},\ref{fig:noresonance}に示す。
+本研究で用いたアンジュレータの場合に得られる放射光強度の例を図\ref{fig:resonance}, \ref{fig:noresonance}に示す。
 \begin{figure}[H]
   \centering
   \begin{subfigure}[h]{\linewidth}
@@ -251,9 +255,9 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 \subsection{アンジュレータ放射光 - タンデムアンジュレータ}\label{sec:tandem}
 アンジュレータを電子ビームに沿って2つ連結した構成は放射光科学において広く使われている。
 これらのアンジュレータ間にシケイン電磁石を配置することで遅延を調整することが可能になる。
-アンジュレータの種類や構成によって位相や偏光状態の異なる様々な形状の放射光を得ることができる\cite{kaneyasu}。
+さらにアンジュレータの種類や構成によって位相や偏光状態の異なる様々な形状の放射光を得ることができる\cite{kaneyasu}。
 
-本研究では、タンデムアンジュレータを用いている。アンジュレータ自体を移動させることでアンジュレータ間の物理的距離を変化させる点が特徴的な構成である。
+本研究では、タンデムアンジュレータを用いている。アンジュレータ自体を移動させアンジュレータ間の物理的距離を変化させる点が特徴的な構成である。
 
 \subsection{干渉の原理}\label{sec:interference}
 \ref{sec:undulator radiation}節の議論から、タンデム型アンジュレータから放射される放射光はダブルパルス型の波形となることがわかる。
@@ -295,7 +299,7 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 この周期を$\lambda_{osc}$とおけば$\gamma$および電子ビームエネルギーが
 \begin{eqnarray}
   \gamma = \sqrt{\frac{\lambda_{\text{osc}}}{2\lambda_L}}\\
-  \text{E}_\text{beam} =m_e c^2  \sqrt{\frac{\lambda_{\text{osc}}}{2\lambda_L}} \label{zero order energy formula}
+  \text{E}_{beam} =m_e c^2  \sqrt{\frac{\lambda_{\text{osc}}}{2\lambda_L}} \label{zero order energy formula}
 \end{eqnarray}
 すなわち、干渉光の波長$\lambda_L$と、アンジュレータ間距離を変動させた時の干渉光の変動の周期$\lambda_{\text{osc}}$
 を精密に測定することで電子ビームエネルギーが精密に測定できる。
@@ -304,7 +308,7 @@ $t_1 = t'_1 + (R + L)/c$、$t_2 = t'_2 + R/c$と書ける。したがって観�
 式(\ref*{path shift})は放射光角度が電子ビームと同じとき($\theta$ =0)の光路差である。
 電子ビームの軸と放射光の放射角(近似的に放射光の観測角)を$\theta$とおくと、
 アンジュレータ間の距離$d'$と$\theta$で光路差が$d(1-\cos{\theta})$と表される。
-これと電子ビームの遅延による光路差の両方を考慮した光路差は、
+これと電子ビームの遅延による光路差\ref{path shift}の両方を考慮した光路差は、
 \begin{eqnarray}
   \Delta &= d'\frac{1}{2\gamma^2} + d(1 - \cos{\theta}) \\
         &\sim d'(\frac{1}{2\gamma^2} + \frac{\theta^2}{2})\\
@@ -454,7 +458,7 @@ $U(P)、G(P)$を位置に関する複素関数、体積$V$の領域を囲む閉�
 \end{eqnarray}
 と簡単にできる。
 
-\textgt{近似.1}~として、$k \gg 1/r$の時には、
+近似として、$k \gg 1/r$の時には、
 \begin{eqnarray}
   U(P_0) = \frac{1}{4\pi}\int_\Sigma \frac{\exp(ikr)}{r}\left[\frac{\partial U}{\partial n} - ik U \cos(\bm{n},\bm{r})\right]
 \end{eqnarray}
@@ -463,7 +467,7 @@ $U(P)、G(P)$を位置に関する複素関数、体積$V$の領域を囲む閉�
 \subsubsection{レイリー・ゾンマーフェルト回折積分}
 フレネル・キルヒホッフの回折積分ではキルヒホッフの境界条件が暗に仮定されているが、$U$および$\partial U/\partial n$が開口面の外で同時に0になることを仮定すると、
 全領域に渡って$U=0$となることが解析的に得られる。これは物理的な解とは言えない。フレネル・キルヒホッフの回折積分は厳密にはこのような不整合性を内在している。
-この問題を解決するために、式(\ref{green})において別のグリーン関数を定義して解く方法が知られている。これがレイリーゾンマーフェルト回折積分である。
+この問題を解決するために、式(\ref{green})において別のグリーン関数を定義して解く方法が知られている。これがレイリー・ゾンマーフェルト回折積分である。
 
 グリーン関数として、$P_0$を原点とする球面波と、開口面$S_1$平面に対する鏡像の球面波の和を考える(図\ref{fig:diff_ray})。すなわち
 \begin{eqnarray}
@@ -519,6 +523,7 @@ $\Sigma$は高さ6~mmの矩形スリット、スクリーンの幅は15~mmとす
   \label{レイリーゾンマーフェルト近似}
 \end{eqnarray}
 と計算できる。
+
 このような回折現象は伝搬距離によっては近似計算できることが知られている。以下では積分領域$S$上の座標を$x,y$、観測点Pの座標を$x_0,y_0$と表記する。
 \begin{eqnarray}
   r &=& \sqrt{z^2 + (x-x_0)^2 + (y-y_0)^2}\\
@@ -562,7 +567,7 @@ $\Sigma$は高さ6~mmの矩形スリット、スクリーンの幅は15~mmとす
 放射光がスリットによって回折を受けると、カメラでは２次元の回折パターン構造が得られると推定される。
 一方で回折格子による分光、平面波化作用は水平方向にのみ作用する。従って画像の横軸は波長に対応し、縦軸の座標は観測角に対応する。
 
-\section{モデル関数}
+\section{モデル関数}\label{sec:model fnc}
 モデル関数の概要を示す。
 モデル関数は、アンジュレータの位置座標$d$とカメラにおける$y$座標、および観測波長$\lambda_L$の関数として定義され、
 カメラの撮影画像のある波長$\lambda_L$での発光量を再現する。モデル関数は、

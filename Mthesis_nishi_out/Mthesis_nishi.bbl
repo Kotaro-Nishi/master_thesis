@@ -891,20 +891,18 @@
     \endentry
     \entry{大柳}{article}{}{}
       \name{author}{1}{}{%
-        {{hash=d49b310855b38faabd17d340a499332a}{%
-           family={宏之},
-           familyi={宏\bibinitperiod},
-           given={大柳},
-           giveni={大\bibinitperiod}}}%
+        {{hash=681e95906ec15eaf009de26610b46412}{%
+           family={大柳宏之},
+           familyi={大\bibinitperiod}}}%
       }
-      \strng{namehash}{d49b310855b38faabd17d340a499332a}
-      \strng{fullhash}{d49b310855b38faabd17d340a499332a}
-      \strng{fullhashraw}{d49b310855b38faabd17d340a499332a}
-      \strng{bibnamehash}{d49b310855b38faabd17d340a499332a}
-      \strng{authorbibnamehash}{d49b310855b38faabd17d340a499332a}
-      \strng{authornamehash}{d49b310855b38faabd17d340a499332a}
-      \strng{authorfullhash}{d49b310855b38faabd17d340a499332a}
-      \strng{authorfullhashraw}{d49b310855b38faabd17d340a499332a}
+      \strng{namehash}{681e95906ec15eaf009de26610b46412}
+      \strng{fullhash}{681e95906ec15eaf009de26610b46412}
+      \strng{fullhashraw}{681e95906ec15eaf009de26610b46412}
+      \strng{bibnamehash}{681e95906ec15eaf009de26610b46412}
+      \strng{authorbibnamehash}{681e95906ec15eaf009de26610b46412}
+      \strng{authornamehash}{681e95906ec15eaf009de26610b46412}
+      \strng{authorfullhash}{681e95906ec15eaf009de26610b46412}
+      \strng{authorfullhashraw}{681e95906ec15eaf009de26610b46412}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
@@ -956,61 +954,23 @@
       \field{year}{2004}
     \endentry
     \entry{kaneyasu}{article}{}{}
-      \name{author}{9}{}{%
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
         {{hash=c943a3281f104bc296a1be0294e6f8b9}{%
            family={Kaneyasu},
            familyi={K\bibinitperiod},
            given={T.},
            giveni={T\bibinitperiod}}}%
-        {{hash=ff956a807ead3701dfa4bbadbc19afb0}{%
-           family={Hosaka},
-           familyi={H\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod}}}%
-        {{hash=1dfabd85f97682f99d484bb4737932f9}{%
-           family={Mano},
-           familyi={M\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod}}}%
-        {{hash=4eb3858f4726accfbb777ffd2ae765a0}{%
-           family={Takashima},
-           familyi={T\bibinitperiod},
-           given={Y.},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=1aa72a8168d5a60f768d484584434d5b}{%
-           family={Fujimoto},
-           familyi={F\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod}}}%
-        {{hash=b0d5a962622246c0511e5bc21738e95b}{%
-           family={Salehi},
-           familyi={S\bibinitperiod},
-           given={E.},
-           giveni={E\bibinitperiod}}}%
-        {{hash=e04d65862941c6add6640c2ef7ca4e79}{%
-           family={Iwayama},
-           familyi={I\bibinitperiod},
-           given={H.},
-           giveni={H\bibinitperiod}}}%
-        {{hash=f76a071e7bc25fac84a0cca7cbef256e}{%
-           family={Hikosaka},
-           familyi={H\bibinitperiod},
-           given={Y.},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=9ab3d98cd0492de37b2ebd41a013d901}{%
-           family={Katoh},
-           familyi={K\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod}}}%
       }
       \strng{namehash}{c837760ab1ca134cbd400666d64809b6}
-      \strng{fullhash}{a2d1f1504b23ef064ba6aa72712932b5}
-      \strng{fullhashraw}{a2d1f1504b23ef064ba6aa72712932b5}
-      \strng{bibnamehash}{a2d1f1504b23ef064ba6aa72712932b5}
-      \strng{authorbibnamehash}{a2d1f1504b23ef064ba6aa72712932b5}
+      \strng{fullhash}{c837760ab1ca134cbd400666d64809b6}
+      \strng{fullhashraw}{c837760ab1ca134cbd400666d64809b6}
+      \strng{bibnamehash}{c837760ab1ca134cbd400666d64809b6}
+      \strng{authorbibnamehash}{c837760ab1ca134cbd400666d64809b6}
       \strng{authornamehash}{c837760ab1ca134cbd400666d64809b6}
-      \strng{authorfullhash}{a2d1f1504b23ef064ba6aa72712932b5}
-      \strng{authorfullhashraw}{a2d1f1504b23ef064ba6aa72712932b5}
+      \strng{authorfullhash}{c837760ab1ca134cbd400666d64809b6}
+      \strng{authorfullhashraw}{c837760ab1ca134cbd400666d64809b6}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
@@ -1043,8 +1003,8 @@
       \strng{authornamehash}{ea089cff3a4a0b9bc1f4dacc668444db}
       \strng{authorfullhash}{ea089cff3a4a0b9bc1f4dacc668444db}
       \strng{authorfullhashraw}{ea089cff3a4a0b9bc1f4dacc668444db}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{journaltitle}{Introdution to Fourier Optics (third edition)}
       \field{year}{2004}
@@ -1065,8 +1025,8 @@
       \strng{authornamehash}{a5608f0eab4517cbd60f90f8fa18057a}
       \strng{authorfullhash}{a5608f0eab4517cbd60f90f8fa18057a}
       \strng{authorfullhashraw}{a5608f0eab4517cbd60f90f8fa18057a}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{journaltitle}{Doctral Thesis, KPH 02/00, Jhonas Gutenberg-Universit\"{a}t Mainz}
       \field{year}{2000}
@@ -1119,6 +1079,11 @@
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{journaltitle}{https://www.thorlabs.com/thorproduct.cfm?partnumber=GR50-1204}
+    \endentry
+    \entry{iminuit}{article}{}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{journaltitle}{https://scikit-hep.org/iminuit/}
     \endentry
     \entry{lmfit}{article}{}{}
       \field{sortinit}{4}
